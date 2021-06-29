@@ -1,6 +1,6 @@
 % !TEX root = ..\thesis.tex
 
-
+//////// KHÁNH ĐIỀN VÔ CÁI MÔ TẢ SƠ ĐỒ TỔNG QUÁT PHẦN SERVER NHE
  
 
 
@@ -15,18 +15,35 @@
 Mô hình tổng quan của đề tài hình \ref{fig:general_chart}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/general_chart.png}
+    \includegraphics[width=\textwidth]{images/Quanh/general_chart.png}
     \caption{Mô hình tổng quan}
     \label{fig:general_chart}
 \end{figure}
+Ở mô hình tổng quan đề tài, chúng tôi chia làm 2 phần, về thiết bị và về server.
 
-Mô hình device \ref{fig:chart_smartbin}
+\begin{itemize}
+    \item Về thiết bị, tôi gắn 2 loại board và 2 ultrasonic sensor vào thùng rác để thực hiện 2 mục đích khác nhau, cụ thể:
+        \begin{itemize}
+            \item ESP32 camera AI Thinker, dùng vào mục đích chụp ảnh và phục vụ chức năng phân loại rác thải.
+            \item  ESP32 Lora heltec, dùng trong mục đích thu thập data và gửi data cho server bằng công nghệ LoRaWAN.
+            \item Ultrasonic sensor thực hiện nhiệm vụ đo độ dài khoảng trống còn lại trong thùng rác.
+        \end{itemize}
+
+    \item Về server:
+
+   
+
+\end{itemize}
+
+
+Hình\ref{fig:chart_smartbin} mô tả chi tiết về cấu tạo của thùng rác, và các thức hoạt động của 2 loại board được gắn bên trong thùng. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Chart_smartbin.png}
     \caption{Mô hình device}
     \label{fig:chart_smartbin}
 \end{figure}
+
 
 Mô hình server từ bước khởi tạo đến gửi dữ liệu \ref{fig:chart_server1}
 \begin{figure}[H]

@@ -1,14 +1,5 @@
 % !TEX root = ..\thesis.tex
 
-//////// KHÁNH ĐIỀN VÔ CÁI MÔ TẢ SƠ ĐỒ TỔNG QUÁT PHẦN SERVER NHE
- 
-
-
-
-
-
-
-
 \chapter{ Mô hình}
 % vẽ sơ đồ hệ thống
 
@@ -29,14 +20,19 @@ Mô hình tổng quan của đề tài hình \ref{fig:general_chart}
             \item Ultrasonic sensor thực hiện nhiệm vụ đo độ dài khoảng trống còn lại trong thùng rác.
         \end{itemize}
 
-    \item Về server:
-
+    \item Về server, sử dụng Nodejs và Flask làm server cung cấp API, Thingsboard để làm giao diện hiển thị và một số server thứ ba khác, chức năng được mô tả cụ thể như sau:
+        \begin{itemize}
+            \item Nodejs Server là server nhận và xử lý chính dữ liệu, lưu trữ dữ liệu cho từng thùng rác. Từ đó, sử dụng dữ liệu để hiển thị, dự đoán và tìm đường đi tối ưu nhất để thu gom rác.
+            \item Flask Server là server sử dụng Deep Learning để dự đoán dữ liệu được gửi từ Nodejs Server.
+            \item Thingsboard là giao diện lưu trữ thông tin thùng rác, hiển thị dữ liệu theo nhiều dạng và vẽ đường đi trên bản đồ.
+            \item Ngoài ra, còn sử dụng Thingsboard server hỗ trợ API thao tác đến Thingsboard và Mapbox server hỗ trợ API liên quan đến địa lý và đường đi.
+        \end{itemize}
    
 
 \end{itemize}
 
 
-Hình\ref{fig:chart_smartbin} mô tả chi tiết về cấu tạo của thùng rác, và các thức hoạt động của 2 loại board được gắn bên trong thùng. 
+Hình \ref{fig:chart_smartbin} mô tả chi tiết về cấu tạo của thùng rác, và các thức hoạt động của 2 loại board được gắn bên trong thùng. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Chart_smartbin.png}

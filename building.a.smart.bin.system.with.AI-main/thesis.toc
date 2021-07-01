@@ -25,7 +25,7 @@
 \contentsline {section}{\numberline {2.12}Giới thiệu về Mapbox}{22}{section.2.12}%
 \contentsline {section}{\numberline {2.13}Giới thiệu về Thingsboard}{22}{section.2.13}%
 \contentsline {chapter}{\numberline {3}Mô hình}{24}{chapter.3}%
-\contentsline {chapter}{\numberline {4}ĐOẠN CỦA QUANH}{28}{chapter.4}%
+\contentsline {chapter}{\numberline {4}CẤU HÌNH THIẾT BỊ}{28}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Giới thiệu}{28}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Giới thiệu về model CNN}{28}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Tối ưu model để có thể chạy trên được chip nhúng ESP32}{28}{subsection.4.2.1}%
@@ -34,9 +34,8 @@
 \contentsline {subsection}{\numberline {4.3.2}Index of Performance}{35}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Kết quả hiện thực được}{35}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Build và kiểm thử model phân loại rác trên device}{37}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Quy trình build code phân loại rác trên device}{38}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Kiểm thử chương trình phân loại rác trên device}{38}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Kết quả phân loại khi chạy trên device}{38}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.1}Kiểm thử chương trình phân loại rác trên device}{38}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Kết quả phân loại khi chạy trên device}{38}{subsection.4.4.2}%
 \contentsline {section}{\numberline {4.5}Setup Gateway}{47}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Access LG02}{47}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Cài đặt network}{47}{subsection.4.5.2}%
@@ -47,7 +46,7 @@
 \contentsline {subsection}{\numberline {4.6.2}Đăng kí trên TTN Server}{55}{subsection.4.6.2}%
 \contentsline {subsection}{\numberline {4.6.3}So sánh khi sử dụng Cayenne LPP và Custom}{59}{subsection.4.6.3}%
 \contentsline {subsection}{\numberline {4.6.4}Lưu ý khi nạp code cho node}{60}{subsection.4.6.4}%
-\contentsline {chapter}{\numberline {5}ĐOẠN CỦA KHÁNH}{61}{chapter.5}%
+\contentsline {chapter}{\numberline {5}SERVER}{61}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Nodejs Server}{61}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Giới thiệu tổng quát}{61}{subsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.1.2}Modules và packages được sử dụng}{61}{subsection.5.1.2}%
@@ -64,4 +63,3 @@
 \contentsline {subsection}{\numberline {5.3.4}Dashboard}{80}{subsection.5.3.4}%
 \contentsline {chapter}{\numberline {6}Khó khăn, so sánh và hướng phát triển}{85}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Khó khăn}{85}{section.6.1}%
-\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

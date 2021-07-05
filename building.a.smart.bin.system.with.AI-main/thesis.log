@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.6) (preloaded format=xelatex 2021.6.12)  30 JUN 2021 11:15
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.6) (preloaded format=xelatex 2021.6.12)  5 JUL 2021 14:09
 entering extended mode
 **d:/Green-Final-Report/building.a.smart.bin.system.with.AI-main/thesis.tex
 (d:/Green-Final-Report/building.a.smart.bin.system.with.AI-main/thesis.tex
@@ -1999,8 +1999,8 @@ File: images/Khanh/Thingsboard/thingsboard_overall.png Graphic file (type bmp)
 
  (Chapter3/Chapter3.tex
 chapter 3.
-File: images/Quanh/general_chart.png Graphic file (type bmp)
-<images/Quanh/general_chart.png>
+File: images/general_chart.png Graphic file (type bmp)
+<images/general_chart.png>
 [24
 
 
@@ -2010,118 +2010,119 @@ File: images/Quanh/general_chart.png Graphic file (type bmp)
 ]
 File: images/Chart_smartbin.png Graphic file (type bmp)
 <images/Chart_smartbin.png>
+ [25]
 File: images/Khanh/Nodejs/Chart_server1.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Chart_server1.png>
- [25]
+ [26]
 File: images/Khanh/Nodejs/Chart_server2.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Chart_server2.png>
-) [26] [27]
+) [27] [28]
 \openout2 = `Chapter4/Chapter4.aux'.
 
  (Chapter4/Chapter4.tex
 chapter 4.
 File: images/Quanh/ktmang.png Graphic file (type bmp)
 <images/Quanh/ktmang.png>
-[28
+[29
 
 
 
 
 
-] [29]
+] [30]
 File: images/Quanh/cardboard174.jpg Graphic file (type bmp)
 <images/Quanh/cardboard174.jpg>
 File: images/Quanh/metal5.jpg Graphic file (type bmp)
 <images/Quanh/metal5.jpg>
- [30]
+ [31]
 File: images/Quanh/glass98.jpg Graphic file (type bmp)
 <images/Quanh/glass98.jpg>
- [31]
+ [32]
 File: images/Quanh/paper96.jpg Graphic file (type bmp)
 <images/Quanh/paper96.jpg>
- [32]
+ [33]
 File: images/Quanh/plastic49.jpg Graphic file (type bmp)
 <images/Quanh/plastic49.jpg>
- [33]
+ [34]
 File: images/Quanh/trash23.jpg Graphic file (type bmp)
 <images/Quanh/trash23.jpg>
- [34]
+ [35]
 File: images/Quanh/graph.png Graphic file (type bmp)
 <images/Quanh/graph.png>
- [35]
+ [36]
 File: images/Quanh/matrix.png Graphic file (type bmp)
 <images/Quanh/matrix.png>
- [36] [37]
+ [37] [38]
 File: images/Quanh/metal.bmp Graphic file (type bmp)
 <images/Quanh/metal.bmp>
- [38]
+ [39]
 File: images/Quanh/plastic.bmp Graphic file (type bmp)
 <images/Quanh/plastic.bmp>
- [39]
+ [40]
 File: images/Quanh/plastic2.bmp Graphic file (type bmp)
 <images/Quanh/plastic2.bmp>
- [40]
+ [41]
 File: images/Quanh/cardboard.bmp Graphic file (type bmp)
 <images/Quanh/cardboard.bmp>
- [41]
+ [42]
 File: images/Quanh/othertrash.bmp Graphic file (type bmp)
 <images/Quanh/othertrash.bmp>
- [42]
+ [43]
 File: images/Quanh/glass.bmp Graphic file (type bmp)
 <images/Quanh/glass.bmp>
 
-[43]
+[44]
 File: images/Quanh/glassw.bmp Graphic file (type bmp)
 <images/Quanh/glassw.bmp>
- [44]
+ [45]
 File: images/Quanh/cardboard_W.bmp Graphic file (type bmp)
 <images/Quanh/cardboard_W.bmp>
- [45] [46]
+ [46] [47]
 File: images/Quanh/Gateway_configure.png Graphic file (type bmp)
 <images/Quanh/Gateway_configure.png>
 File: images/Quanh/Radio_scan.png Graphic file (type bmp)
 <images/Quanh/Radio_scan.png>
 File: images/Quanh/Join_password.png Graphic file (type bmp)
 <images/Quanh/Join_password.png>
- [47]
+ [48]
 File: images/Quanh/Disable_wifi.png Graphic file (type bmp)
 <images/Quanh/Disable_wifi.png>
- [48]
+ [49]
 File: images/Quanh/Config_ethernet.png Graphic file (type bmp)
 <images/Quanh/Config_ethernet.png>
- [49]
+ [50]
 File: images/Quanh/Gateway_ID.png Graphic file (type bmp)
 <images/Quanh/Gateway_ID.png>
- [50]
+ [51]
 File: images/Quanh/Gateway_console.png Graphic file (type bmp)
 <images/Quanh/Gateway_console.png>
 
 
-LaTeX Warning: Reference `fig:gateway_result' on page 51 undefined on input lin
+LaTeX Warning: Reference `fig:gateway_result' on page 52 undefined on input lin
 e 293.
 
 File: images/Quanh/Gateway_choose.png Graphic file (type bmp)
 <images/Quanh/Gateway_choose.png>
-[51]
+[52]
 File: images/Quanh/Config_lg02.png Graphic file (type bmp)
 <images/Quanh/Config_lg02.png>
- [52]
+ [53]
 File: images/Quanh/Choose_server_address.png Graphic file (type bmp)
 <images/Quanh/Choose_server_address.png>
 File: images/Quanh/Radio_config.png Graphic file (type bmp)
 <images/Quanh/Radio_config.png>
- [53]
+ [54]
 File: images/Quanh/Create_application_id.png Graphic file (type bmp)
 <images/Quanh/Create_application_id.png>
- [54]
+ [55]
 File: images/Quanh/ABP_config.png Graphic file (type bmp)
 <images/Quanh/ABP_config.png>
- [55]
+ [56]
 File: images/Quanh/Device_profile.png Graphic file (type bmp)
 <images/Quanh/Device_profile.png>
 File: images/Quanh/decoder.png Graphic file (type bmp)
 <images/Quanh/decoder.png>
- [56] [57]
+ [57] [58]
 File: images/Quanh/Payload_format.png Graphic file (type bmp)
 <images/Quanh/Payload_format.png>
 
@@ -2129,15 +2130,15 @@ Underfull \hbox (badness 1331) in paragraph at lines 407--407
 []|\TU/LinLibertine(0)/m/n/13 • Không cần decoder (do thư
  []
 
-[58]
+[59]
 File: images/Quanh/http.png Graphic file (type bmp)
 <images/Quanh/http.png>
- [59]) [60]
+ [60]) [61]
 \openout2 = `Chapter5/Chapter5.aux'.
 
  (Chapter5/Chapter5.tex
 chapter 5.
-[61
+[62
 
 
 
@@ -2147,7 +2148,7 @@ chapter 5.
 File: images/Khanh/Nodejs/Server_Create_Stimulate_Device.png Graphic file (type
  bmp)
 <images/Khanh/Nodejs/Server_Create_Stimulate_Device.png>
- [62] [63]
+ [63] [64]
 Overfull \hbox (0.10565pt too wide) in paragraph at lines 77--78
 []\TU/LinLibertine(0)/m/n/13 POST /api/plugins/telemetry/ASSET/{id thùng rác}/{
 attributes || time-
@@ -2155,84 +2156,84 @@ attributes || time-
 
 File: images/Khanh/Nodejs/Server_Predict_Empty_Bin.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Server_Predict_Empty_Bin.png>
-[64]
+[65]
 Overfull \hbox (0.28879pt too wide) in paragraph at lines 95--96
 \TU/LinLibertine(0)/m/n/13 sources&annotations&access_token để lấy ma trận khoả
 ng cách hoặc thời
  []
 
-[65]
+[66]
 File: images/Khanh/Nodejs/Server_Get_Map.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Server_Get_Map.png>
- [66]
+ [67]
 Overfull \hbox (23.51979pt too wide) in paragraph at lines 122--123
 \TU/LinLibertine(0)/m/n/13 language&roundtrip&geometries&steps&access_token để 
 lấy ma trận khoảng
  []
 
-[67]
+[68]
 File: images/Khanh/Nodejs/Server_Random_Telemetry.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Server_Random_Telemetry.png>
- [68] [69]
+ [69] [70]
 File: images/Khanh/Python/Python_general.png Graphic file (type bmp)
 <images/Khanh/Python/Python_general.png>
- [70] [71]
+ [71] [72]
 File: images/Khanh/Python/LSTM Model.PNG Graphic file (type bmp)
 <images/Khanh/Python/LSTM Model.PNG>
 File: images/Khanh/Python/CSV_Structure.PNG Graphic file (type bmp)
 <images/Khanh/Python/CSV_Structure.PNG>
- [72]
+ [73]
 File: images/Khanh/Python/CSV_Plot_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/CSV_Plot_Chart.png>
- [73]
+ [74]
 File: images/Khanh/Python/Loss_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Loss_Chart.png>
 File: images/Khanh/Python/Recycle_Test_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Recycle_Test_Chart.png>
 File: images/Khanh/Python/Non-Recycle_Test_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Non-Recycle_Test_Chart.png>
- [74]
+ [75]
 File: images/Khanh/Python/Final_results.png Graphic file (type bmp)
 <images/Khanh/Python/Final_results.png>
- [75]
+ [76]
 File: images/Khanh/Thingsboard/Assets.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Assets.PNG>
 File: images/Khanh/Thingsboard/Devices.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Devices.PNG>
- [76]
+ [77]
 File: images/Khanh/Thingsboard/Asset_details.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Asset_details.PNG>
 File: images/Khanh/Thingsboard/Asset_relation.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Asset_relation.PNG>
- [77] [78]
+ [78] [79]
 File: images/Khanh/Thingsboard/Root_rule_chain.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Root_rule_chain.PNG>
 File: images/Khanh/Thingsboard/Delta_rule_chain.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Delta_rule_chain.PNG>
- [79]
+ [80]
 File: images/Khanh/Thingsboard/Dashboard_widget.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Dashboard_widget.PNG>
- [80]
+ [81]
 File: images/Khanh/Thingsboard/Dashboard_map.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Dashboard_map.PNG>
- [81]
+ [82]
 File: images/Khanh/Thingsboard/Road_optimization.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Road_optimization.PNG>
 
-[82]
+[83]
 File: images/Khanh/Thingsboard/Dashboard_list.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Dashboard_list.PNG>
 File: images/Khanh/Thingsboard/Bin_detail.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Bin_detail.PNG>
- [83]
+ [84]
 File: images/Khanh/Thingsboard/Sensor_detail.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Sensor_detail.PNG>
-) [84]
+) [85]
 \openout2 = `Chapter6/Chapter6.aux'.
 
  (Chapter6/Chapter6.tex
 chapter 6.
-) [85
+) [86
 
 
 
@@ -2251,7 +2252,7 @@ Underfull \hbox (badness 3138) in paragraph at lines 82--83
 [Online]. Available:
  []
 
-[86
+[87
 
 
 
@@ -2262,16 +2263,19 @@ Underfull \hbox (badness 3138) in paragraph at lines 82--83
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  31160 strings out of 411271
- 624848 string characters out of 2828803
+ 624806 string characters out of 2828803
  1239209 words of memory out of 3000000
  51115 multiletter control sequences out of 15000+600000
  409451 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  122i,14n,122p,10719b,648s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (89 pages).
+Output written on thesis.pdf (90 pages).

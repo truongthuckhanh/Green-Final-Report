@@ -1,24 +1,13 @@
 % !TEX root = ..\thesis.tex
 
 
-\chapter{ĐOẠN CỦA QUANH}
-\section{Giới thiệu}
-Một quy trình xử lý rác thải sẽ bao gồm rất nhiều công đoạn: thu gôm, phân loại và xử lý rác thải.
-Cũng đã có các biện pháp để giảm bớt quá trình phân loại rác bằng cách đặt thùng rác dán sẵn nhãn phân loại tương ứng để người sử dụng phân biệt.
-Tuy nhiên, thực tế cho thấy, biện pháp này chưa thực sự giải quyết triệt để vấn đề trên. 
-Nên việc thay thế cách phân loiaj truyền thống bằng các thùng rác tự động phân loại là biện pháp khả thi hơn.
-Bằng việc lấy các tập dữ liệu lớn có sẵn sẽ làm tăng tính chính xác cho sản phẩm. 
+\chapter{XÂY DỰNG THIẾT BỊ TỰ ĐỘNG PHÂN LOẠI RÁC}
 
-\section{Giới thiệu về model CNN}
-Mạng CNN là một tập hợp các lớp Convolution chồng lên nhau và sử dụng các hàm nonlinear activation như ReLU và tanh để kích hoạt các trọng số trong các node. 
-CNN được dùng trong trong nhiều bài toán như nhân dạng ảnh, phân tích video, ảnh MRI, hoặc cho bài các bài của lĩnh vự xử lý ngôn ngữ tự nhiên. Trong đề tài này, chúng tôi đã sử dụng mạng CNN để giải quyết bài toán phân loại rác.
 
-Bài toán có đầu vào là một hình ảnh của rác được đưa vào thùng và đầu ra là nhãn của loại rác đó từ camera của board ESP32 camera AI Thinker.
 
-%(từ camera của thiết bị hay cái gì đó cụ thể hơn nha)% 
-CNN bao gồm tập hợp các lớp cơ bản bao gồm: convolution layer + nonlinear layer, pooling layer, fully connected layer. 
-Các lớp này liên kết với nhau theo một thứ tự nhất định. Thông thường, một ảnh sẽ được lan truyền qua tầng convolution layer + nonlinear layer đầu tiên, sau đó các giá trị tính toán được sẽ lan truyền qua pooling layer, bộ ba convolution layer + nonlinear layer + pooling layer có thể được lặp lại nhiều lần trong network. Và sau đó được lan truyền qua tầng fully connected layer và softmax để tính xác suất ảnh đó chứa vật thế gì.
-% Cái lý thuyết khúc này thì thêm sau nha, tùy vào thầy muốn cụ thể đến mức nào, có bắt giải thích từng lớp trong mạng là gì hay không
+\section{Xây dựng model phân loại rác dựa trên CNN}
+
+
 
 \subsection{Tối ưu model để có thể chạy trên được chip nhúng ESP32}
 % phần code 
@@ -61,42 +50,42 @@ Test: 503
 Sau đây là hình ảnh minh họa của 6 lớp cần phân loại như trên, bao gồm Cardboard hình \ref{fig:cardboard} , Glass hình \ref{fig:glass}, Metal hình \ref{fig:metal}, Paper hình \ref{fig:paper} , Plastic hình \ref{fig:plastic}, và các loiaj rác thải khác hình \ref{fig:trash}.
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/cardboard174.jpg}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/cardboard174.jpg}
     \caption{Hình ảnh cardboard trong bộ dataset}
     \label{fig:cardboard}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/metal5.jpg}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/metal5.jpg}
     \caption{Hình ảnh metal trong bộ dataset}
     \label{fig:metal}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/glass98.jpg}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/glass98.jpg}
     \caption{Hình ảnh glass trong bộ dataset}
     \label{fig:glass}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/paper96.jpg}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/paper96.jpg}
     \caption{Hình ảnh paper trong bộ dataset}
     \label{fig:paper}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/plastic49.jpg}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/plastic49.jpg}
     \caption{Hình ảnh plastic trong bộ dataset}
     \label{fig:plastic}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/trash23.jpg}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/trash23.jpg}
     \caption{Hình ảnh các loại rác khác trong bộ dataset}
     \label{fig:trash}
 \end{figure}
@@ -132,7 +121,7 @@ Từ hình \ref{fig:matrix} ta có thể thấy accuracy và f1-score của mô 
 \section{Build và kiểm thử model phân loại rác trên device}
 Sau khi model đã được train và evaluate kỹ lưỡng trên máy tính, công đoạn tiếp theo là build chương trình phân loại rác trên device dựa model đã train và thư viện TensorflowLite. 
 Chương tình được build sẽ phải được kiểm thử để đảm bảo khả năng phân loại rác tương đương với khả năng phân loại của model đã được train trên ảnh từ PC.
-\subsection{Quy trình build code phân loại rác trên device}
+%\subsection{Quy trình build code phân loại rác trên device}
 
 %Mô tả lại quy trình chuyển đổi từ file h5 của model sang file .cc để đưa vào code
 %Đưa vào các đoạn code mẫu của tensorflowLite
@@ -166,35 +155,35 @@ Khi build file C để nạp code vào board thành công. Tiếp tục build fi
 Một số hình ảnh được chụp từ thiết bị
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/metal.bmp}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/metal.bmp}
     \caption{ Miếng sắt được phân loại vào lớp "Metal" }
     \label{fig:Dmetal}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/plastic.bmp}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/plastic.bmp}
     \caption{ Chai nước nhựa được phân loại vào lớp "Plastic" }
     \label{fig:Dplastic}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/plastic2.bmp}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/plastic2.bmp}
     \caption{ Chai nhựa được phân loại vào lớp "Plastic" }
     \label{fig:Dplastic2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/cardboard.bmp}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/cardboard.bmp}
     \caption{ Miếng bìa được phân loại vào lớp "cardboard" }
     \label{fig:Dcardboard}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/othertrash.bmp}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/othertrash.bmp}
     \caption{ Các loại rác vò lại méo mó sẽ được phân loại vào lớp "Trash" }
     \label{fig:Dtrash}
 \end{figure}
@@ -202,21 +191,21 @@ Một số hình ảnh được chụp từ thiết bị
 Tuy nhiên, do accuracy của model chỉ ở mức tương đối, và hình ảnh được train và hình ảnh được chụp từ thiết bị sẽ có thay đổi về màu sắc. Nên sẽ có một số loại rác bị detec sai. Dưới đây là các trường hợp sai trong quá trình kiểm thử.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/glass.bmp}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/glass.bmp}
     \caption{ Bao khăn giấy được phân loại vào lớp "glass" }
     \label{fig:DWglass}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/glassw.bmp}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/glassw.bmp}
     \caption{ Vỏ kẹo được phân loại vào lớp "glass" }
     \label{fig:DWglass2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/Quanh/cardboard_W.bmp}
+    \includegraphics[width=0.25\linewidth]{images/Quanh/cardboard_W.bmp}
     \caption{ Bàn tay người được phân loại vào lớp "cardboard" }
     \label{fig:DWcardboar}
 \end{figure}
@@ -350,46 +339,16 @@ Lúc này, có thể nạp code vào board như bình thường.
 
 \subsection{Đăng kí trên TTN Server}
 \begin{description}
-    \item Bước 1: Tạo Application ID và handler như hình \ref{fig:create_application_id}, sau đó vào Devices → Register device → Điền Device ID
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\textwidth]{images/Quanh/Create_application_id.png}
-        \caption{Tạo Application ID: uitgreen và handler: ttn-handler-asia-se}
-        \label{fig:create_application_id}
-    \end{figure}
+    \item Bước 1: Tạo Application ID và handler, sau đó vào Devices → Register device → Điền Device ID  
+    \item Bước 2: Sau khi đăng kí device thành công, The Things Network sẽ mặc định setup device join vào channel theo OTAA, nhưng nhóm chọn join theo ABP nên cần vào Setting → Activation method → ABP.
     
-    \item Bước 2: Sau khi đăng kí device thành công, The Things Network sẽ mặc định setup device join vào channel theo OTAA, nhưng nhóm chọn join theo ABP nên cần vào Setting → Activation method → ABP như hình \ref{fig:ABP_config}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\textwidth]{images/Quanh/ABP_config.png}
-        \caption{Chọn phương thức ABP}
-        \label{fig:ABP_config}
-    \end{figure}
 \end{description}
 
-Sau khi đăng kí device thành công, thông tin device sẽ hiển thị như hình \ref{fig:device_profile} với Decoder như hình \ref{fig:device_decoder}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/Quanh/Device_profile.png}
-    \caption{Sau khi đăng kí device thành công}
-    \label{fig:device_profile}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/Quanh/decoder.png} 
-    \caption{Decoder}
-    \label{fig:device_decoder}
-\end{figure}
+
 
 ** ở phần này Payload Formats sẽ tùy thuộc vào code nạp vào end-device
 
-Nếu như end-device sử dụng thư viện Cayenne LPP để send data thì trên TTN phần Payload Formats sẽ như hình \ref{fig:payload_format}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/Quanh/Payload_format.png}
-    \caption{Payload Formats: Cayenne LPP}
-    \label{fig:payload_format}
-\end{figure}
+
 
 \subsection{So sánh khi sử dụng Cayenne LPP và Custom}
 
@@ -412,14 +371,8 @@ Ta có bảng \ref{tab.comparison.Cayenne}
     \end{tabular}
 \end{table}
 
-Để chuyển data cho backend, cần cấu hình ở phần Integrations như hình \ref{fig:device_http}
+Để chuyển data cho backend, cần cấu hình ở phần Integrations.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/Quanh/http.png}
-    \caption{HTTP}
-    \label{fig:device_http}
-\end{figure}
 
 
 \subsection{Lưu ý khi nạp code cho node}

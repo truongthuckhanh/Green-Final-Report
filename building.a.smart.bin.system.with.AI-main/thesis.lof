@@ -1,0 +1,70 @@
+\babel@toc {vietnamese}{}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Sơ đồ chôn lấp \relax }}{7}{figure.caption.7}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces LoRaWAN Technology Stack\relax }}{15}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Mô hình LoRaWAN Network\relax }}{16}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces LG02 Dragino Gateway\relax }}{17}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Kit RF thu phát wifi Blue esp32 + lora sx1278 oled heltec\relax }}{18}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Sở đồ biểu diễn kiến trúc bên trong tế bào LSTM\relax }}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Mô hình tổng quan Thingsboard\relax }}{22}{figure.caption.15}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Mô hình tổng quan\relax }}{24}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Mô hình device\relax }}{25}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Mô hình server từ bước khởi tạo đến gửi dữ liệu\relax }}{26}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Mô hình server từ bước gửi dữ liệu đến xử lý bản đồ\relax }}{27}{figure.caption.19}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Minh họa kiến trúc mạng đã xây dựng\relax }}{28}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Hình ảnh cardboard trong bộ dataset\relax }}{29}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Hình ảnh metal trong bộ dataset\relax }}{29}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Hình ảnh glass trong bộ dataset\relax }}{30}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Hình ảnh paper trong bộ dataset\relax }}{30}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Hình ảnh plastic trong bộ dataset\relax }}{30}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Hình ảnh các loại rác khác trong bộ dataset\relax }}{30}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Biểu đồ thể hiện loss và accuracy của mô hình trong quá trình train\relax }}{31}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Confusion matrix của model khi thử lại trên tập test\relax }}{32}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Miếng sắt được phân loại vào lớp "Metal" \relax }}{33}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Chai nước nhựa được phân loại vào lớp "Plastic" \relax }}{34}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Chai nhựa được phân loại vào lớp "Plastic" \relax }}{34}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Miếng bìa được phân loại vào lớp "cardboard" \relax }}{34}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Các loại rác vò lại méo mó sẽ được phân loại vào lớp "Trash" \relax }}{34}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Bao khăn giấy được phân loại vào lớp "glass" \relax }}{35}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Vỏ kẹo được phân loại vào lớp "glass" \relax }}{35}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Bàn tay người được phân loại vào lớp "cardboard" \relax }}{35}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Xác thực tại địa chỉ 10.130.1.1\relax }}{36}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Scan mạng Wireless\relax }}{36}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Tham gia vào wifi và nhập mật khẩu\relax }}{37}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Tắt wifi mặc định\relax }}{38}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Cấu hình địa chỉ IP của cổng Ethernet (Ubuntu 20.04)\relax }}{39}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Lấy ID của Gateway\relax }}{40}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Giao diện Gateway đã được tạo (chưa connect)\relax }}{40}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Nhập ID vào Frequency plan\relax }}{41}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Config LG02\relax }}{42}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Chọn server address thích hợp\relax }}{42}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Thông số configure\relax }}{43}{figure.caption.47}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Sơ đồ miêu tả mô hình khởi tao thiết bị và cảm biến\relax }}{47}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sơ đồ miêu tả mô hình gửi dữ liệu tiên đoán và kiểm tra mức rác\relax }}{49}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Sơ đồ miêu tả luồng xuất mảng tọa độ đường đi tối ưu tới thùng rác đầy\relax }}{51}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Sơ đồ miêu tả luồng tạo dữ liệu giả cho thiết bị ảo\relax }}{53}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Sơ đồ mô tả tổng quát mô hình Deep Learning dự đoán lượng rác\relax }}{55}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Tổng quan mô hình mạng LSTM\relax }}{56}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Cấu trúc file CSV\relax }}{57}{figure.caption.55}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Biểu đồ lượng rác tái chế và không tái chế thu thập vào tháng 6\relax }}{57}{figure.caption.56}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Giá trị Train loss và Val loss\relax }}{58}{figure.caption.57}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces So sánh actual với predicted của tập test tái chế\relax }}{59}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces So sánh actual với predicted của tập test không tái chế\relax }}{59}{figure.caption.59}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Biểu đồ mức rác tái chế và không tái chế sau 4 tiếng tiếp theo\relax }}{60}{figure.caption.60}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Danh sách thùng rác\relax }}{61}{figure.caption.61}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Danh sách cảm biến\relax }}{61}{figure.caption.62}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Thuộc tính thùng rác\relax }}{62}{figure.caption.63}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Mối quan hệ của thùng rác với cảm biến\relax }}{62}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Root Rule Chain\relax }}{63}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Delta-calculation Rule Chain\relax }}{63}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Thingsboard Dashboard Widget List\relax }}{65}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Smart Bin Tracking Map\relax }}{66}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Road Optimization Polygon\relax }}{67}{figure.caption.69}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Smart Bin List\relax }}{67}{figure.caption.70}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Smart Bin Detail\relax }}{68}{figure.caption.71}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Sensor Chart\relax }}{68}{figure.caption.72}%
+\addvspace {10\p@ }

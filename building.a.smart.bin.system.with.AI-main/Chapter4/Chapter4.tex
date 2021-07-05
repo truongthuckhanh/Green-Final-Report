@@ -47,50 +47,15 @@ Dữ liệu được chia làm 2 phần theo tỉ lệ 80\% train và 20\% test.
 Train: 2024
 
 Test: 503
-Sau đây là hình ảnh minh họa của 6 lớp cần phân loại như trên, bao gồm Cardboard hình \ref{fig:cardboard} , Glass hình \ref{fig:glass}, Metal hình \ref{fig:metal}, Paper hình \ref{fig:paper} , Plastic hình \ref{fig:plastic}, và các loiaj rác thải khác hình \ref{fig:trash}.
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/cardboard174.jpg}
-    \caption{Hình ảnh cardboard trong bộ dataset}
-    \label{fig:cardboard}
-\end{figure}
 
-\begin{figure}[H]
+Sau đây là hình ảnh minh họa của 6 lớp cần phân loại như trên, được hiển thị ở bảng \ref{fig:trash_classification}.
+\begin{table}[H]
     \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/metal5.jpg}
-    \caption{Hình ảnh metal trong bộ dataset}
-    \label{fig:metal}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/glass98.jpg}
-    \caption{Hình ảnh glass trong bộ dataset}
-    \label{fig:glass}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/paper96.jpg}
-    \caption{Hình ảnh paper trong bộ dataset}
-    \label{fig:paper}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/plastic49.jpg}
-    \caption{Hình ảnh plastic trong bộ dataset}
-    \label{fig:plastic}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/trash23.jpg}
-    \caption{Hình ảnh các loại rác khác trong bộ dataset}
-    \label{fig:trash}
-\end{figure}
+    \includegraphics[width=\linewidth]{images/Quanh/Trash Classification.png}
+    \caption{Phân loại hình ảnh trong bộ dataset}
+    \label{fig:trash_classification}
+\end{table}
 % Nên lựa vài hình về data để thêm vô (nếu cần) hình nên có đủ 6 lớp cần phân loại
-
 
 \subsection{Index of Performance} % Các chỉ số để dánh gia model  %accuracy, F-score - Recall.
 Chúng tôi sử dụng hai chỉ số là accuracy và F1-score để đánh giá model. Accuracy là tính tỉ lệ giữa số ảnh được dự đoán đúng và tổng số ảnh trong tập dữ liệu kiểm thử.
@@ -109,12 +74,12 @@ Accuracy cao nhất trên tập train là 0.6938 và trên tập test là 0.5938
 Loss nhỏ nhất trên tập train là 3.3844 và trên tập test là 3.7116
 
 Kết quả thử nghiệm mô hình trên tập test sau khi đã lưu mô hình tốt nhất từ quá trình train 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
     \includegraphics[width=\linewidth]{images/Quanh/matrix.png}
-    \caption{ Confusion matrix của model khi thử lại trên tập test}
+    \caption{Confusion matrix của model khi thử lại trên tập test}
     \label{fig:matrix}
-\end{figure}
+\end{table}
 Từ hình \ref{fig:matrix} ta có thể thấy accuracy và f1-score của mô hình còn khá thấp, tuy nhiên do mô hình được xây dựng chỉ có 532,161 tham số nên không đủ để phân loại chính xác các lớp được. Chúng tôi đã thử train thêm epoch nhưng mô hình dễ bị overfitting và kết quả khi in confusion matrix vẫn không thay đổi nhiều. Ngoài ra nếu tăng thêm trọng số thì không thể sử dụng model trên thiết bị được.
 
 
@@ -152,63 +117,21 @@ Khi build file C để nạp code vào board thành công. Tiếp tục build fi
 
 %Đưa vào vài tấm hình được device chụp và kết quả phân loại tương ứng. 
 %Sau đó chém gió là device chạy ra kết quả y chang như model đạt được ở mục trước
-Một số hình ảnh được chụp từ thiết bị
-\begin{figure}[H]
+Một số hình ảnh được chụp từ thiết bị:
+\begin{table}[H]
     \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/metal.bmp}
-    \caption{ Miếng sắt được phân loại vào lớp "Metal" }
-    \label{fig:Dmetal}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/plastic.bmp}
-    \caption{ Chai nước nhựa được phân loại vào lớp "Plastic" }
-    \label{fig:Dplastic}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/plastic2.bmp}
-    \caption{ Chai nhựa được phân loại vào lớp "Plastic" }
-    \label{fig:Dplastic2}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/cardboard.bmp}
-    \caption{ Miếng bìa được phân loại vào lớp "cardboard" }
-    \label{fig:Dcardboard}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/othertrash.bmp}
-    \caption{ Các loại rác vò lại méo mó sẽ được phân loại vào lớp "Trash" }
-    \label{fig:Dtrash}
-\end{figure}
+    \includegraphics[width=\linewidth]{images/Quanh/Trash Result.png}
+    \caption{Kết quả phân loại của một số hình ảnh}
+    \label{fig:trash_result}
+\end{table}
 
 Tuy nhiên, do accuracy của model chỉ ở mức tương đối, và hình ảnh được train và hình ảnh được chụp từ thiết bị sẽ có thay đổi về màu sắc. Nên sẽ có một số loại rác bị detec sai. Dưới đây là các trường hợp sai trong quá trình kiểm thử.
-\begin{figure}[H]
+\begin{table}[H]
     \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/glass.bmp}
-    \caption{ Bao khăn giấy được phân loại vào lớp "glass" }
+    \includegraphics[width=\linewidth]{images/Quanh/Trash Failed.png}
+    \caption{Một số kết quả sai trong quá trình phân loại}
     \label{fig:DWglass}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/glassw.bmp}
-    \caption{ Vỏ kẹo được phân loại vào lớp "glass" }
-    \label{fig:DWglass2}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.25\linewidth]{images/Quanh/cardboard_W.bmp}
-    \caption{ Bàn tay người được phân loại vào lớp "cardboard" }
-    \label{fig:DWcardboar}
-\end{figure}
+\end{table}
 
 Như vậy, tuy có các trường hợp detec sai, nhưng có thể hình dung được mức độ đánh giá của model trong việc detec hình ảnh. Ví dụ như ở hình \ref{fig:DWglass} và \ref{fig:DWglass2}, mặc dù đã bị detec sai lớp, nhưng có thể thấy, thủy tinh nói chung đều có tính chất phản ánh sáng, nên khi hình ảnh khi chụp 1 vật làm bằng thủy tinh sẽ có một độ bóng nhất định. Vì thế ở hình \ref{fig:DWglass} và \ref{fig:DWglass2} đều có tính chất phản ánh sáng như thủy tinh, nên thiết bị sẽ detec vào lớp "glass". Tương tự, các miếng bìa hầu hết trong tập dataset đều có các lằng vân nhấp nhô, và khi thiết bị chụp hình ảnh bàn tay người( hình \ref{fig:DWcardboar}), bàn tay cũng có các đường chỉ tay sâu, nên thiết bị sẽ detec vào lớp "cardboard".
 

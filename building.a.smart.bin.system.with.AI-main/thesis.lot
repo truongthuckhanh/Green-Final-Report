@@ -6,6 +6,12 @@
 \contentsline {table}{\numberline {2.1}{\ignorespaces So sánh giữa OTAA và ABP\relax }}{17}{table.caption.11}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Loại rác\relax }}{44}{table.caption.48}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Phân loại hình ảnh trong bộ dataset\relax }}{32}{table.caption.21}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Confusion matrix của model khi thử lại trên tập test\relax }}{34}{table.caption.23}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Kết quả phân loại của một số hình ảnh\relax }}{36}{table.caption.24}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Một số kết quả sai trong quá trình phân loại\relax }}{37}{table.caption.25}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Loại rác\relax }}{46}{table.caption.37}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Tổng quan mô hình mạng LSTM\relax }}{59}{table.caption.43}%
 \addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

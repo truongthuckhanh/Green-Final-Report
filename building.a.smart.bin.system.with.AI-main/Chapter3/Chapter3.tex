@@ -41,7 +41,7 @@ Hình \ref{fig:chart_smartbin} mô tả chi tiết về cấu tạo của thùng
 \end{figure}
 
 
-Mô hình server từ bước khởi tạo đến gửi dữ liệu \ref{fig:chart_server1}
+Mô hình server từ bước khởi tạo đến gửi dữ liệu được vẽ ở hình \ref{fig:chart_server1} và được mô tả chi tiết như sau:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Chart_server1.png}
@@ -49,10 +49,25 @@ Mô hình server từ bước khởi tạo đến gửi dữ liệu \ref{fig:cha
     \label{fig:chart_server1}
 \end{figure}
 
-Mô hình server từ bước gửi dữ liệu đến xử lý bản đồ \ref{fig:chart_server2}
+Chức năng chính của Nodejs Server là cung cấp API xử lý dữ liệu cho hai đối tượng chính là thùng rác thật và thùng rác ảo.
+\begin{itemize}
+    \item POST /api/devices: Hỗ trợ tạo thùng rác và các cảm biến liên quan bằng cách gửi request body bao gồm các thông số như tên, chiều cao, tọa độ ,... và tự động lưu vào database Thingsboard và cuối cùng là hiển thị trên dashboard. Thao tác này có thể thực hiện thủ công trên giao diện hoặc tự động thông qua API này.
+    \item POST /api/TTN/telemetry: Nhận và xử lý dữ liệu được gửi từ các thùng rác thật thông qua gateway và TTN, format của dữ liệu bao gồm thông tin thùng rác và dữ liệu cảm biến. Dữ liệu được lưu vào file csv để dự đoán và được đưa lên Thingsboard để hiển thị trên dashboard.
+    \item POST /api/devices/\{name\}/random: Tạo dữ liệu ngẫu nhiên cho thùng rác ảo với tên là \{name\} và được xử lý theo format dữ liệu giống với thiết bị thật. Dữ liệu được lưu vào file csv để dự đoán và được đưa lên Thingsboard để hiển thị trên dashboard.
+\end{itemize}
+
+Mô hình server từ sau bước gửi dữ liệu đến xử lý bản đồ được vẽ ở hình \ref{fig:chart_server2} và được mô tả chi tiết như sau:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Chart_server2.png}
     \caption{Mô hình server từ bước gửi dữ liệu đến xử lý bản đồ}
     \label{fig:chart_server2}
 \end{figure}
+Dữ liệu gửi tới sẽ được lưu trữ vào file csv cho đến khi thùng rác đầy, khi đó file csv sẽ ngưng ở giá trị lớn nhất và đợi đến khi nào thùng rác được gom sẽ tiếp tục nhận dữ liệu. Và khi thùng rác đầy, sẽ được đưa qua danh sách các thùng rác đầy để được đi thu gom.
+
+Ngoài ra, Nodejs còn cung cấp 2 API gửi dữ liệu tiên đoán và tìm đường đi tối ưu cho cả 2 thiết bị thật và ảo:
+\begin{itemize}
+    \item GET api/devices/prediction: Đưa tất cả file csv dữ liệu của các thùng rác chưa đầy qua bên Python Server để xử lý dữ đoán dữ liệu qua các bước thời gian tiếp. Kết quả sẽ được trả về Nodejs Server, được so với thời gian di chuyển tử nơi gom rác đến thùng rác để chọn giá trị thích hợp và so với chiều cao thùng. Nếu giá trị lớn hơn 90\% thùng thì thùng đó sẽ được đưa vào danh sách thùng rác đầy.
+    \item GET api/devices/staticMap: Lấy tất cả tọa độ trong danh sách thùng rác đầy và đưa qua API của Mapbox để vẽ ra đường đi tối ưu nhất để gom các thùng rác. Kết quả trả về là một mảng các tọa độ đường đi, sau đó được đưa lên Thingsboard để hiển thị trên bản đồ.
+\end{itemize}
+

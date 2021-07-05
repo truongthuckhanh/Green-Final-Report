@@ -64,7 +64,7 @@ Sau đây là tất cả API mà server cung cấp với bản mô tả chi ti�
             \begin{itemize}
                 \item name (string): tên thùng rác.
                 \item type (string): loại thùng rác.
-                \item address (string): địa chỉ của thùng.
+                \item address (string): địa chỉ của thùng, nếu không có thì sẽ sử dụng API Geocoding từ Mapbox nhận vào tọa độ của thùng để định vị địa chỉ.
                 \item latitude (double): kinh độ.
                 \item longitude (double): vĩ độ.
                 \item nonrecycleHeight (double): chiều cao ngăn không tái chế.
@@ -134,23 +134,32 @@ Sau đây là tất cả API mà server cung cấp với bản mô tả chi ti�
         \end{enumerate}
     \end{itemize}
 
-    \item Xử lý dữ liệu nhận từ thiết bị thật:
-    \begin{itemize}
-        \item POST /api/thingsboard
-    \end{itemize}
-
-    \item Xử lý dữ liệu tạo từ thiết bị ảo:
-    \begin{itemize}
-        \item POST /api/devices/{deviceId}/random
-        \begin{itemize}    
-            \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:random_telemetry}
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Random_Telemetry.png}
-                \caption{Sơ đồ miêu tả luồng tạo dữ liệu giả cho thiết bị ảo}
-                \label{fig:random_telemetry}
-            \end{figure}
-        \end{itemize}
+    \item Xử lý dữ liệu cảm biến của thiết bị ảo và thiết bị thật:
+    \begin{itemize}  
+        \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:random_telemetry}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Random_Telemetry.png}
+            \caption{Sơ đồ miêu tả luồng tạo dữ liệu giả cho thiết bị ảo}
+            \label{fig:random_telemetry}
+        \end{figure}   
+        \begin{enumerate}
+            \item Với thiết bị thật (POST /api/TTN/telemetry): 
+            \begin{itemize}
+                \item Những thiết bị thật sẽ gửi dữ liệu thông qua API này với định dạng được tạo từ TTN được mô tả trong bảng ... 
+                ... 
+                \item Vì dữ liệu được gửi bằng cảm biến thật nên không cần thay đổi định dạng của chúng, ...
+            \end{itemize}
+            \item Với thiết bị ảo (POST /api/devices/\{deviceName\}/random):
+            \begin{itemize}
+                \item Tiến hành tạo ngẫu nhiên dữ liệu của thùng rác có tên \{deviceName\}, cài đặt timer bằng cách setInterval với khoảng thời gian là 120.000ms (20 phút/1 lần).
+                \item Dữ liệu được lấy ngẫu nhiên trong file random.csv với giá trị tái chế và không tái chế ngẫu nhiên từ 0 tới 13.
+                \item Khởi tạo mức delta bằng 0, khi thùng rác chưa đầy ta lấy delta cộng với giá trị ngẫu nhiên đó và lấy chiều cao thùng rác trừ cho tổng giá trị sẽ ra được giá trị thật của cảm biến. Thực hiện đến khi nào thùng rác đầy thì giá trị ngẫu nhiên sẽ bằng 0 và khi đó giá trị sẽ dừng ở mức cao nhất của thùng rác.  
+                \item Định dạng dữ liệu giống với format payload\_fields của thiết bị thật, đối với thời gian thì sử dụng moment để lấy thời gian thực. 
+            \end{itemize}
+            \item Sau bước định dạng dữ liệu của 2 loại thiết bị, lưu dữ liệu vào file .csv của từng thùng với tên "\{deviceName\}\_deltaHeight.csv", bên trong file bao gồm các cột timestamp (thời gian), recycleData (dữ liệu tái chế) và nonrecycleData (dữ liệu không tái chế). Đồng thời dữ liệu sẽ được gửi lên Thingsboard, chuyển đổi thực thể và hiển thị lên giao diện theo dạng biểu đồ đường.
+            \item Khi thùng rác đã đầy, ta sẽ gửi thông báo đến Thingsboard để hiển thị màu sắc, cùng lúc đó, đánh dấu thùng rác đó vào danh sách các thùng rác đầy và xóa khỏi danh sách các thùng rác chưa đầy. Đối với thiết bị ảo, sẽ dừng timer để giảm tải công việc cho server.
+        \end{enumerate}
     \end{itemize}
 
 \end{itemize}
@@ -192,14 +201,14 @@ Luồng dữ liệu được mô tả chi tiết như sau:
     \item Chuẩn hóa các mảng bằng MinMaxScaler giúp thuật toán dễ dàng xử lý hơn.
     \item Quy định lấy 75\% chuỗi dữ liệu để làm tập train và phần còn lại để làm tập test. Chuyển đổi tất cả các tập sang supervised learning với số time\_step tự quy định (số time\_step trước đó được sử dụng để dự đoán giá trị ở time\_step tiếp theo).
     \item Kết quả trả về là một mảng 2 chiều có shape là (số lượng dữ liệu, time\_steps). Reshape các tập train input lại thành kiểu (samples, timeseries, features) để đưa vào mô hình dự đoán.
-    \item Xây dựng mô hình mạng Stacked LSTM như hình \ref{fig:lstm_model}
-    \begin{figure}[H]
+    \item Xây dựng mô hình mạng Stacked LSTM như bảng \ref{tag.lstm.model}
+    \begin{table}[H]
         \centering
         \includegraphics[width=\textwidth]{images/Khanh/Python/LSTM Model.PNG}
         \caption{Tổng quan mô hình mạng LSTM}
-        \label{fig:lstm_model}
-    \end{figure}
-    bằng cách tạo một mô hình Sequential và thêm nhiều layer vào trong, cụ thể là 2 LSTM layers và 1 Dense layer với các tham số. Sau đó model sẽ compile với các tham số để train model (loss, optimizer, metrics) và fit data vào để train.
+        \label{tag.lstm.model}
+    \end{table}
+    bằng cách tạo một mô hình Sequential và thêm nhiều layer vào trong, cụ thể là 2 LSTM layers và 1 Dense layer với các tham số. Sau đó model sẽ compile với các tham số để train model (loss, optimizer, metrics) và fit data vào để train (bao gồm tổng cộng 198.273 params có thể train được).
     \item Ta lấy \{time\_step\} phần tử cuối từ tập test với t là thời điểm của giá trị cuối cùng để dự đoán dữ liệu ở thời điểm t+1 ... và tiếp đó chạy vòng lặp để dự đoán dữ liệu ở t+2, t+3, t+4 ... bằng cách lấy giá trị dự đoán ở t+1 cho vào mảng, dịch phần tử đầu tiên ra khỏi mảng và tiếp tục dự đoán t+2.
     \item Trả kết quả dự đoán mức rác tái chế và không tái chế về Nodejs Server để tiếp tục xử lý. 
 \end{enumerate}
@@ -343,23 +352,16 @@ Dữ liệu sau đó được định dạng lại giống chiều cao thùng r�
 Xử lý dữ liệu mức rác cũng khá đơn giản khi chỉ cần phân chia dữ liệu tái chế và không tái chế và lấy ngăn chiều cao trừ cho dữ liệu, kết quả gửi qua khung Save timeseries để lưu dữ liệu vào thùng rác.
 
 \subsection{Dashboard}
-Dashboard là khung màn hình hiển thị chính của Thingsboard, được tạo bởi các widget hỗ trợ sẵn như hình \ref{fig:dashboard_widget}, hỗ trợ hiển thị, tương tác và trực quan hóa dữ liệu theo nhiều cách. 
+Dashboard là khung màn hình hiển thị chính của Thingsboard, được tạo bởi các widget hỗ trợ sẵn (biểu đồ, bản đồ, bảng, input tương tác, alarms, ...), hỗ trợ hiển thị, tương tác và trực quan hóa dữ liệu theo nhiều cách. 
 
 Dashboard cho phép chúng ta tạo ra nhiều các dashboard khác, trong một dashboard, ta có thể có nhiều state và action event để di chuyển giữa các state, nhiều Entity aliases để phân biệt và gom cụm các thực thể lại với nhau và thêm vào các widget để lấy dữ liệu dễ dàng hơn.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/Khanh/Thingsboard/Dashboard_widget.PNG}
-    \caption{Thingsboard Dashboard Widget List}
-    \label{fig:dashboard_widget}
-\end{figure}
 
 Ở trang dashboard chính, chúng tôi cho hiển thị bản đồ hiện tất cả những thùng rác được tạo như hình \ref{fig:dashboard_map} và một danh sách các thùng rác gồm các thuộc tính của nó như hình \ref{fig:dashboard_asset_list}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Thingsboard/Dashboard_map.PNG}
-    \caption{Smart Bin Tracking Map}
+    \caption{Bản đồ theo dõi vị trí thùng rác}
     \label{fig:dashboard_map}
 \end{figure}
 Bản đồ hiển thị tất cả các thùng rác và địa điểm thu gom rác, được phân biệt bằng icon khác nhau và các thùng rác được clustering để gom cụm từng vùng. Với mỗi thùng rác, khi nhận được trạng thái đầy sẽ chuyển thành màu đỏ để dễ nhận biết. Ngoài ra, mỗi thùng rác còn có tooltip hiện tên, tọa độ, chiều cao, chuỗi thông báo và một đường link dẫn đến state chi tiết của thùng rác. 
@@ -368,15 +370,14 @@ Bản đồ này cũng tích hợp tính năng Polygon để vẽ tuyến đư�
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Thingsboard/Road_optimization.PNG}
-    \caption{Road Optimization Polygon}
+    \caption{Polygon các tọa độ đường đi trên bản đồ}
     \label{fig:map_optimization}
 \end{figure}
-
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Thingsboard/Dashboard_list.PNG}
-    \caption{Smart Bin List}
+    \caption{Danh sách thùng rác hiện có}
     \label{fig:dashboard_asset_list}
 \end{figure}
 Danh sách các thùng rác bao gồm tên, loại, địa chỉ, tọa độ và chiều cao hai ngăn của thùng, mỗi thùng rác được gắn sự kiện event khi nhấn vào thì sẽ chuyển qua state dashboard khác, cụ thể là state hiển thị dữ liệu của thùng rác và các cảm biến của nó.
@@ -385,7 +386,7 @@ Danh sách các thùng rác bao gồm tên, loại, địa chỉ, tọa độ v�
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Thingsboard/Bin_detail.PNG}
-    \caption{Smart Bin Detail}
+    \caption{Giao diện chi tiết của thùng rác thông minh}
     \label{fig:bin_detail}
 \end{figure}
 
@@ -393,6 +394,6 @@ Khi nhấn vào mỗi cảm biến của thùng rác, dashboard sẽ chuyển sa
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Thingsboard/Sensor_detail.PNG}
-    \caption{Sensor Chart}
+    \caption{Biểu đồ thể hiện dữ liệu của cảm biến}
     \label{fig:sensor_detail}
 \end{figure}

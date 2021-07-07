@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.6) (preloaded format=xelatex 2021.6.12)  5 JUL 2021 17:50
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.6) (preloaded format=xelatex 2021.6.12)  7 JUL 2021 21:17
 entering extended mode
 **d:/Green-Final-Report/building.a.smart.bin.system.with.AI-main/thesis.tex
 (d:/Green-Final-Report/building.a.smart.bin.system.with.AI-main/thesis.tex
@@ -1407,40 +1407,44 @@ Package: relsize 2013/03/29 ver 4.1
 \algocf@algoframe=\box74
 \algocf@algobox=\box75
 )
+(C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsrefs\textcmds.sty
+Package: textcmds 2012/08/02 v2.00
+)
 \c@mydef=\count337
 
 
 LaTeX Warning: Unused global option(s):
     [DIV].
 
-(thesis.aux (Abstract/Abstract.aux) (Acknowledgement/Acknowledgement.aux)
-(Chapter1/Chapter1.aux) (Chapter2/Chapter2.aux) (Chapter3/Chapter3.aux)
-(Chapter4/Chapter4.aux) (Chapter5/Chapter5.aux) (Chapter6/Chapter6.aux))
+(thesis.aux (Conference/Conference.aux) (Acknowledgement/Acknowledgement.aux)
+(Abstract/Abstract.aux) (Chapter1/Chapter1.aux) (Chapter2/Chapter2.aux)
+(Chapter3/Chapter3.aux) (Chapter4/Chapter4.aux) (Chapter5/Chapter5.aux)
+(Chapter6/Chapter6.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-Package scrbase Info: activating vietnamese \contentsname on input line 22.
-Package scrbase Info: activating vietnamese \listfigurename on input line 22.
-Package scrbase Info: activating vietnamese \listtablename on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+Package scrbase Info: activating vietnamese \contentsname on input line 23.
+Package scrbase Info: activating vietnamese \listfigurename on input line 23.
+Package scrbase Info: activating vietnamese \listtablename on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1482,68 +1486,68 @@ Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 
 \symlegacymaths=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 22.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 22.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 22.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 22.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 22.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 22.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 22.
-LaTeX Font Info:    Redeclaring math accent \check on input line 22.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 22.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 22.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 22.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 22.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 23.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 23.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 23.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 23.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 23.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 23.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 23.
+LaTeX Font Info:    Redeclaring math accent \check on input line 23.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 23.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 23.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 23.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 23.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 22.
+(Font)              `operators' in the math version `normal' on input line 23.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/LinLibertine(0)/m/n on input line 22
+(Font)                  OT1/cmr/m/n --> TU/LinLibertine(0)/m/n on input line 23
 .
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 22.
+(Font)              `operators' in the math version `bold' on input line 23.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/LinLibertine(0)/m/n on input line 2
-2.
+3.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/LinLibertine(0)/m/n --> TU/LinLibertine(0)/m/n on in
-put line 22.
+put line 23.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/LinLibertine(0)/m/it on input line 
-22.
+23.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/LinLibertine(0)/b/n on input line 2
-2.
+3.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/LinBiolinum(0)/m/n on input line 22
+(Font)                  OT1/cmss/m/n --> TU/LinBiolinum(0)/m/n on input line 23
 .
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> TU/LinLibertine(5)/m/n on input line 2
-2.
+3.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/LinLibertine(0)/m/n --> TU/LinLibertine(0)/b/n on in
-put line 22.
+put line 23.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/LinLibertine(0)/b/it on input line
- 22.
+ 23.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/LinBiolinum(0)/b/n on input line 2
-2.
+3.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/LinLibertine(5)/b/n on input line 2
-2.
-Package hyperref Info: Link coloring OFF on input line 22.
+3.
+Package hyperref Info: Link coloring OFF on input line 23.
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -1556,9 +1560,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count338
 )
-LaTeX Info: Redefining \ref on input line 22.
-LaTeX Info: Redefining \pageref on input line 22.
-LaTeX Info: Redefining \nameref on input line 22.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
  (thesis.out) (thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -1570,7 +1574,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 22.
+(scrbook)           before \begin{document} on input line 23.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
@@ -1581,7 +1585,7 @@ File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
 \BKM@id=\count339
 ))
 Package mathastext Info: current meaning of amsmath \resetMathstrut@ saved on i
-nput line 22.
+nput line 23.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1616,46 +1620,171 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\openout2 = `Conference/Conference.aux'.
+
+ (Conference/Conference.tex
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 13.0pt on input line 39.
+(Font)              scaled to size 13.0pt on input line 1.
 Requested font "[LinBiolinum_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;ma
 pping=tex-text;" at 13.0pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinBiolinum_R.otf
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 13.0pt on input line 39.
+(Font)              scaled to size 13.0pt on input line 1.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;m
 apping=tex-text;" at 13.0pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinBiolinum_RB.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 13.0pt on input line 39.
+(Font)              scaled to size 13.0pt on input line 1.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;
 mapping=tex-text;" at 13.0pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinLibertine_RB.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 26.96207pt on input line 39.
+(Font)              scaled to size 26.96207pt on input line 1.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;
 mapping=tex-text;" at 26.96207pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinLibertine_RB.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.0pt on input line 39.
+(Font)              scaled to size 14.0pt on input line 1.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;
 mapping=tex-text;" at 14.0pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinLibertine_RB.otf
- (thesis.toc
-LaTeX Font Info:    Calculating math sizes for size <13> on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@centercr' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rightskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@flushglue' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leftskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@flushglue' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\finalhyphendemerits' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\parindent' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\parfillskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@skip' on input line 1.
+
+)
+Overfull \hbox (19.1741pt too wide) in paragraph at lines 3--41
+[]\TU/LinLibertine(0)/m/n/13 Hội đồng chấm khóa luận tốt nghiệp, thành lập the
+o Quyết định số ……………………
+ []
+
+[1
+
+
+
+
+
+
+
+]
+\openout2 = `Acknowledgement/Acknowledgement.aux'.
+
+ (Acknowledgement/Acknowledgement.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@centercr' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rightskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@flushglue' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leftskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@flushglue' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\finalhyphendemerits' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\parindent' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\parfillskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@skip' on input line 1.
+
+LaTeX Font Info:    Calculating math sizes for size <13> on input line 15.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 10.83287pt on input line 5.
+(Font)              scaled to size 10.83287pt on input line 15.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;m
 apping=tex-text;" at 10.83287pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinLibertine_R.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 9.09996pt on input line 5.
+(Font)              scaled to size 9.09996pt on input line 15.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;m
 apping=tex-text;" at 9.09996pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
@@ -1669,7 +1798,7 @@ Requested font "cmsy9" at 9.09996pt
 Requested font "cmex10" at 13.0pt
 Requested font "cmex10" at 10.83287pt
 Requested font "cmex9" at 9.09996pt
-LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1677,7 +1806,8 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 Requested font "msam10" at 13.0pt
 Requested font "msam10" at 10.83287pt
 Requested font "msam10" at 9.09996pt
-LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+
 
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1694,30 +1824,34 @@ an9-regular.otf
 Requested font "cmr12" at 13.0pt
 Requested font "cmr10" at 10.83287pt
 Requested font "cmr9" at 9.09996pt
-
-[1
-
-
+)
+[2
 
 
 
 
-] [2])
+
+] (thesis.toc [3
+
+
+
+
+] [4])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [3] (thesis.lof [4
+ [5] (thesis.lof [6
 
 
 ])
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [5] (thesis.lot)
+ [7] (thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [6
+ [8
 
 
 ]
@@ -1727,15 +1861,15 @@ Requested font "cmr9" at 9.09996pt
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(71.13188pt, 469.47049pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 717.00946pt, 71.13188pt)
+* h-part:(L,W,R)=(99.58464pt, 441.01773pt, 56.9055pt)
+* v-part:(T,H,B)=(85.35826pt, 660.10394pt, 99.58464pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=469.47049pt
-* \textheight=717.00946pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-58.26436pt
+* \textwidth=441.01773pt
+* \textheight=660.10394pt
+* \oddsidemargin=27.31465pt
+* \evensidemargin=27.31465pt
+* \topmargin=-29.8116pt
 * \headheight=19.49994pt
 * \headsep=23.39993pt
 * \topskip=13.0pt
@@ -1755,27 +1889,64 @@ Requested font "cmr9" at 9.09996pt
 
 \openout2 = `Abstract/Abstract.aux'.
 
- (Abstract/Abstract.tex)
-[1
+
+(Abstract/Abstract.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@centercr' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rightskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@flushglue' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leftskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@flushglue' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\finalhyphendemerits' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\parindent' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\parfillskip' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@skip' on input line 1.
+
+) [1
 
 
 
-
-
-]
-\openout2 = `Acknowledgement/Acknowledgement.aux'.
-
- (Acknowledgement/Acknowledgement.tex) [2
-
-
-
-
-
-]
-
-LaTeX Warning: Citation `DBPedia' on page 3 undefined on input line 54.
-
-[3
 
 
 ]
@@ -1799,206 +1970,60 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              deprecated \float@addtolist interface.
 
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 18.72003pt on input line 5.
+(Font)              scaled to size 18.72003pt on input line 4.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;
 mapping=tex-text;" at 18.72003pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinLibertine_RB.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 15.59996pt on input line 6.
+(Font)              scaled to size 15.59996pt on input line 5.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;
 mapping=tex-text;" at 15.59996pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinLibertine_RB.otf
+File: images/TraditionalTrash.png Graphic file (type bmp)
+<images/TraditionalTrash.png>
+[2
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
-[]|\TU/LinLibertine(0)/m/n/13 Rác hữu
- []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 17--18
-[]|\TU/LinLibertine(0)/m/n/13 Rác hữu cơ là loại
- []
 
 
-Underfull \hbox (badness 1253) in paragraph at lines 17--18
-\TU/LinLibertine(0)/m/n/13 rau, củ, quả, …. Có
- []
-
-
-Underfull \hbox (badness 2726) in paragraph at lines 17--18
-\TU/LinLibertine(0)/m/n/13 chế để đưa vào sử
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-\TU/LinLibertine(0)/m/n/13 phẩm sau khi lấy
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-\TU/LinLibertine(0)/m/n/13 đi phần chế biến
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
-\TU/LinLibertine(0)/m/n/13 hỏng hoặc không
- []
-
-
-Underfull \hbox (badness 2111) in paragraph at lines 24--24
-\TU/LinLibertine(0)/m/n/13 cỏ không được con
- []
-
-
-Underfull \hbox (badness 5681) in paragraph at lines 25--26
-\TU/LinLibertine(0)/m/n/13 trái cây đã bị hư,
- []
-
-
-Underfull \hbox (badness 2318) in paragraph at lines 27--28
-[]\TU/LinLibertine(0)/m/n/13 Cơm canh, thức ăn
- []
-
-
-Underfull \hbox (badness 1147) in paragraph at lines 27--28
-\TU/LinLibertine(0)/m/n/13 thừa hoặc bị thiu….
- []
-
-
-Underfull \hbox (badness 1430) in paragraph at lines 27--28
-\TU/LinLibertine(0)/m/n/13 Các loại bã chè, bã
- []
-
-
-Underfull \hbox (badness 4699) in paragraph at lines 36--37
-\TU/LinLibertine(0)/m/n/13 loại rác không thể
- []
-
-
-Underfull \hbox (badness 6493) in paragraph at lines 36--37
-\TU/LinLibertine(0)/m/n/13 sử dụng được nữa
- []
-
-
-Underfull \hbox (badness 2269) in paragraph at lines 36--37
-\TU/LinLibertine(0)/m/n/13 cũng không thể tái
- []
-
-
-Underfull \hbox (badness 2573) in paragraph at lines 38--39
-\TU/LinLibertine(0)/m/n/13 dựng không thẻ sử
- []
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 40--41
-[]\TU/LinLibertine(0)/m/n/13 Các loại bao bì bọc
- []
-
-
-Underfull \hbox (badness 4981) in paragraph at lines 40--41
-\TU/LinLibertine(0)/m/n/13 bên ngoài hộp/chai
- []
-
-
-Underfull \hbox (badness 3579) in paragraph at lines 42--44
-[]\TU/LinLibertine(0)/m/n/13 Các loại túi nilong
- []
-
-
-Underfull \hbox (badness 1817) in paragraph at lines 42--44
-\TU/LinLibertine(0)/m/n/13 được bỏ đi sau khi
- []
-
-
-Underfull \hbox (badness 4505) in paragraph at lines 42--44
-\TU/LinLibertine(0)/m/n/13 thực phẩm Một số
- []
-
-
-Underfull \hbox (badness 1946) in paragraph at lines 45--46
-\TU/LinLibertine(0)/m/n/13 vỡ hoặc không còn
- []
-
-
-Underfull \hbox (badness 6078) in paragraph at lines 47--48
-[]\TU/LinLibertine(0)/m/n/13 Ly, cốc, bình thủy
- []
-
-
-Underfull \hbox (badness 4859) in paragraph at lines 51--52
-[]\TU/LinLibertine(0)/m/n/13 Đồ da, đồ cao su,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
-\TU/LinLibertine(0)/m/n/13 đĩa nhạc, radio…
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-[]|\TU/LinLibertine(0)/m/n/13 Rác tái
- []
-
-
-Underfull \hbox (badness 6032) in paragraph at lines 59--60
-[]|\TU/LinLibertine(0)/m/n/13 Thùng carton, sách
- []
-
-
-Underfull \hbox (badness 1783) in paragraph at lines 63--64
-\TU/LinLibertine(0)/m/n/13 ngọt/lon bia/vỏ hộp
- []
-
-
-Underfull \hbox (badness 3312) in paragraph at lines 65--66
-[]\TU/LinLibertine(0)/m/n/13 Các loại ghế nhựa,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
-\TU/LinLibertine(0)/m/n/13 thau/chậu nhựa,
- []
-
-[4
-
-
-
-]
-Overfull \vbox (71.08801pt too high) has occurred while \output is active []
-
-
-[5] [6]
+] [3] [4]
 File: images/SoDoChonLap.png Graphic file (type bmp)
 <images/SoDoChonLap.png>
- [7] [8] [9] [10] [11]) [12]
+ [5] [6] [7] [8] [9] [10]) [11]
 \openout2 = `Chapter2/Chapter2.aux'.
 
  (Chapter2/Chapter2.tex
 chapter 2.
-[13
+[12
 
 
 
 
 
-] [14]
+] [13]
 File: images/Quanh/LoraWan_Stack.png Graphic file (type bmp)
 <images/Quanh/LoraWan_Stack.png>
- [15]
+ [14]
 File: images/Quanh/LoraWan_Netwrok.png Graphic file (type bmp)
 <images/Quanh/LoraWan_Netwrok.png>
- [16]
 
-LaTeX Warning: Reference `fig:lora_gateway' on page 17 undefined on input line 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[15]
+
+LaTeX Warning: Reference `fig:lora_gateway' on page 16 undefined on input line 
 119.
 
 File: images/Quanh/lora_gateway.png Graphic file (type bmp)
 <images/Quanh/lora_gateway.png>
-[17]
+[16]
 File: images/Quanh/lora_kit.png Graphic file (type bmp)
 <images/Quanh/lora_kit.png>
- [18]
+ [17] [18]
 File: images/Khanh/Python/LSTM_cell_structure.PNG Graphic file (type bmp)
 <images/Khanh/Python/LSTM_cell_structure.PNG>
 
@@ -2008,7 +2033,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [19] [20] [21]
 File: images/Khanh/Thingsboard/thingsboard_overall.png Graphic file (type bmp)
 <images/Khanh/Thingsboard/thingsboard_overall.png>
- [22]) [23]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22]) [23]
 \openout2 = `Chapter3/Chapter3.aux'.
 
  (Chapter3/Chapter3.tex
@@ -2027,10 +2056,10 @@ File: images/Chart_smartbin.png Graphic file (type bmp)
  [25]
 File: images/Khanh/Nodejs/Chart_server1.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Chart_server1.png>
- [26]
+ [26] [27]
 File: images/Khanh/Nodejs/Chart_server2.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Chart_server2.png>
- [27] [28]) [29]
+ [28]) [29]
 \openout2 = `Chapter4/Chapter4.aux'.
 
  (Chapter4/Chapter4.tex
@@ -2044,9 +2073,14 @@ File: images/Quanh/ktmang.png Graphic file (type bmp)
 
 
 ]
+Overfull \hbox (1.8267pt too wide) in paragraph at lines 30--32
+[]\TU/LinLibertine(0)/m/n/13 Chúng tôi dùng bộ dataset TrashNet [[]] để train v
+à test với kích thước 512x384.
+ []
+
 File: images/Quanh/Trash Classification.png Graphic file (type bmp)
 <images/Quanh/Trash Classification.png>
- [31]
+[31]
 File: images/Quanh/graph.png Graphic file (type bmp)
 <images/Quanh/graph.png>
  [32]
@@ -2056,9 +2090,13 @@ File: images/Quanh/matrix.png Graphic file (type bmp)
 File: images/Quanh/Trash Result.png Graphic file (type bmp)
 <images/Quanh/Trash Result.png>
  [35]
+Overfull \vbox (6.6698pt too high) has occurred while \output is active []
+
+
+[36]
 File: images/Quanh/Trash Failed.png Graphic file (type bmp)
 <images/Quanh/Trash Failed.png>
- [36]
+
 
 LaTeX Warning: Reference `fig:DWglass2' on page 37 undefined on input line 136.
 
@@ -2110,146 +2148,181 @@ Underfull \hbox (badness 1331) in paragraph at lines 289--289
 []|\TU/LinLibertine(0)/m/n/13 • Không cần decoder (do thư
  []
 
-) [46]
+[46]) [47]
 \openout2 = `Chapter5/Chapter5.aux'.
 
  (Chapter5/Chapter5.tex
 chapter 5.
-[47
+[48
 
 
 
 
 
-]
+] [49]
 File: images/Khanh/Nodejs/Server_Create_Stimulate_Device.png Graphic file (type
  bmp)
 <images/Khanh/Nodejs/Server_Create_Stimulate_Device.png>
- [48] [49]
-Overfull \hbox (0.10565pt too wide) in paragraph at lines 77--78
-[]\TU/LinLibertine(0)/m/n/13 POST /api/plugins/telemetry/ASSET/{id thùng rác}/{
-attributes || time-
- []
-
+ [50] [51]
 File: images/Khanh/Nodejs/Server_Predict_Empty_Bin.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Server_Predict_Empty_Bin.png>
-[50]
-Overfull \hbox (0.28879pt too wide) in paragraph at lines 95--96
-\TU/LinLibertine(0)/m/n/13 sources&annotations&access_token để lấy ma trận khoả
-ng cách hoặc thời
+ [52]
+Overfull \hbox (22.79182pt too wide) in paragraph at lines 94--95
+\TU/LinLibertine(0)/m/n/13 chuỗi ’{lng_nơigomrác},{lat_nơigomrác};{lng_thùng1},
+{lat_thùng1};{lng_ 
  []
 
-[51]
-File: images/Khanh/Nodejs/Server_Get_Map.png Graphic file (type bmp)
-<images/Khanh/Nodejs/Server_Get_Map.png>
- [52]
-Overfull \hbox (23.51979pt too wide) in paragraph at lines 122--123
-\TU/LinLibertine(0)/m/n/13 language&roundtrip&geometries&steps&access_token để 
-lấy ma trận khoảng
+
+Overfull \hbox (9.31735pt too wide) in paragraph at lines 95--96
+[]\TU/LinLibertine(0)/m/n/13 Gọi API từ Mapbox GET /directions-matrix/v1/{profi
+le}/{coordinates}? 
+ []
+
+
+Overfull \hbox (5.43687pt too wide) in paragraph at lines 95--96
+\TU/LinLibertine(0)/m/n/13 sources&annotations&access_token để lấy ma trận khoả
+ng cách hoặc
  []
 
 [53]
+File: images/Khanh/Nodejs/Server_Get_Map.png Graphic file (type bmp)
+<images/Khanh/Nodejs/Server_Get_Map.png>
+ [54]
+Overfull \hbox (22.79182pt too wide) in paragraph at lines 121--122
+\TU/LinLibertine(0)/m/n/13 chuỗi ’{lng_nơigomrác},{lat_nơigomrác};{lng_thùng1},
+{lat_thùng1};{lng_ 
+ []
+
+
+Overfull \hbox (10.11688pt too wide) in paragraph at lines 122--123
+\TU/LinLibertine(0)/m/n/13 language&roundtrip&geometries&steps&access_token để 
+lấy ma trận
+ []
+
+
+Overfull \hbox (7.81804pt too wide) in paragraph at lines 122--123
+\TU/LinLibertine(0)/m/n/13 khoảng cách hoặc thời gian di chuyển giữa nhiều điểm
+. Những params
+ []
+
+[55]
+Overfull \hbox (20.6794pt too wide) in paragraph at lines 133--134
+[]\TU/LinLibertine(0)/m/n/13 Gửi kết quả định dạng lên Thingsboard thông qua AP
+I POST /api/plugins 
+ []
+
 File: images/Khanh/Nodejs/Server_Random_Telemetry.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Server_Random_Telemetry.png>
- [54] [55] [56]
+[56] [57] [58] [59]
 File: images/Khanh/Python/Python_general.png Graphic file (type bmp)
 <images/Khanh/Python/Python_general.png>
- [57] [58]
+ [60]
 File: images/Khanh/Python/LSTM Model.PNG Graphic file (type bmp)
 <images/Khanh/Python/LSTM Model.PNG>
+ [61]
 File: images/Khanh/Python/CSV_Structure.PNG Graphic file (type bmp)
 <images/Khanh/Python/CSV_Structure.PNG>
- [59]
 File: images/Khanh/Python/CSV_Plot_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/CSV_Plot_Chart.png>
- [60]
+ [62]
 File: images/Khanh/Python/Loss_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Loss_Chart.png>
+ [63]
 File: images/Khanh/Python/Recycle_Test_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Recycle_Test_Chart.png>
 File: images/Khanh/Python/Non-Recycle_Test_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Non-Recycle_Test_Chart.png>
- [61]
+ [64]
 File: images/Khanh/Python/Final_results.png Graphic file (type bmp)
 <images/Khanh/Python/Final_results.png>
- [62]
+
+Overfull \hbox (10.85199pt too wide) in paragraph at lines 266--272
+[]\TU/LinLibertine(0)/m/n/13 Ở bước cuối cùng chúng tôi sử dụng model để dự đoá
+n mức rác vào 12 time_steps
+ []
+
+[65]
 File: images/Khanh/Thingsboard/Assets.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Assets.PNG>
+ [66]
 File: images/Khanh/Thingsboard/Devices.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Devices.PNG>
- [63]
+ [67]
 File: images/Khanh/Thingsboard/Asset_details.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Asset_details.PNG>
 File: images/Khanh/Thingsboard/Asset_relation.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Asset_relation.PNG>
- [64] [65]
+ [68]
 File: images/Khanh/Thingsboard/Root_rule_chain.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Root_rule_chain.PNG>
 File: images/Khanh/Thingsboard/Delta_rule_chain.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Delta_rule_chain.PNG>
- [66]
+ [69]
 File: images/Khanh/Thingsboard/Dashboard_map.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Dashboard_map.PNG>
- [67]
+ [70]
 File: images/Khanh/Thingsboard/Road_optimization.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Road_optimization.PNG>
-
-[68]
+ [71]
 File: images/Khanh/Thingsboard/Dashboard_list.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Dashboard_list.PNG>
 File: images/Khanh/Thingsboard/Bin_detail.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Bin_detail.PNG>
- [69]
+ [72]
 File: images/Khanh/Thingsboard/Sensor_detail.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Sensor_detail.PNG>
-) [70]
+) [73]
 \openout2 = `Chapter6/Chapter6.aux'.
 
  (Chapter6/Chapter6.tex
 chapter 6.
-) [71
+[74
 
 
 
 
 
-]
+]) [75]
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
-(Font)              scaled to size 13.0pt on input line 68.
+(Font)              scaled to size 13.0pt on input line 75.
 Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;
 mapping=tex-text;" at 13.0pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinLibertine_RI.otf
 
-Underfull \hbox (badness 3138) in paragraph at lines 82--83
-[]\TU/LinLibertine(0)/m/n/13 Thingsboard API 2021 created by Thingsboard team. 
-[Online]. Available:
+Underfull \hbox (badness 1540) in paragraph at lines 75--76
+[]\TU/LinLibertine(0)/m/n/13 Gary Thung, Mindy Yang. \TU/LinLibertine(0)/m/it/1
+3 Classification of trash for recyclability sta-
  []
 
-[72
+
+Underfull \hbox (badness 1701) in paragraph at lines 81--82
+[]\TU/LinLibertine(0)/m/n/13 XiaoFeng Wang, Ying Zhang. \TU/LinLibertine(0)/m/i
+t/13 Multi-Step-Ahead Time Series Prediction
+ []
+
+[76
 
 
 
 
-] (thesis.aux (Abstract/Abstract.aux) (Acknowledgement/Acknowledgement.aux)
+] (thesis.aux (Conference/Conference.aux)
+(Acknowledgement/Acknowledgement.aux) (Abstract/Abstract.aux)
 (Chapter1/Chapter1.aux) (Chapter2/Chapter2.aux) (Chapter3/Chapter3.aux)
 (Chapter4/Chapter4.aux) (Chapter5/Chapter5.aux) (Chapter6/Chapter6.aux))
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31019 strings out of 411271
- 620669 string characters out of 2828803
- 1239510 words of memory out of 3000000
- 50988 multiletter control sequences out of 15000+600000
+ 31084 strings out of 411271
+ 621628 string characters out of 2828803
+ 1236776 words of memory out of 3000000
+ 51041 multiletter control sequences out of 15000+600000
  409451 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  122i,14n,122p,10719b,648s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (78 pages).
+Output written on thesis.pdf (84 pages).

@@ -1,8 +1,28 @@
 % !TEX root = ..\thesis.tex
 
 
-\chapter{Khó khăn, so sánh và hướng phát triển}
+\chapter{Khó khăn và hướng phát triển đề tài}
 
 
 \section{Khó khăn}
-Khi setup node, nhóm gặp vấn đề về frequency, node không thể gửi data cho gateway
+\subsection{Về thiết bị}
+Khi setup node, nhóm gặp vấn đề về frequency, node không thể gửi data cho gateway.
+\subsection{Về server}
+\begin{itemize}
+    \item Việc xử lý dự đoán chuỗi dữ liệu rác của nhiều thùng rác mất thời gian dài để train vì model sử dụng nhiều layer, khi thực hiện với một số lượng lớn thùng rác thì có thể bị trễ giờ thu gom. Nếu mô hình sử dụng nhiều layer và epochs để train thì có thể mất càng nhiều thời gian hơn nữa.
+    \item Với kiến thức hạn chế về Deep Learning nên còn gặp khá nhiều sai sót trong quá trình xây dựng và kiểm thử mô hình. Ngoài ra, dữ liệu rác thực tế vẫn còn rất ít và đơn giản, chưa đủ để kết luận và đánh giá chính xác được hiệu suất của mô hình. 
+    \item Server của Thingsboard rất dễ xảy ra sự cố timeout khi gửi nhiều request cùng một lúc, gây ra hiện tượng mất gói tin đến và dẫn đến sự thiếu hụt thông tin. Sau này việc mở rộng dự án với số lượng request thùng rác ngày càng tăng là một vấn đề cần được giải quyết.
+    \item Những API miễn phí cung cấp từ Mapbox chỉ hạn chế số lượng request ở từng API như 100.000 Optimization, 100.000 Matrix, .../1 request. Vì thế, khi dự án kéo dài phải tính thêm việc trả phí để sử dụng những tính năng từ Mapbox.
+    \item Những widget kéo thả cung cấp bởi Thingsboard rất tiện lợi và đa dạng nhưng mang lại phong cách khá đơn giản và một số cái khá rập khuôn khi sử dụng, ngoài ra, vẫn chưa tận dụng hết những tính năng mà Thingsboard mang lại.      
+\end{itemize}
+
+\section{Hướng phát triển đề tài}
+\subsection{Về thiết bị}
+\subsection{Về server}
+\begin{itemize}
+    \item Mô hình thu gom có hướng mở rộng khả quan, cụ thể là với mối quan hệ liên quan chặt chẽ giữa các đối tượng với nhau, dự án có thể phát triển thêm nhiều nơi gom rác khác nhau và một nơi gom rác có thể quản lý nhiều thùng rác trong bán kính cụ thể.
+    \item Khi mở rộng mô hình, cần cải tiến thêm chức năng thu gom tọa độ để vẽ đường đi tối ưu cho từng cụm thu gom, hạn chế việc di chuyển đến các thùng rác ở khoảng cách xa, ngoài ra trong quá trình dự đoán các thùng rác còn trống cần lọc ra những thùng rác nào thực sự cần phải dự đoán để giảm thiểu công việc xử lý cho Python Server.
+    \item Ngoài ra, cần phải phân bổ các cụm thùng rác cho Customer quản lý và quan sát dữ liệu rác khi số lượng thùng rác tăng lên đáng kể. Khi đó, việc xác định những thùng rác đầy sẽ là nhiệm vụ của các Customers và chúng tôi sẽ điều chỉnh lại chức năng tìm đường ngắn nhất sao cho phù hợp nhất. 
+    \item Tuy mô hình dự đoán vẫn chưa ổn định, song nếu có thời gian hoàn thiện và kiểm thử nhiều dạng dữ liệu với số lượng lớn hơn thì có thể đưa ra đánh giá hiệu suất chính xác và giải pháp cải tiến thuật toán cho mô hình.   
+    \item Về phần giao diện, vì tính tiện lợi, mở rộng và hiệu quả của Thingsboard cung cấp, chúng tôi cân nhắc nâng cấp giao diện lên bản Professional Edition vì tính ổn định và nhiều tính năng khác.
+\end{itemize}

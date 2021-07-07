@@ -14,6 +14,7 @@
 \usepackage[algo2e]{algorithm2e}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{textcmds}
 \newtheorem{mydef}{Definition}
 
 
@@ -36,8 +37,15 @@
 %\end{otherlanguage}
 
 \pagestyle{empty}
+% \include{Cover/Cover}
+\include{Conference/Conference}
+\include{Acknowledgement/Acknowledgement}
+
+\renewcommand{\contentsname}{Mục lục\centering}
 \tableofcontents
+\renewcommand{\listfigurename}{Danh mục hình\centering}
 \listoffigures
+\renewcommand{\listtablename}{Danh mục bảng\centering}
 \listoftables
 %\renewcommand{\nomname}{\IfLanguageName{vietnamese}{Danh sách các từ viết tắt}{Abbreviations}}
 %\printnomenclature[2cm]
@@ -47,11 +55,10 @@
 \setcounter{page}{1}
 
 
-\newgeometry{left=2.5cm,right=2cm,top=2cm,bottom=2.5cm}
+\newgeometry{left=3.5cm,right=2cm,top=3cm,bottom=3.5cm}
 
 \include{Abstract/Abstract}
-\include{Acknowledgement/Acknowledgement}
-\cite{DBPedia}
+
 \include{Chapter1/Chapter1}
 \include{Chapter2/Chapter2}
 \include{Chapter3/Chapter3}
@@ -69,17 +76,11 @@
 
 \bibitem{smartcity} De Carolis, Berardina, Francesco Ladogana, and Nicola Macchiarulo.\textit{YOLO TrashNet: Garbage Detection in Video Streams.} 2020 IEEE Conference on Evolving and Adaptive Intelligent Systems (EAIS). IEEE, 2020.
 %\bibitem{DBPedia} Bizer, Christian, Jens Lehmann, Georgi Kobilarov, Sören Auer, Christian Becker, Richard Cyganiak, and Sebastian Hellmann. "DBpedia-A crystallization point for the Web of Data." Web Semantics: science, services and agents on the world wide web 7, no. 3 (2009): 154-165.
-\bibitem{lstmevaluation} Ralf C. Staudemeyer, Christian W. Omlin. \textit{Evaluating performance of long short-term memoryrecurrent neural networks on intrusion detection data}. Proceedings of the South African Institute for Computer Scientists and Information Technologists Conference 2013
+\bibitem{lstmprediction1} Liu Yunpeng, Di Hou, Bao Junpeng, Qi Yong. \textit{Multi-step Ahead Time Series Forecasting for Different Data Patterns Based on LSTM Recurrent Neural Network}. 2017 14th Web Information Systems and Applications Conference (WISA). IEEE 2017.
 
-\bibitem{lstmprediction} Athar Khodabakhsh, Ismail Ari, Mustafa Bakir, Serhat Murat Alagoz. \textit{Forecasting Multivariate Time-Series Data using LSTM and Mini-batches}. Data Science: From Research to Application 2020
+\bibitem{lstmprediction2} XiaoFeng Wang, Ying Zhang. \textit{Multi-Step-Ahead Time Series Prediction Method with Stacking LSTM Neural Network}. 2020 3rd International Conference on Artificial Intelligence and Big Data (ICAIBD). IEEE, 2020.
 
-\bibitem{lstmmultivariateprediction} Jason Brownlee. \textit{Multivariate Time Series Forecasting with LSTMs in Keras} in Deep Learning for Time Series 2017.
-
-\bibitem{nodejsserver} S. L. Bangare, S. Gupta, M. Dalal, A. Inamdar. \textit{Using Node.Js to Build High Speed and Scalable Backend Database Server}. International Journal of Research in Advent Technology (E-ISSN: 2321-9637) Special Issue National Conference “NCPCI-2016”, 2016 
-
-\bibitem{mapbox} Mapbox API 2021 Mapbox Inc. [Online]. Available: https://docs.mapbox.com/api/
-
-\bibitem{thingsboard} Thingsboard API 2021 created by Thingsboard team. [Online]. Available: http://demo.thingsboard.io/swagger-ui.html
+\bibitem{lstmprediction3} Bipin Aasi, Syeda Aniqa Imtiaz, Hamzah Arif Qadeer, Magdalean Singarajah, Rasha Kashef. \textit{Stock Price Prediction Using a Multivariate Multistep LSTM: A Sentiment and Public Engagement Analysis Model}. 2021 IEEE International IOT, Electronics and Mechatronics Conference (IEMTRONICS). IEEE, 2021.
 
 \end{thebibliography}
 

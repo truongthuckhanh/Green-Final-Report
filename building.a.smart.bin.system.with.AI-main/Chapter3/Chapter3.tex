@@ -13,11 +13,11 @@ Mô hình tổng quan của đề tài hình \ref{fig:general_chart}
 Ở mô hình tổng quan đề tài, chúng tôi chia làm 2 phần, về thiết bị và về server.
 
 \begin{itemize}
-    \item Về thiết bị, tôi gắn 2 loại board và 2 ultrasonic sensor vào thùng rác để thực hiện 2 mục đích khác nhau, cụ thể:
+    \item Về thiết bị, chúng tôi gắn 2 loại board và 3 ultrasonic sensor, 1 servo vào thùng rác để thực hiện 2 mục đích khác nhau, cụ thể:
         \begin{itemize}
             \item ESP32 camera AI Thinker, dùng vào mục đích chụp ảnh và phục vụ chức năng phân loại rác thải.
             \item  ESP32 Lora heltec, dùng trong mục đích thu thập data và gửi data cho server bằng công nghệ LoRaWAN.
-            \item Ultrasonic sensor thực hiện nhiệm vụ đo độ dài khoảng trống còn lại trong thùng rác.
+            \item 2 Ultrasonic sensor thực hiện nhiệm vụ đo độ dài khoảng trống còn lại trong thùng rác. Và 1 Ultrasonic sensor có nhiệm vụ phát hiện có rác trong thùng để camera được kích hoạt. 1 servo để tác động làm mặt đựng rác quay trái hoặc quay phải.
         \end{itemize}
 
     \item Về server, sử dụng Nodejs và Flask làm server cung cấp API, Thingsboard để làm giao diện hiển thị và một số server thứ ba khác, chức năng được mô tả cụ thể như sau:
@@ -40,6 +40,23 @@ Hình \ref{fig:chart_smartbin} mô tả chi tiết về cấu tạo của thùng
     \label{fig:chart_smartbin}
 \end{figure}
 
+Như đã nói ở sơ đồ \ref{fig:general_chart}, Smart bin sẽ bao gồm 2 board, hoạt động cụ thể của chúng như sau:
+\begin{itemize}
+    \item Phân loại rác (ESP32Cam AI Thinker): Phía trong mặt trên của thùng rác được gắn 1 hộp thiết bị, bao gồm mạch ESP32Cam AI Thinker và 1 ultrasonic sensor.
+    \begin{enumerate}
+        \item Khi bỏ rác vào thùng, rác sẽ làm cho chiều cao của thùng thay đổi, cụ thể là khoảng cách từ mặt trên bên trong của thùng đến phần tiếp xúc của rác sẽ giảm. Từ đó, đáp ứng điều kiện để kích hoạt camera chụp ảnh.
+        \item Camera chụp ảnh.
+        \item Hình ảnh đã chụp được mạch thực hiện thao tác convert qua 1 mảng byte.
+        \item Model detec ảnh đã được train từ Google Colab và đưa vào mạch cũng là 1 mảng byte. Nên mạch tiến hành so sánh 2 mảng byte đó và đưa ra kết quả detec.
+        \item Sau khi có kết quả detec loại rác, mạch sẽ xét điều kiện xem loại rác đã được detec(glass/metal/plastic/cardboard/paper/other trash) thuộc loại rác: Tái tế hay Không tái chế.
+        \item Sau khi có kết quả loại rác là "tái chế" hay " Không tái chế" thì mạch tiếp tục xét điều kiện:
+        \begin{enumerate}
+            \item Nếu rác thuộc loại "tái chế": servo sẽ quay 180 độ để làm rác rớt vào ngăn bên phải.
+            \item Nếu rác thuộc loại "tái chế": servo sẽ quay 0 độ để làm rác rớt vào ngăn bên trái.
+        \end{enumerate} 
+    \end{enumerate}
+    \item ESP32 Lora heltec, dùng trong mục đích thu thập data và gửi data cho server bằng công nghệ LoRaWAN.
+\end{itemize}
 
 Mô hình server từ bước khởi tạo đến gửi dữ liệu được vẽ ở hình \ref{fig:chart_server1} và được mô tả chi tiết như sau:
 \begin{figure}[H]

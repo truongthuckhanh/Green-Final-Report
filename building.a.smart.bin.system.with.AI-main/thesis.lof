@@ -1,0 +1,57 @@
+\babel@toc {vietnamese}{}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Sơ đồ chôn lấp\relax }}{6}{figure.caption.8}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces LoRaWAN Technology Stack\relax }}{15}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Mô hình LoRaWAN Network\relax }}{16}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces LG02 Dragino Gateway\relax }}{17}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Kit RF thu phát wifi Blue esp32 + lora sx1278 oled heltec\relax }}{18}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Sở đồ biểu diễn kiến trúc bên trong tế bào LSTM\relax }}{20}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Mô hình tổng quan Thingsboard\relax }}{23}{figure.caption.16}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Mô hình tổng quan\relax }}{24}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Mô hình device\relax }}{26}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Mô hình server từ bước khởi tạo đến gửi dữ liệu\relax }}{28}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Mô hình server từ bước gửi dữ liệu đến xử lý bản đồ\relax }}{29}{figure.caption.20}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Minh họa kiến trúc mạng đã xây dựng\relax }}{32}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Biểu đồ thể hiện loss và accuracy của mô hình trong quá trình train\relax }}{35}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Xác thực tại địa chỉ 10.130.1.1\relax }}{40}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Scan mạng Wireless\relax }}{41}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Tham gia vào wifi và nhập mật khẩu\relax }}{41}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Tắt wifi mặc định\relax }}{42}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Cấu hình địa chỉ IP của cổng Ethernet (Ubuntu 20.04)\relax }}{43}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Lấy ID của Gateway\relax }}{44}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Giao diện Gateway đã được tạo (chưa connect)\relax }}{44}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Nhập ID vào Frequency plan\relax }}{45}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Config LG02\relax }}{46}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Chọn server address thích hợp\relax }}{46}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Thông số configure\relax }}{47}{figure.caption.41}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Sơ đồ miêu tả mô hình khởi tao thiết bị và cảm biến\relax }}{52}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sơ đồ miêu tả mô hình gửi dữ liệu tiên đoán và kiểm tra mức rác\relax }}{55}{figure.caption.44}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Sơ đồ miêu tả luồng xuất mảng tọa độ đường đi tối ưu tới thùng rác đầy\relax }}{57}{figure.caption.45}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Sơ đồ miêu tả luồng tạo dữ liệu giả cho thiết bị ảo\relax }}{59}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Hiệu suất của Nodejs khi nhận 10000 request không Clustering\relax }}{63}{figure.caption.48}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Hiệu suất của Nodejs khi nhận 10000 request Clustering\relax }}{63}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Hiệu suất của Nodejs khi nhận 100 request không Clustering\relax }}{64}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Hiệu suất của Nodejs khi nhận 100 request Clustering\relax }}{64}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Sơ đồ mô tả tổng quát mô hình Deep Learning dự đoán lượng rác\relax }}{66}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Biểu đồ lượng rác tái chế và không tái chế thu thập vào tháng 6\relax }}{69}{figure.caption.55}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Giá trị Train loss và Val loss\relax }}{70}{figure.caption.56}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces So sánh actual với predicted của tập test tái chế\relax }}{71}{figure.caption.57}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces So sánh actual với predicted của tập test không tái chế\relax }}{71}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Biểu đồ mức rác tái chế và không tái chế sau 4 tiếng tiếp theo\relax }}{72}{figure.caption.59}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Danh sách thùng rác\relax }}{73}{figure.caption.60}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Danh sách cảm biến\relax }}{73}{figure.caption.61}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Thuộc tính thùng rác\relax }}{74}{figure.caption.62}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Mối quan hệ của thùng rác với cảm biến\relax }}{74}{figure.caption.63}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Root Rule Chain\relax }}{75}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Delta-calculation Rule Chain\relax }}{76}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Bản đồ theo dõi vị trí thùng rác\relax }}{77}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Polygon các tọa độ đường đi trên bản đồ\relax }}{78}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Danh sách thùng rác hiện có\relax }}{78}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Giao diện chi tiết của thùng rác thông minh\relax }}{79}{figure.caption.69}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Biểu đồ thể hiện dữ liệu của cảm biến\relax }}{79}{figure.caption.70}%
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

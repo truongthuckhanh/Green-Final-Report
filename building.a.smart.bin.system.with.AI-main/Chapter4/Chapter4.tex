@@ -6,8 +6,20 @@
 
 
 \section{Xây dựng model phân loại rác dựa trên CNN}
+Trong mô hình thùng rác thông minh tự động phân loại rác, bài toán quan trọng được đặt ra trong mô hình này:
+\begin{itemize}
+    \item Đầu vào: Hình ảnh vật (rác) được bỏ vào thùng được chụp bằng camera của mạch ESP32 Cam AI Thinker với kích thước 96x96 pixels, có góc chụp từ trên xuống, với nền màu trắng, điều kiện ánh sáng tương đối đầy đủ. 
+    \item Đầu ra: 1 số mang giá trị 0 hoặc 1 với giá trị 0 có nghĩa là loại rác không tái chế, và 1 có ý nghiã là rác tái chế. 
+\end{itemize}
 
+Để giải quyết bài toán: 
+\begin{enumerate}
+    \item Thiết kế kiến trúc mạng CNN phù hợp có thể triển khai vào thiết bị microcontroller.
+    \item Thu thập dataset và tiến hành huấn luyện mạng CNN.
+    \item Đánh giá khả năng phân loại ảnh rác của mạng CNN đã train.
+\end{enumerate}
 
+Trong thực tế, để hoàn thành bài toán đã đặt ra, ba bước đề cập ở trên được tiến hành không theo tuần tự mà phụ thuộc vào sự phát triển ở từng bước. Các vấn đề kỷ thuật chi tiết sẽ được trình bày ở các mục dưới đây.
 
 \subsection{Tối ưu model để có thể chạy trên được chip nhúng ESP32}
 % phần code 
@@ -23,8 +35,7 @@
 
 Do sử dụng microcontroller cụ thể là board ESP32 camera AI Thinker, nên ram hỗ trợ rất khiêm tốn. chỉ có 4MB. nên chúng tôi không thể xây dựng mô hình với trọng số quá lớn và có chi phí tính toán cao được. Vì thế, chúng tôi chọn các sử dụng separable convolution thay cho lớp convolution thông thường để giảm bớt chi phí tính toán cho mạng. Ngoài ra ở lớp này, chúng tôi dùng regularization l2 để tránh overfitting và hàm kích hoạt relu – đây là hàm thường được sử dụng trong quá trình train model với dữ liệu dưới dạng ảnh. Chúng tôi cũng thêm các lớp batch normalization và drop out để tránh cho mô hình bị overfitting và loại bỏ sự kết nối chặt chẽ giữa các lớp fully connected. Tổng số tham số của mô hình là 532,161. Sau khi xây dụng mô hình, nhóm đã sử dụng optimization stochastic gradient descent với learning rate = 1e-4 và momentum = 0.8 để train mô hình. Cùng với việc giảm kích thước hình ảnh từ 512 × 384 pixels xuống còn 96x96 pixels để phù hợp với kích thước ram mà board hỗ trợ.
 
-\section{Evaluation}
-\subsection{Data Description} % Giới thiệu về dataset ddùng để train và test 
+\subsection{Dataset và quá trình huấn luyện} % Giới thiệu về dataset ddùng để train và test 
 % Dữ liệu được lấy từ cái gì đó quên oy, nhưng cái này nên thêm vô nha
 % Kích thước của hình là ... không nhớ a
 Chúng tôi dùng bộ dataset TrashNet \cite{trashnet} để train và test với kích thước 512x384.
@@ -56,12 +67,22 @@ Sau đây là hình ảnh minh họa của 6 lớp cần phân loại như trên
     \label{fig:trash_classification}
 \end{table}
 % Nên lựa vài hình về data để thêm vô (nếu cần) hình nên có đủ 6 lớp cần phân loại
+\subsection{Đánh giá hiệu quả của mạng CNN đã huấn luyện}
 
-\subsection{Index of Performance} % Các chỉ số để dánh gia model  %accuracy, F-score - Recall.
+\subsubsection{Giới thiệu các độ đo tính hiệu quả của mạng CNN} % Các chỉ số để dánh gia model  %accuracy, F-score - Recall.
 Chúng tôi sử dụng hai chỉ số là accuracy và F1-score để đánh giá model. Accuracy là tính tỉ lệ giữa số ảnh được dự đoán đúng và tổng số ảnh trong tập dữ liệu kiểm thử.
+
+$Accuracy = \frac{TP+TN}{TP+TN+FP+FN}$
+
+$Precision = \frac{TP}{TP+FP}$
+
+$Recall = \frac{TP}{TP+FN}$
+
+$F1 = \frac{2*Precision*Recall}  
+{Precision+Recall} = \frac{2*TP}{2*TP+FP+FN}$
 % Còn khúc giới thiệu F1 nữa cơ mà đang lười ghi công thức toán trong đây nha
 % Khúc này thêm lý thuyết của hai cái chỉ số đó
-\subsection{Kết quả  hiện thực được } % Kết quả  hiện thực được 
+\subsubsection{Kết quả  hiện thực được } % Kết quả  hiện thực được 
 Kết quả train mô hình với 80 epoch
 \begin{figure}[H]
     \centering
@@ -83,14 +104,13 @@ Kết quả thử nghiệm mô hình trên tập test sau khi đã lưu mô hìn
 Từ hình \ref{fig:matrix} ta có thể thấy accuracy và f1-score của mô hình còn khá thấp, tuy nhiên do mô hình được xây dựng chỉ có 532,161 tham số nên không đủ để phân loại chính xác các lớp được. Chúng tôi đã thử train thêm epoch nhưng mô hình dễ bị overfitting và kết quả khi in confusion matrix vẫn không thay đổi nhiều. Ngoài ra nếu tăng thêm trọng số thì không thể sử dụng model trên thiết bị được.
 
 
-\section{Build và kiểm thử model phân loại rác trên device}
+\section{Triển khai và kiểm thử mạng CNN phân loại rác trên thiết bị}
 Sau khi model đã được train và evaluate kỹ lưỡng trên máy tính, công đoạn tiếp theo là build chương trình phân loại rác trên device dựa model đã train và thư viện TensorflowLite. 
 Chương tình được build sẽ phải được kiểm thử để đảm bảo khả năng phân loại rác tương đương với khả năng phân loại của model đã được train trên ảnh từ PC.
-%\subsection{Quy trình build code phân loại rác trên device}
-
+\subsection{Quy trình triển khai code phân loại rác trên device}
 %Mô tả lại quy trình chuyển đổi từ file h5 của model sang file .cc để đưa vào code
 %Đưa vào các đoạn code mẫu của tensorflowLite
-\subsection{Kiểm thử chương trình phân loại rác trên device}
+\subsection{Quy trình thử nghiệm trên device}
 %Đưa vào 2 đoạn code C++ và python và mô tả quy trình chạy:
 %1. Device start và chờ tín hiệu "bắt đầu chụp ảnh" từ code python trên PC
 %2. Mình bấm 1 nút trên PC, code python sẽ gửi tín hiệu "bắt đầu chụp ảnh" qua device
@@ -133,7 +153,7 @@ Tuy nhiên, do accuracy của model chỉ ở mức tương đối, và hình �
     \label{fig:DWglass}
 \end{table}
 
-Như vậy, tuy có các trường hợp detec sai, nhưng có thể hình dung được mức độ đánh giá của model trong việc detec hình ảnh. Ví dụ như ở hình \ref{fig:DWglass} và \ref{fig:DWglass2}, mặc dù đã bị detec sai lớp, nhưng có thể thấy, thủy tinh nói chung đều có tính chất phản ánh sáng, nên khi hình ảnh khi chụp 1 vật làm bằng thủy tinh sẽ có một độ bóng nhất định. Vì thế ở hình \ref{fig:DWglass} và \ref{fig:DWglass2} đều có tính chất phản ánh sáng như thủy tinh, nên thiết bị sẽ detec vào lớp "glass". Tương tự, các miếng bìa hầu hết trong tập dataset đều có các lằng vân nhấp nhô, và khi thiết bị chụp hình ảnh bàn tay người( hình \ref{fig:DWcardboar}), bàn tay cũng có các đường chỉ tay sâu, nên thiết bị sẽ detec vào lớp "cardboard".
+Như vậy, tuy có các trường hợp detec sai, nhưng có thể hình dung được mức độ đánh giá của model trong việc detec hình ảnh. Ví dụ như ở bảng \ref{fig:DWglass}, mặc dù đã bị detec sai lớp, nhưng có thể thấy, thủy tinh nói chung đều có tính chất phản ánh sáng, nên khi hình ảnh khi chụp 1 vật làm bằng thủy tinh sẽ có một độ bóng nhất định. Vì thế ở hình \ref{fig:DWglass} và \ref{fig:DWglass2} đều có tính chất phản ánh sáng như thủy tinh, nên thiết bị sẽ detec vào lớp "glass". Tương tự, các miếng bìa hầu hết trong tập dataset đều có các lằng vân nhấp nhô, và khi thiết bị chụp hình ảnh bàn tay người( hình \ref{fig:DWcardboar}), bàn tay cũng có các đường chỉ tay sâu, nên thiết bị sẽ detec vào lớp "cardboard".
 
 
 \section{Setup Gateway}

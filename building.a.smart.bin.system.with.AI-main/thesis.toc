@@ -29,44 +29,44 @@
 \contentsline {chapter}{\numberline {4}XÂY DỰNG THIẾT BỊ TỰ ĐỘNG PHÂN LOẠI RÁC}{31}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Xây dựng model phân loại rác dựa trên CNN}{31}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Tối ưu model để có thể chạy trên được chip nhúng ESP32}{31}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Evaluation}{32}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Data Description}{32}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Index of Performance}{33}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Kết quả hiện thực được}{33}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Build và kiểm thử model phân loại rác trên device}{36}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Kiểm thử chương trình phân loại rác trên device}{36}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Kết quả phân loại khi chạy trên device}{36}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Setup Gateway}{39}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Access LG02}{39}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Cài đặt network}{39}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Tạo gateway trên TTN Server}{42}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Configure LG02 Gateway}{44}{subsection.4.4.4}%
-\contentsline {section}{\numberline {4.5}Setup End-Device}{46}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Thu gom rác}{46}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Đăng kí trên TTN Server}{47}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}So sánh khi sử dụng Cayenne LPP và Custom}{47}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Lưu ý khi nạp code cho node}{47}{subsection.4.5.4}%
-\contentsline {chapter}{\numberline {5}XÂY DỰNG MÔ HÌNH SERVER XỬ LÝ VÀ HIỂN THỊ DỮ LIỆU RÁC}{49}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Nodejs Server}{49}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Giới thiệu tổng quát}{49}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Modules và packages được sử dụng}{49}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}API}{50}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Cải thiện hiệu suất với Clustering}{60}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2}Python Server}{60}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Giới thiệu tổng quát}{60}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Modules và packages}{60}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}API}{61}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Đánh giá dữ liệu}{63}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3}Thingsboard}{67}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Giới thiệu tổng quát}{67}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Assets và Devices}{67}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Rule Chains}{69}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Dashboard}{71}{subsection.5.3.4}%
-\contentsline {chapter}{\numberline {6}Khó khăn và hướng phát triển đề tài}{75}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Khó khăn}{75}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Về thiết bị}{75}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Về server}{75}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}Hướng phát triển đề tài}{76}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Về thiết bị}{76}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Về server}{76}{subsection.6.2.2}%
-\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
+\contentsline {subsection}{\numberline {4.1.2}Dataset và quá trình huấn luyện}{32}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Đánh giá hiệu quả của mạng CNN đã huấn luyện}{34}{subsection.4.1.3}%
+\contentsline {subsubsection}{\nonumberline Giới thiệu các độ đo tính hiệu quả của mạng CNN}{34}{subsubsection*.24}%
+\contentsline {subsubsection}{\nonumberline Kết quả hiện thực được}{34}{subsubsection*.26}%
+\contentsline {section}{\numberline {4.2}Triển khai và kiểm thử mạng CNN phân loại rác trên thiết bị}{37}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Quy trình triển khai code phân loại rác trên device}{37}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Quy trình thử nghiệm trên device}{37}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Kết quả phân loại khi chạy trên device}{37}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Setup Gateway}{40}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Access LG02}{40}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Cài đặt network}{40}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Tạo gateway trên TTN Server}{43}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Configure LG02 Gateway}{45}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Setup End-Device}{47}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Thu gom rác}{47}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Đăng kí trên TTN Server}{48}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}So sánh khi sử dụng Cayenne LPP và Custom}{48}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Lưu ý khi nạp code cho node}{48}{subsection.4.4.4}%
+\contentsline {chapter}{\numberline {5}XÂY DỰNG MÔ HÌNH SERVER XỬ LÝ VÀ HIỂN THỊ DỮ LIỆU RÁC}{50}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Nodejs Server}{50}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Giới thiệu tổng quát}{50}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Modules và packages được sử dụng}{50}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}API}{51}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Cải thiện hiệu suất với Clustering}{61}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}Python Server}{61}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Giới thiệu tổng quát}{61}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Modules và packages}{61}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}API}{62}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Đánh giá dữ liệu}{64}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Thingsboard}{68}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Giới thiệu tổng quát}{68}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Assets và Devices}{68}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Rule Chains}{70}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Dashboard}{72}{subsection.5.3.4}%
+\contentsline {chapter}{\numberline {6}Khó khăn và hướng phát triển đề tài}{76}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Khó khăn}{76}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Về thiết bị}{76}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Về server}{76}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}Hướng phát triển đề tài}{77}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Về thiết bị}{77}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Về server}{77}{subsection.6.2.2}%

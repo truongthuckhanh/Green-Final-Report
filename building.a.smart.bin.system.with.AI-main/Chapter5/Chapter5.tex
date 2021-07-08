@@ -146,9 +146,16 @@ Sau đây là tất cả API mà server cung cấp với bản mô tả chi ti�
         \begin{enumerate}
             \item Với thiết bị thật (POST /api/TTN/telemetry): 
             \begin{itemize}
-                \item Những thiết bị thật sẽ gửi dữ liệu thông qua API này với định dạng được tạo từ TTN được mô tả trong bảng ... 
-                ... 
-                \item Vì dữ liệu được gửi bằng cảm biến thật nên không cần thay đổi định dạng của chúng, ...
+                \item Những thiết bị thật sẽ gửi dữ liệu thông qua API này với định dạng là một object được tạo từ TTN được mô tả trong bảng \ref{tab.ttn_format}
+                \begin{table}[H]
+                    \centering
+                    \includegraphics[width=\textwidth]{images/Khanh/Nodejs/TTN_format.png}
+                    \caption{Bảng mô tả định dạng dữ liệu được gửi từ TTN}
+                    \label{tab.ttn_format}
+                \end{table} 
+                \item Trong payload\_fields, đối tượng bao gồm tên cảm biến là key và giá trị cảm biến là value (\{ [sensorName]: [sensorValue] \}).
+                \item Trong metadata, đối tượng bao gồm các thông số của thiết bị và gateway (tần số, modulation, data\_rate, coding\_rate, ...), nhưng chú trọng nhất là time (thời gian server nhận được gói tin) và tọa độ của thiết bị.
+                \item Vì dữ liệu được gửi bằng cảm biến thật nên không cần thay đổi định dạng payload\_fields của chúng, nhưng vì thời gian trong metadata là một chuỗi ISO string, chúng tôi phải định dạng lại kiểu thời gian thành dạng \qq{DD/MM/YYYY hh:mm}, sau đó rồi mới đưa dữ liệu vào file csv.
             \end{itemize}
             \item Với thiết bị ảo (POST /api/devices/\{deviceName\}/random):
             \begin{itemize}
@@ -164,6 +171,72 @@ Sau đây là tất cả API mà server cung cấp với bản mô tả chi ti�
 \end{itemize}
 
 \subsection{Cải thiện hiệu suất với Clustering}
+Khi chạy một quá trình của Nodejs, nó sẽ chạy trên một luồng duy nhất (single-thread), việc này có nghĩa là nó chỉ kết nối với một nhân (core) duy nhất trên máy chủ. Vì thế, để sử dụng một cách hiệu quả nhất sức mạnh các máy đa nhân (multi-core), ta sẽ phải chạy nhiều quá trình của Nodejs cùng một lúc. Các quá trình này có thể thực hiện ở ngoài Nodejs nhưng Cluster Module đã hỗ trợ cách thức phân luồng bên trong máy chủ để cải thiện thông lượng (request/s) và cập nhật ứng dụng một cách dễ dàng vì đôi khi một số máy khách cần được phục vụ đồng thời.
+
+Cluster Module cho phép khởi tạo các quy trình con (Workers) chạy đồng thời và chia sẻ cùng một port server. Mỗi Workers được tạo đều có vòng lặp sự kiện, bộ nhớ và phiên bản V8 của riêng nó, sử dụng IPC (Inter-process Communication) để giao tiếp với quy trình cha.
+
+Để sử dụng chúng, ta phải cài đặt cluster trong ứng dụng Nodejs.
+
+\textit{\centerline{var cluster = require(\qq{cluster});}}
+
+Sau đó, điều đầu tiên phải làm là xác định phần nào của đoạn mã dành cho Master Process và phần nào danh cho Workers Process.
+
+\textit{\centerline{if (cluster.isMaster) (...)}}
+
+Nếu là Master Process, ta sẽ lấy số core có sẵn trên hệ thống và lặp lại số core để khởi tạo các Worker Process bằng phương thức fork().
+
+\textit{\centerline{let numCores = require("os").cpus().length;}}
+
+\textit{\centerline{for (let i = 0; i < numCores; i++) \{ cluster.fork(); \}}}
+
+Một cluster module chứa một số sự kiện, hai trong số đó là sự kiện phổ biến liên quan đến thời điểm bắt đầu và kết thúc của Workers, đó là sự kiện \qq{online} và \qq{exit}. Ta gọi 2 sự kiện đó bằng \textit{cluster.on}
+\begin{itemize}
+    \item Sự kiện \qq{online} được thực hiện khi Workers được phân nhánh và được gán id.
+    \item Sự kiện \qq{exit} được thực hiện nếu một Worker Process bị chết, sau đó bắt đầu quy trình mới bằng cách đơn giản là phân nhánh (fork) một quy trình khác.
+\end{itemize}
+
+Để đánh giá hiệu suất của Nodejs Server sử dụng Clustering Module khi xử lý một lượng lớn các request đến server, chúng tôi sử dụng loadtest để mô phỏng một số lượng lớn các kết nối đồng thời tới API để có thể đo lường hiệu suất của nó. Chúng tôi sử dụng loadtest vào API /api/devices/staticMap như sau:
+
+\textit{\$ loadtest http://localhost:1111/api/devices/staticMap -n 10000 -c 100}
+(với -n là tổng số request và -c là số request đồng thời trong đó)
+
+Đầu tiên khi không sử dụng Clustering Module, chúng tôi được kết quả như hình \ref{fig:nocluster10000}:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Khanh/Nodejs/NoCluster10000-100.PNG}
+    \caption{Hiệu suất của Nodejs khi nhận 10000 request không Clustering}
+    \label{fig:nocluster10000}
+\end{figure}
+
+Sau đó, khi sử dụng Clustering Module, chúng tôi được kết quả như hình \ref{fig:cluster10000}: 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Khanh/Nodejs/WithCluster10000-100.PNG}
+    \caption{Hiệu suất của Nodejs khi nhận 10000 request Clustering}
+    \label{fig:cluster10000}
+\end{figure}
+
+Ta có thể thấy được khi Clustering số request/1 giây là 6 requests, bằng với khi không Clustering, nhưng độ trễ trung bình (mean latency) khi Clustering giảm một chút 15374.9 ms so với 16371.7 ms khi không Clustering.
+
+Sau đó chúng tôi kiểm tra với số lượng request là 100 với request đồng thời là 100 cho API đó, kết quả khi không Clustering như hình \ref{fig:nocluster100} và khi Clustering như hình \ref{fig:cluster100}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Khanh/Nodejs/NoCluster100-100.PNG}
+    \caption{Hiệu suất của Nodejs khi nhận 100 request không Clustering}
+    \label{fig:nocluster100}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Khanh/Nodejs/WithCluster100-100.PNG}
+    \caption{Hiệu suất của Nodejs khi nhận 100 request Clustering}
+    \label{fig:cluster100}
+\end{figure}
+
+Ở đây lượng request/1 giây của 2 trường hợp đều bằng nhau là 6 request nhưng lần này đối với độ trễ trung bình (mean latency) của trường hợp không Clustering lại nhỏ hơn rất nhiều 7237.4 ms so với khi Clustering 14194.7 ms.
+
+Vì thế, chúng tôi kết luận rằng Cluster Module sẽ hoạt động tốt nhất đối với các thao tác xử lý một số lượng lớn request và trong đó, đoạn mã bao gồm nhiều vòng lặp lớn, tức là nó sẽ tỏa sáng khi liên quan đến các tác vụ đòi hỏi nhiều CPU. Tuy nhiên, nếu ứng dụng không chạy nhiều tác vụ đòi hỏi CPU thì việc tạo ra nhiều Workers sẽ khiến việc phân bổ tài nguyên bổ sung có thể không đáng bởi vì mỗi quy trình đều có bộ nhớ và phiên bản V8 của riêng nó. Vì hiện tại số lượng công việc tại Nodejs Server vẫn chưa đáng kể nên chúng tôi vẫn không khuyến khích sử dụng Clustering, nhưng khi mô hình được mở rộng với nhiều request hơn thì chúng tôi sẽ cân nhắc sử dụng và kiểm tra hiệu suất chính xác.
 
 \section{Python Server}
 \subsection{Giới thiệu tổng quát}
@@ -215,13 +288,13 @@ Luồng dữ liệu được mô tả chi tiết như sau:
 \end{enumerate}
 
 \subsection{Đánh giá dữ liệu}
-Chúng tôi gửi một tệp .csv của một thùng rác có chuỗi dữ liệu thu thập mỗi 20 phút vào tháng 6 với tổng 2161 dữ liệu như hình \ref{tab:CSV_structure}:
-\begin{figure}[H]
+Chúng tôi gửi một tệp .csv của một thùng rác có chuỗi dữ liệu thu thập mỗi 20 phút vào tháng 6 với tổng 2161 dữ liệu như bảng \ref{tab.CSV_structure}:
+\begin{table}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Python/CSV_Structure.PNG}
     \caption{Cấu trúc file CSV}
-    \label{tab:CSV_structure}
-\end{figure}
+    \label{tab.CSV_structure}
+\end{table}
 
 hiển thị dưới dạng biểu đồ hình \ref{fig:CSV_plot_chart}
 \begin{figure}[H]

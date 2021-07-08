@@ -20,9 +20,9 @@ Khi setup node, nhóm gặp vấn đề về frequency, node không thể gửi 
 \subsection{Về thiết bị}
 \subsection{Về server}
 \begin{itemize}
-    \item Mô hình thu gom có hướng mở rộng khả quan, cụ thể là với mối quan hệ liên quan chặt chẽ giữa các đối tượng với nhau, dự án có thể phát triển thêm nhiều nơi gom rác khác nhau và một nơi gom rác có thể quản lý nhiều thùng rác trong bán kính cụ thể.
+    \item Mô hình thu gom có hướng mở rộng khả quan, cụ thể là với mối quan hệ liên quan chặt chẽ giữa các đối tượng với nhau, dự án có thể phát triển thêm nhiều nơi gom rác khác nhau và một nơi gom rác có thể quản lý nhiều thùng rác trong bán kính cụ thể. Khi đạt tới một mức nhất định, chúng tôi cân nhắc sử dụng Cluster Module cho server để xử lý đa luồng nhiều request.
     \item Khi mở rộng mô hình, cần cải tiến thêm chức năng thu gom tọa độ để vẽ đường đi tối ưu cho từng cụm thu gom, hạn chế việc di chuyển đến các thùng rác ở khoảng cách xa, ngoài ra trong quá trình dự đoán các thùng rác còn trống cần lọc ra những thùng rác nào thực sự cần phải dự đoán để giảm thiểu công việc xử lý cho Python Server.
-    \item Ngoài ra, cần phải phân bổ các cụm thùng rác cho Customer quản lý và quan sát dữ liệu rác khi số lượng thùng rác tăng lên đáng kể. Khi đó, việc xác định những thùng rác đầy sẽ là nhiệm vụ của các Customers và chúng tôi sẽ điều chỉnh lại chức năng tìm đường ngắn nhất sao cho phù hợp nhất. 
+    \item Ngoài ra, khi số lượng thùng rác tăng lên đáng kể, việc quản lý các cụm thùng rác cần phải được phân bổ cho các Customers để quan sát và thông báo dữ liệu rác. Khi đó, việc xác định những thùng rác đầy sẽ là nhiệm vụ của các Customers và chúng tôi sẽ điều chỉnh lại chức năng tìm đường ngắn nhất sao cho phù hợp nhất. 
     \item Tuy mô hình dự đoán vẫn chưa ổn định, song nếu có thời gian hoàn thiện và kiểm thử nhiều dạng dữ liệu với số lượng lớn hơn thì có thể đưa ra đánh giá hiệu suất chính xác và giải pháp cải tiến thuật toán cho mô hình.   
     \item Về phần giao diện, vì tính tiện lợi, mở rộng và hiệu quả của Thingsboard cung cấp, chúng tôi cân nhắc nâng cấp giao diện lên bản Professional Edition vì tính ổn định và nhiều tính năng khác.
 \end{itemize}

@@ -7,6 +7,9 @@
 \section{Khó khăn}
 \subsection{Về thiết bị}
 Khi setup node, nhóm gặp vấn đề về frequency, node không thể gửi data cho gateway.
+
+Do thời gian thực hiện khóa luận không dài, nên việc thu thập dataset chưa đủ lớn và đa dạng để huấn luyện mạng CNN được tốt hơn.
+
 \subsection{Về server}
 \begin{itemize}
     \item Việc xử lý dự đoán chuỗi dữ liệu rác của nhiều thùng rác mất thời gian dài để train vì model sử dụng nhiều layer, khi thực hiện với một số lượng lớn thùng rác thì có thể bị trễ giờ thu gom. Nếu mô hình sử dụng nhiều layer và epochs để train thì có thể mất càng nhiều thời gian hơn nữa.
@@ -18,6 +21,8 @@ Khi setup node, nhóm gặp vấn đề về frequency, node không thể gửi 
 
 \section{Hướng phát triển đề tài}
 \subsection{Về thiết bị}
+Tiếp tục thu thập dữ liệu với số lượng lớn hơn và phù hợp hơn với điều kiện thực tế tại Việt Nam.
+
 \subsection{Về server}
 \begin{itemize}
     \item Mô hình thu gom có hướng mở rộng khả quan, cụ thể là với mối quan hệ liên quan chặt chẽ giữa các đối tượng với nhau, dự án có thể phát triển thêm nhiều nơi gom rác khác nhau và một nơi gom rác có thể quản lý nhiều thùng rác trong bán kính cụ thể. Khi đạt tới một mức nhất định, chúng tôi cân nhắc sử dụng Cluster Module cho server để xử lý đa luồng nhiều request.

@@ -163,9 +163,9 @@ LSTM (Long Short-Term Memory) là phiên bản mở rộng của mạng RNN (Rec
 
 Mạng LSTM có thể bao gồm nhiều LSTM memory cell liên kết với nhau và kiến trúc cụ thể của mỗi tế bào được biểu diễn như hình \ref{tab.lstm_cell}. Ý tưởng của mạng LSTM là bổ sung thêm trạng thái bên trong tế bào (cell internal state) $s_t$ và ba cổng sàng lọc các thông tin đầu vào và đầu ra cho tế bào bao gồm forget state $f_t$ (loại bỏ thông tin nhận được không cần thiết ra khỏi cell), input gate $i_t$ (chọn lọc thông tin cần thiết thêm vào cell) và output gate $o_t$ (xác định thông tin nào từ cell được sử dụng như đầu ra). Tại mỗi bước thời gian t, các cổng đều lần lượt nhận giá trị đầu vào $x_t$ (đại diện cho một phần tử trong chuỗi đầu vào), sau đó dựa trên cơ chế hoạt động của cell, đưa qua quá trình lan truyền xuôi (forward pass) và giá trị $h_{t-1}$ có được từ đầu ra của memory cell từ bước thời gian trước đó t - 1.
 
-\begin{figure}[h]
-    \caption{Sở đồ biểu diễn kiến trúc bên trong tế bào LSTM}
+\begin{figure}[H]
     \includegraphics[width=\textwidth]{images/Khanh/Python/LSTM_cell_structure.PNG}
+    \caption{Sở đồ biểu diễn kiến trúc bên trong tế bào LSTM \cite{lstmintroduction}}
     \label{tab.lstm_cell}
 \end{figure}
 
@@ -217,8 +217,9 @@ Mapbox sở hữu một trang docs với tất cả các API hỗ trợ từ v�
 Thingsboard là một nền tảng IoT mã nguồn mở, giúp phát triển, quản lý và mở rộng các dự án về Iot. Với Thingsboard, việc thu thập, xử lý, hiển thị trực quan và quản lý thiết bị sẽ trở nên thuận lợi hơn thông qua việc kết nối các thiết bị bằng các giao thức IoT tiêu chuẩn công nghiệp - MQTT, CoAP và HTTP, hỗ trợ triển khai đám mây và tại chỗ. Ngoải ra, Thingsboard cho phép tích hợp các thiết bị được kết nối với các máy chủ (OPC-UA, MQTT Broker, Sigfox Backend, Modbus slaves, ...) và bên thứ ba qua IoT Gateway bằng các giao thức hiện có (Sigfox, LoRa, ZigBee, Bluetooth, ...). Hình \ref{fig:thingsboard_overall} hiển thị mô hình tổng quát của Thingsboard
 
 \begin{figure}[h]
-    \caption{Mô hình tổng quan Thingsboard}
+    \centering
     \includegraphics[width=\textwidth]{images/Khanh/Thingsboard/thingsboard_overall.png}
+    \caption{Mô hình tổng quan Thingsboard \cite{thingsboard}}
     \label{fig:thingsboard_overall}
 \end{figure}
 

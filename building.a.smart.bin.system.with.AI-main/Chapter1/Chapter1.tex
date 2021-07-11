@@ -56,7 +56,7 @@ Trước đây, quá trình phân loại rác thải sẽ do các cơ sở thu g
         \begin{figure}[H]
             \centering            
             \includegraphics[width=\textwidth]{images/SoDoChonLap.png}
-            \caption{Sơ đồ chôn lấp}
+            \caption{Sơ đồ chôn lấp} \cite{trashclassification}
             \label{fig:so_do_chon_lap}
         \end{figure}
 
@@ -148,8 +148,9 @@ Như vậy, việc phân loại đã trải qua ba bước như trên.
 Có thể thấy rằng, so với việc sử dụng raspberry pi, các microcontroller như ESP32 CAM đã giải quyết bài toán một cách nhanh chóng hơn bằng cách tự thực hiện quá trình xử lý ảnh và phân loại thay vì đưa hình lên server để xử lý sau đó trả kết quả ngược về cho raspberry pi.
 Ngoài ra, nhóm còn sử dụng công nghệ LoRaWan để truyền dữ liệu về mực rác còn lại trong thùng.
 
+Bên cạnh đó, chúng tôi cần phải xây dựng một hệ thống để quản lý tất cả thông tin thùng rác và xử lý dữ liệu realtime thu được từ cảm biến và một giao diện để hiển thị tất cả thông tin đó. Mô hình bao gồm: 1 Nodejs làm server trung tâm nhận và xử lý các dữ liệu từ thiết bị gửi tới và mô phỏng các thiết bị ảo khác, 1 Python server để tiên đoán lượng rác sau nhiều bước thời gian thông qua Deep Learning và sử dụng giao diện của Thingsboard để hiển thị thông tin và dữ liệu thiết bị.
 
-Bên cạnh đó, cần xây dựng một nơi để quản lý tất cả thùng rác và data cảm biến, dữ liệu realtime từ thiết bị gửi đến sẽ được xử lý linh hoạt thông qua 3 Back-end Server: 1 open-source server từ Thingsboard cung cấp các API liên quan đến việc quản lý thiết bị, cảm biến (bao gồm tạo, sửa, xóa, …) và việc hiển thị, lưu trữ dữ liệu trên dashboard, 1 Python server để tiên đoán lượng rác thông qua Deep Learning và 1 Nodejs server để xử lý chính các dữ liệu thiết bị gửi tới và gọi API từ 2 server kia.
+Ngoài ra, chúng tôi còn sử dụng 1 open-source server Thingsboard cung cấp các API liên quan đến việc quản lý thiết bị, cảm biến (bao gồm tạo, sửa, xóa, …) và hiển thị, lưu trữ dữ liệu trên Dashboard, 1 open-source server từ Mapbox cung cấp các API liên quan đến xử lý tọa độ địa lý và cung cấp đường đi tối ưu cho đến các thiết bị.
 
 Server chính sẽ nhận dữ liệu từ cả thiết bị thật và ảo để xử lý và gửi lên Thingsboard để hiển thị, dữ liệu từ thiết bị thật sẽ được gửi từ gateway The Things Network (TTN) với một format nhất định, vì thế thiết bị ảo cũng sẽ được lập trình để gửi dựa theo format đó. Thiết bị thật và ảo đều có những chức năng giống nhau (tạo, liên kết, gửi dữ liệu, …), nhưng cách xử lý thì khác nhau, cụ thể theo bảng \ref{tab.function}
 

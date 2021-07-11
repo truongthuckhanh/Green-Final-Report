@@ -33,31 +33,34 @@ Trong thực tế, để hoàn thành bài toán đã đặt ra, ba bước đ�
 % Do chip nhúng gì đó chỉ có bao nhiêu ram đó nên chúng tôi không thể xây dựng mô hình với trong số quá lớn và có chi phí tính toán cao được, nên chúng tôi sử dụng ...(thêm đoạn sau vô nè)
 % Thêm dụ giảm kích thước của hình ảnh từ bao nhiêu đó xuống 96 * 96 nữa nà
 
-Do sử dụng microcontroller cụ thể là board ESP32 camera AI Thinker, nên ram hỗ trợ rất khiêm tốn. chỉ có 4MB. nên chúng tôi không thể xây dựng mô hình với trọng số quá lớn và có chi phí tính toán cao được. Vì thế, chúng tôi chọn các sử dụng separable convolution thay cho lớp convolution thông thường để giảm bớt chi phí tính toán cho mạng. Ngoài ra ở lớp này, chúng tôi dùng regularization l2 để tránh overfitting và hàm kích hoạt relu – đây là hàm thường được sử dụng trong quá trình train model với dữ liệu dưới dạng ảnh. Chúng tôi cũng thêm các lớp batch normalization và drop out để tránh cho mô hình bị overfitting và loại bỏ sự kết nối chặt chẽ giữa các lớp fully connected. Tổng số tham số của mô hình là 532,161. Sau khi xây dụng mô hình, nhóm đã sử dụng optimization stochastic gradient descent với learning rate = 1e-4 và momentum = 0.8 để train mô hình. Cùng với việc giảm kích thước hình ảnh từ 512 × 384 pixels xuống còn 96x96 pixels để phù hợp với kích thước ram mà board hỗ trợ.
+Do sử dụng microcontroller cụ thể là board ESP32 camera AI Thinker, nên ram hỗ trợ rất khiêm tốn chỉ có 4MB. 
+
+Nên chúng tôi không thể xây dựng mô hình với trọng số quá lớn và có chi phí tính toán cao. Khó khăn lớn nhất mà chúng tôi gặp phải khi xác định kiến trúc mạng CNN là không có một công thức cụ thể nào để tính toán dung lượng ram mà thiết bị sẽ dành cho lưu trữ và tính toán model.
+
+Chúng tôi đã phải tiến hành nhiều thử nghiệm với nguyên tắc thử sai để tìm ra kiến trúc mạng tối ưu có thể dung hòa được hai yếu tố: đáp ứng giới hạn xử lý của thiết bị và hiệu suất phân lớp. Model CNN thường có khả năng phân lớp tốt trong trường hợp kiến trúc mạng có kích thướt lớn với nhiều tham số nhưng như vậy, sẽ quá khả năng xử lý của thiết bị. Ngược lại, nếu kiến trúc mạng có quá ít tham số, sẽ không đủ năng lực phân lớp ảnh để đáp ứng yêu cầu của bài toán.
+
+
+
+Vì thế, chúng tôi chọn các sử dụng separable convolution thay cho lớp convolution thông thường để giảm bớt chi phí tính toán cho mạng. Ngoài ra ở lớp này, chúng tôi dùng regularization l2 để tránh overfitting và hàm kích hoạt relu – đây là hàm thường được sử dụng trong quá trình train model với dữ liệu dưới dạng ảnh. Chúng tôi cũng thêm các lớp batch normalization và drop out để tránh cho mô hình bị overfitting và loại bỏ sự kết nối chặt chẽ giữa các lớp fully connected. Tổng số tham số của mô hình là 532,161. Sau khi xây dụng mô hình, nhóm đã sử dụng optimization stochastic gradient descent với learning rate = 1e-4 và momentum = 0.8 để train mô hình. Cùng với việc giảm kích thước hình ảnh từ 512 × 384 pixels xuống còn 96x96 pixels để phù hợp với kích thước ram mà board hỗ trợ. Kiến trúc mạng cuối cùng được minh họa trong hình \ref{fig:kientrucmang}.
 
 \subsection{Dataset và quá trình huấn luyện} % Giới thiệu về dataset ddùng để train và test 
 % Dữ liệu được lấy từ cái gì đó quên oy, nhưng cái này nên thêm vô nha
 % Kích thước của hình là ... không nhớ a
-Chúng tôi dùng bộ dataset TrashNet \cite{trashnet} để train và test với kích thước 512x384.
-Gồm 2527 hình thuộc 6 lớp với sự phận bố ở mỗi lớp:
+%The pictures were taken by placing the object on a white posterboard and using sunlight and/or room lighting. The pictures have been resized down to 512 x 384, which can be changed in data/constants.py (resizing them involves going through step 1 in usage).
+
+
+Chúng tôi dùng bộ dataset TrashNet \cite{trashnet} của nhóm tác giả Gary Thung và Mindy Yang đến từ đại học StandFord để train và test model. Bộ dataset gồm 2527 hình thuộc 6 lớp, mỗi ảnh được chụp với ánh sáng mặt trời, một số ảnh còn có thêm ánh sáng phòng, vật được đặt trên nền trên giấy bìa trắng(láng). Ảnh sau khi chụp sẽ được resize xuống còn 512x318 pixels, số lượng ảnh trong mỗi lớp được phân bổ như sau:
  
-Cardboard: 403
+\begin{itemize}
+    \item Cardboard: 403
+    \item Glass: 501
+    \item Metal: 410
+    \item Paper: 594
+    \item Plastic: 482
+    \item Trash: 137
+\end{itemize}
 
-Glass: 501
-
-Metal: 410
-
-Paper: 594
-
-Plastic: 482
-
-Trash: 137
- 
-Dữ liệu được chia làm 2 phần theo tỉ lệ 80\% train và 20\% test.
-
-Train: 2024
-
-Test: 503
+Dữ liệu được chia làm 2 phần theo tỉ lệ 80\% train (2024 ảnh) và 20\% test (503 ảnh).
 
 Sau đây là hình ảnh minh họa của 6 lớp cần phân loại như trên, được hiển thị ở bảng \ref{fig:trash_classification}.
 \begin{table}[H]
@@ -105,26 +108,43 @@ Từ hình \ref{fig:matrix} ta có thể thấy accuracy và f1-score của mô 
 
 
 \section{Triển khai và kiểm thử mạng CNN phân loại rác trên thiết bị}
-Sau khi model đã được train và evaluate kỹ lưỡng trên máy tính, công đoạn tiếp theo là build chương trình phân loại rác trên device dựa model đã train và thư viện TensorflowLite. 
+Sau khi model đã được train và evaluate kỹ lưỡng trên máy tính, công đoạn tiếp theo là build chương trình phân loại rác trên thiết bị dựa model đã train và thư viện TensorflowLite. 
 Chương tình được build sẽ phải được kiểm thử để đảm bảo khả năng phân loại rác tương đương với khả năng phân loại của model đã được train trên ảnh từ PC.
-% \subsection{Quy trình triển khai code phân loại rác trên device}
+
+\subsection{Quy trình triển khai code phân loại rác trên thiết bị}
 %Mô tả lại quy trình chuyển đổi từ file h5 của model sang file .cc để đưa vào code
 %Đưa vào các đoạn code mẫu của tensorflowLite
-\subsection{Quy trình thử nghiệm trên device}
+Sau khi đã hoàn thành các quá trình huấn luyện và thu được mô hình mạng CNN từ TensorFlow, cần xây dựng 1 chương trình có thể sử dụng mạng CNN đó để phân loại ảnh. Yêu cầu đặt ra với chương trình là nó có khả năng đọc hiểu các tham số bên trong mạng CNN và thực hiện được các phép tính cần thiết trên những tham số này, để đưa ra được kết quả dự đoán.
+
+Công cụ quan trọng để cài đặt chương trình này là TensorFlow Lite. TensorFlow Lite là một thư viện mã nguồn mở về deep learning cho phép các models được huấn luyện bởi TensorFlow có thể chạy trên thiết bị. 
+
+Đầu tiên, sau khi đã hoàn tất quá trình huấn luyện, chúng tôi sẽ sử dụng TFLiteCoverter trong TensorFlow để chuyển đổi model sang 1 định dạng có thể sử dụng được trong TensorflowLite. Bước chuyển đổi này cũng sẽ thực hiện một số thao tác tối ưu hóa (optimization) về mặt toán học với hy vọng có thể làm giảm yêu cầu tính toán và kích thước của model. Nhờ đó, phần nào giúp cho việc sử dụng model trên thiết bị dễ dàng hơn.  
+
+Tiếp đến, chúng tôi sử dụng lệnh xxd của Linux để chuyển đổi file TFLite thành một mảng số ở dạng hexa nhằm mục đích có thể đưa vào sử dụng trong mã nguồn C++.  
+
+\subsection{Quy trình thử nghiệm trên thiết bị}
+
 %Đưa vào 2 đoạn code C++ và python và mô tả quy trình chạy:
-%1. Device start và chờ tín hiệu "bắt đầu chụp ảnh" từ code python trên PC
-%2. Mình bấm 1 nút trên PC, code python sẽ gửi tín hiệu "bắt đầu chụp ảnh" qua device
-%3. Device chụp ảnh, lưu vào framebuffer của thư viện ESPCam rồi gửi qua cho code Python sau đó chờ tín hiệu "bắt đầu phân loại".
-%4. Code python lưu ảnh xuống để thử nghiệm và sau đó gửi tín hiệu "bắt đầu phân loại" cho device.
-%5. Device chạy đoạn code phân loại rác của tensorflowLite và gửi kết quả cho code Python sau đó quay lại chờ tín hiệu "bắt đầu chụp ảnh"
+%1. thiết bị start và chờ tín hiệu "bắt đầu chụp ảnh" từ code python trên PC
+%2. Mình bấm 1 nút trên PC, code python sẽ gửi tín hiệu "bắt đầu chụp ảnh" qua thiết bị
+%3. thiết bị chụp ảnh, lưu vào framebuffer của thư viện ESPCam rồi gửi qua cho code Python sau đó chờ tín hiệu "bắt đầu phân loại".
+%4. Code python lưu ảnh xuống để thử nghiệm và sau đó gửi tín hiệu "bắt đầu phân loại" cho thiết bị.
+%5. thiết bị chạy đoạn code phân loại rác của tensorflowLite và gửi kết quả cho code Python sau đó quay lại chờ tín hiệu "bắt đầu chụp ảnh"
 %6. Code python hiển thị kết quả phân loại ra cho mình kiểm tra sau đó lưu lại, chờ người dùng nhấn enter để bắt đầu lại quy trình kiểm tra
-Để kiểm tra sự phân loại rác sau khi board ESP32 camera AI thinker hoàn thành việc chụp ảnh, tôi sử dụng 1 file python để laptop đóng vai trò như một server để nhận ảnh, detec ảnh, và trả kết quả detec. Việc trao đổi nhận ảnh từ board sang server sẽ sử dụng cable. 
 
-Việc kiểm thử này phải đáp ứng được gần đúng với yêu cầu mà mô hình thực tế hình \ref{fig:chart_smartbin}. Quy trình thực hiện viêc kiểm tra sẽ bao gồm các bước sau:
+Sau khi đã triển khai model vào thiết bị vào TensorflowLite, chúng tôi cần thực hiện thêm một bước kiểm tra để đảm bảo quá trình chuyển đổi và triển khai từ TensorFlow sang TensorflowLite không làm thay đổi đáng kể đến khả năng dự đoán của model.
 
-Khi build file C để nạp code vào board thành công. Tiếp tục build file python để tạo server. Lưu ý vẫn giữ kết nối giữa board và laptop qua cable.
+Để thực hiện việc kiểm tra thiết bị ESP32Cam AI Thinker, chúng tôi đã viết một số chương trình python chạy trên laptop kết nối với thiết bị thông qua cáp micro USB. Mục đích của những chương trình này là để tương tác và nhận kết quả phân lớp ảnh từ thiết bị.
 
-Để thay thế yêu cầu, khi ultrasonic sensor gặp vật cản sau đó khởi động chụp ảnh, thì trong môi trường kiểm tra. Tôi dùng một input được nhập từ bàn phím (nhấn enter) để thay thế bước trên. 
+Chương trình python đầu tiên có chức năng kiểm tra kết quả phân lớp ảnh của thiết bị đối với những ảnh trong dataset \cite{trashnet}. Những ảnh này đã được huấn luyện trên model TensorFlow. Yêu cầu đặt ra là thiết bị phải có kết quả chính xác hoàn toàn với model được huấn luyện trên TensorFlow.
+
+Chương trình python sẽ lần lượt đọc các ảnh trong dataset, sau đó tiến hành resize và truyền qua cho thiết bị tiến hành phân lớp. Sau đó đôí chiếu kết quả phân lớp của thiết bị với kết qủa phân lớp của model được huấn luyện trên TensorFlow. Và báo cáo nếu có sự khác biệt.
+
+Chương trình python thứ hai có công dụng kiểm tra kết quả phân lớp của thiết bị đối với những ảnh mà chính camera của thiết bị chụp được. Việc kiểm thử này phải đáp ứng được gần đúng với yêu cầu mà mô hình thực tế hình \ref{fig:chart_smartbin}. Quy trình thực hiện viêc kiểm tra sẽ bao gồm các bước sau:
+
+Khi nạp chương trình C vào board thành công qua cáp micro USB. Tắt chương trình C để nhường đường truyền cho chương trình kiểm thử trên python.
+
+Để thay thế yêu cầu, khi ultrasonic sensor gặp vật cản sau đó khởi động chụp ảnh, thì trong môi trường kiểm tra. Chúng tôi dùng một input được nhập từ bàn phím (nhấn enter) để thay thế bước trên. 
 \begin{enumerate}
     \item Nhận input từ người dùng: khi nhấn enter: 
     \item send "1" đến board.
@@ -133,10 +153,10 @@ Khi build file C để nạp code vào board thành công. Tiếp tục build fi
     \item show kết quả dự đoán trên console và bật app show ảnh ( đã save ở 4)
 \end{enumerate}
 
-\subsection{Kết quả phân loại khi chạy trên device}
+\subsection{Kết quả phân loại khi chạy trên thiết bị}
 
-%Đưa vào vài tấm hình được device chụp và kết quả phân loại tương ứng. 
-%Sau đó chém gió là device chạy ra kết quả y chang như model đạt được ở mục trước
+%Đưa vào vài tấm hình được thiết bị chụp và kết quả phân loại tương ứng. 
+%Sau đó chém gió là thiết bị chạy ra kết quả y chang như model đạt được ở mục trước
 Một số hình ảnh được chụp từ thiết bị:
 \begin{table}[H]
     \centering
@@ -145,7 +165,7 @@ Một số hình ảnh được chụp từ thiết bị:
     \label{fig:trash_result}
 \end{table}
 
-Tuy nhiên, do accuracy của model chỉ ở mức tương đối, và hình ảnh được train và hình ảnh được chụp từ thiết bị sẽ có thay đổi về màu sắc. Nên sẽ có một số loại rác bị detec sai. Dưới đây là các trường hợp sai trong quá trình kiểm thử.
+Tuy nhiên, do accuracy của model chỉ ở mức tương đối, và hình ảnh được train và hình ảnh được chụp từ thiết bị sẽ có thay đổi về màu sắc. Nên sẽ có một số loại rác bị detect sai. Dưới đây là các trường hợp sai trong quá trình kiểm thử.
 \begin{table}[H]
     \centering
     \includegraphics[width=\linewidth]{images/Quanh/Trash Failed.png}
@@ -153,7 +173,7 @@ Tuy nhiên, do accuracy của model chỉ ở mức tương đối, và hình �
     \label{fig:DWglass}
 \end{table}
 
-Như vậy, tuy có các trường hợp detec sai, nhưng có thể hình dung được mức độ đánh giá của model trong việc detec hình ảnh. Ví dụ như ở bảng \ref{fig:DWglass}, mặc dù đã bị detec sai lớp, nhưng có thể thấy, thủy tinh nói chung đều có tính chất phản ánh sáng, nên khi hình ảnh khi chụp 1 vật làm bằng thủy tinh sẽ có một độ bóng nhất định. Vì thế ở hình \ref{fig:DWglass} và \ref{fig:DWglass2} đều có tính chất phản ánh sáng như thủy tinh, nên thiết bị sẽ detec vào lớp "glass". Tương tự, các miếng bìa hầu hết trong tập dataset đều có các lằng vân nhấp nhô, và khi thiết bị chụp hình ảnh bàn tay người( hình \ref{fig:DWcardboar}), bàn tay cũng có các đường chỉ tay sâu, nên thiết bị sẽ detec vào lớp "cardboard".
+Như vậy, tuy có các trường hợp detect sai, nhưng có thể hình dung được mức độ đánh giá của model trong việc detect hình ảnh. Ví dụ như ở bảng \ref{fig:DWglass}, mặc dù đã bị detect sai lớp, nhưng có thể thấy, thủy tinh nói chung đều có tính chất phản ánh sáng, nên khi hình ảnh khi chụp 1 vật làm bằng thủy tinh sẽ có một độ bóng nhất định. Vì thế ở 2 hình đầu  đều có tính chất phản ánh sáng như thủy tinh, nên thiết bị sẽ detect vào lớp "glass". Tương tự, các miếng bìa hầu hết trong tập dataset đều có các lằng vân nhấp nhô, và khi thiết bị chụp hình ảnh bàn tay người, bàn tay cũng có các đường chỉ tay sâu, nên thiết bị sẽ detect vào lớp "cardboard".
 
 \section{Setup Gateway}
 \subsection{Access LG02}
@@ -215,7 +235,7 @@ Trong trường hợp không thể truy cập địa chỉ 10.130.1.1 nữa, ta 
         \caption{Giao diện Gateway đã được tạo (chưa connect)}
         \label{fig:gateway_console}
     \end{figure}
-    \item Bước 3: Nhập ID vào Frequency plan tùy thuộc vào Gateway mà chọn cho phù hợp như hình \ref{fig:choose_gateway}, và kết quả được hiển thị ở hình \ref{fig:gateway_result} (nếu power on gateway thì status sẽ hiện "connected")
+    \item Bước 3: Nhập ID vào Frequency plan tùy thuộc vào Gateway mà chọn cho phù hợp như hình \ref{fig:choose_gateway}, và kết quả status hiển thị là sẽ hiện "connected".
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{images/Quanh/Gateway_choose.png}

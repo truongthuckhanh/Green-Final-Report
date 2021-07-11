@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.6) (preloaded format=xelatex 2021.6.12)  11 JUL 2021 16:26
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.6) (preloaded format=xelatex 2021.6.12)  11 JUL 2021 19:17
 entering extended mode
 **d:/Green-Final-Report/building.a.smart.bin.system.with.AI-main/thesis.tex
 (d:/Green-Final-Report/building.a.smart.bin.system.with.AI-main/thesis.tex
@@ -1416,10 +1416,7 @@ Package: textcmds 2012/08/02 v2.00
 LaTeX Warning: Unused global option(s):
     [DIV].
 
-(thesis.aux (Conference/Conference.aux) (Acknowledgement/Acknowledgement.aux)
-(Abstract/Abstract.aux) (Chapter1/Chapter1.aux) (Chapter2/Chapter2.aux)
-(Chapter3/Chapter3.aux) (Chapter4/Chapter4.aux) (Chapter5/Chapter5.aux)
-(Chapter6/Chapter6.aux))
+No file thesis.aux.
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -1445,7 +1442,6 @@ LaTeX Font Info:    ... okay on input line 23.
 Package scrbase Info: activating vietnamese \contentsname on input line 23.
 Package scrbase Info: activating vietnamese \listfigurename on input line 23.
 Package scrbase Info: activating vietnamese \listtablename on input line 23.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -1567,6 +1563,10 @@ LaTeX Info: Redefining \nameref on input line 23.
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
 
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           Using `bookmark' together with `hyperref' is recommended,
 (scrbook)           because of handling of possible bookmark level gaps.
@@ -1575,7 +1575,6 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
 (scrbook)           before \begin{document} on input line 23.
-
 (C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
 
@@ -1831,27 +1830,30 @@ Requested font "cmr9" at 9.09996pt
 
 
 
-] (thesis.toc [3
+]
 
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
 
-
-
-] [4])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [5] (thesis.lof [6
+[3
 
 
-])
+
+
+]
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [7] (thesis.lot)
+ [4
+
+
+]
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [8
+ [5
 
 
 ]
@@ -1889,8 +1891,7 @@ Requested font "cmr9" at 9.09996pt
 
 \openout2 = `Abstract/Abstract.aux'.
 
-
-(Abstract/Abstract.tex
+ (Abstract/Abstract.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\<let>-command' on input line 1.
@@ -1981,6 +1982,10 @@ Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;
 mapping=tex-text;" at 15.59996pt
  -> C:/Users/Admin/AppData/Local/Programs/MiKTeX/fonts/opentype/public/libertin
 e/LinLibertine_RB.otf
+
+LaTeX Warning: Reference `tab.garbage.type' on page 2 undefined on input line 9
+.
+
 File: images/TraditionalTrash.png Graphic file (type bmp)
 <images/TraditionalTrash.png>
 [2
@@ -1990,9 +1995,33 @@ File: images/TraditionalTrash.png Graphic file (type bmp)
 
 
 ] [3] [4]
+
+LaTeX Warning: Reference `fig:so_do_chon_lap' on page 5 undefined on input line
+ 54.
+
 File: images/SoDoChonLap.png Graphic file (type bmp)
 <images/SoDoChonLap.png>
- [5] [6] [7] [8] [9] [10] [11]) [12]
+
+LaTeX Warning: Citation `trashclassification' on page 5 undefined on input line
+ 59.
+
+[5] [6] [7]
+
+LaTeX Warning: Citation `trashnet' on page 8 undefined on input line 102.
+
+
+LaTeX Warning: Citation `smartcity' on page 8 undefined on input line 106.
+
+
+LaTeX Warning: Citation `lstmprediction1' on page 8 undefined on input line 113
+.
+
+[8] [9] [10]
+
+LaTeX Warning: Reference `tab.function' on page 11 undefined on input line 155.
+
+
+[11]) [12]
 \openout2 = `Chapter2/Chapter2.aux'.
 
  (Chapter2/Chapter2.tex
@@ -2006,33 +2035,90 @@ chapter 2.
 ]
 File: images/Quanh/cnn.png Graphic file (type bmp)
 <images/Quanh/cnn.png>
- [14] [15]
+
+
+LaTeX Warning: Citation `deeplearningphoton' on page 14 undefined on input line
+ 28.
+
+[14] [15]
 File: images/Quanh/LoraWan_Stack.png Graphic file (type bmp)
 <images/Quanh/LoraWan_Stack.png>
- [16]
+
+
+LaTeX Warning: Citation `lorawanoverview' on page 16 undefined on input line 74
+.
+
+
+LaTeX Warning: Reference `fig:lorawan_stack' on page 16 undefined on input line
+ 78.
+
+[16]
+
+LaTeX Warning: Reference `fig:lorawan_network' on page 17 undefined on input li
+ne 88.
+
 File: images/Quanh/LoraWan_Netwrok.png Graphic file (type bmp)
 <images/Quanh/LoraWan_Netwrok.png>
- [17]
+
+LaTeX Warning: Citation `lorawanoverview' on page 17 undefined on input line 91
+.
+
+
+LaTeX Warning: Reference `tab.network.otaa' on page 17 undefined on input line 
+108.
+
+[17]
 
 LaTeX Warning: Reference `fig:lora_gateway' on page 18 undefined on input line 
 127.
 
 File: images/Quanh/lora_gateway.png Graphic file (type bmp)
 <images/Quanh/lora_gateway.png>
+
+LaTeX Warning: Citation `lg02dragino' on page 18 undefined on input line 130.
+
 [18]
+
+LaTeX Warning: Reference `fig:lorawan_kit' on page 19 undefined on input line 1
+41.
+
 File: images/Quanh/lora_kit.png Graphic file (type bmp)
 <images/Quanh/lora_kit.png>
- [19] [20]
+
+LaTeX Warning: Citation `lorawan32' on page 19 undefined on input line 144.
+
+[19] [20]
+
+LaTeX Warning: Reference `tab.lstm_cell' on page 21 undefined on input line 164
+.
+
 File: images/Khanh/Python/LSTM_cell_structure.PNG Graphic file (type bmp)
 <images/Khanh/Python/LSTM_cell_structure.PNG>
- [21] [22] [23] [24]
+
+LaTeX Warning: Citation `lstmintroduction' on page 21 undefined on input line 1
+68.
+
+[21] [22] [23]
+
+LaTeX Warning: Reference `fig:thingsboard_overall' on page 24 undefined on inpu
+t line 217.
+
+[24]
 File: images/Khanh/Thingsboard/thingsboard_overall.png Graphic file (type bmp)
 <images/Khanh/Thingsboard/thingsboard_overall.png>
+
+
+LaTeX Warning: Citation `thingsboard' on page 25 undefined on input line 222.
+
 ) [25]
 \openout2 = `Chapter3/Chapter3.aux'.
 
  (Chapter3/Chapter3.tex
 chapter 3.
+
+LaTeX Warning: Reference `fig:general_chart' on page 26 undefined on input line
+ 6.
+
 File: images/general_chart.png Graphic file (type bmp)
 <images/general_chart.png>
 [26
@@ -2042,15 +2128,32 @@ File: images/general_chart.png Graphic file (type bmp)
 
 
 ]
+
+LaTeX Warning: Reference `fig:chart_smartbin' on page 27 undefined on input lin
+e 35.
+
 File: images/Chart_smartbin.png Graphic file (type bmp)
 <images/Chart_smartbin.png>
- [27] [28]
+[27]
+
+LaTeX Warning: Reference `fig:general_chart' on page 28 undefined on input line
+ 43.
+
+[28]
+
+LaTeX Warning: Reference `fig:chart_server1' on page 29 undefined on input line
+ 61.
+
 File: images/Khanh/Nodejs/Chart_server1.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Chart_server1.png>
- [29] [30]
+[29] [30]
+
+LaTeX Warning: Reference `fig:chart_server2' on page 31 undefined on input line
+ 76.
+
 File: images/Khanh/Nodejs/Chart_server2.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Chart_server2.png>
- [31]) [32]
+[31]) [32]
 \openout2 = `Chapter4/Chapter4.aux'.
 
  (Chapter4/Chapter4.tex
@@ -2064,91 +2167,138 @@ File: images/Quanh/ktmang.png Graphic file (type bmp)
 
 
 ]
-Overfull \hbox (1.8267pt too wide) in paragraph at lines 41--43
-[]\TU/LinLibertine(0)/m/n/13 Chúng tôi dùng bộ dataset TrashNet [[]] để train v
-à test với kích thước 512x384.
- []
+
+LaTeX Warning: Reference `fig:kientrucmang' on page 34 undefined on input line 
+44.
+
+
+LaTeX Warning: Citation `trashnet' on page 34 undefined on input line 52.
 
 [34]
+
+LaTeX Warning: Reference `fig:trash_classification' on page 35 undefined on inp
+ut line 65.
+
 File: images/Quanh/Trash Classification.png Graphic file (type bmp)
 <images/Quanh/Trash Classification.png>
- [35]
+[35] [36]
 File: images/Quanh/graph.png Graphic file (type bmp)
 <images/Quanh/graph.png>
- [36]
 File: images/Quanh/matrix.png Graphic file (type bmp)
 <images/Quanh/matrix.png>
- [37] [38]
+ [37]
+
+LaTeX Warning: Reference `fig:matrix' on page 38 undefined on input line 107.
+
+[38] [39]
+
+LaTeX Warning: Citation `trashnet' on page 40 undefined on input line 139.
+
+
+LaTeX Warning: Reference `fig:chart_smartbin' on page 40 undefined on input lin
+e 143.
+
 File: images/Quanh/Trash Result.png Graphic file (type bmp)
 <images/Quanh/Trash Result.png>
- [39]
+[40] [41]
 Overfull \vbox (6.6698pt too high) has occurred while \output is active []
 
 
-[40]
+[42]
 File: images/Quanh/Trash Failed.png Graphic file (type bmp)
 <images/Quanh/Trash Failed.png>
 
 
-LaTeX Warning: Reference `fig:DWglass2' on page 41 undefined on input line 156.
+LaTeX Warning: Reference `fig:DWglass' on page 43 undefined on input line 176.
 
+[43]
 
+LaTeX Warning: Reference `fig:gateway_configure' on page 44 undefined on input 
+line 182.
 
-LaTeX Warning: Reference `fig:DWcardboar' on page 41 undefined on input line 15
-6.
-
-[41]
 File: images/Quanh/Gateway_configure.png Graphic file (type bmp)
 <images/Quanh/Gateway_configure.png>
+
+LaTeX Warning: Reference `fig:radio0_scan' on page 44 undefined on input line 1
+92.
+
 File: images/Quanh/Radio_scan.png Graphic file (type bmp)
 <images/Quanh/Radio_scan.png>
- [42]
+[44]
+
+LaTeX Warning: Reference `fig:join_password' on page 45 undefined on input line
+ 199.
+
 File: images/Quanh/Join_password.png Graphic file (type bmp)
 <images/Quanh/Join_password.png>
+
+LaTeX Warning: Reference `fig:disable_wifi' on page 45 undefined on input line 
+205.
+
 File: images/Quanh/Disable_wifi.png Graphic file (type bmp)
 <images/Quanh/Disable_wifi.png>
- [43]
-Overfull \hbox (17.40459pt too wide) in paragraph at lines 197--198
+[45]
+Overfull \hbox (17.40459pt too wide) in paragraph at lines 217--218
 []\TU/LinLibertine(0)/m/n/13 Configure Ethernet port có địa chỉ IP là 172.31.25
 5.253 và network 255.255.255.252. 
  []
 
+
+LaTeX Warning: Reference `fig:get_gateway_id' on page 46 undefined on input lin
+e 224.
+
 File: images/Quanh/Gateway_ID.png Graphic file (type bmp)
 <images/Quanh/Gateway_ID.png>
-[44]
+[46]
+
+LaTeX Warning: Reference `fig:gateway_console' on page 47 undefined on input li
+ne 231.
+
 File: images/Quanh/Gateway_console.png Graphic file (type bmp)
 <images/Quanh/Gateway_console.png>
 
-
-LaTeX Warning: Reference `fig:gateway_result' on page 45 undefined on input lin
-e 218.
+LaTeX Warning: Reference `fig:choose_gateway' on page 47 undefined on input lin
+e 238.
 
 File: images/Quanh/Gateway_choose.png Graphic file (type bmp)
 <images/Quanh/Gateway_choose.png>
-[45]
+[47]
+
+LaTeX Warning: Reference `fig:radio_config' on page 48 undefined on input line 
+256.
+
 File: images/Quanh/Radio_config.png Graphic file (type bmp)
 <images/Quanh/Radio_config.png>
- [46] [47]
-Underfull \hbox (badness 1331) in paragraph at lines 290--290
+[48] [49]
+
+LaTeX Warning: Reference `tab.comparison.Cayenne' on page 50 undefined on input
+ line 299.
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 310--310
 []|\TU/LinLibertine(0)/m/n/13 • Không cần decoder (do thư
  []
 
-[48]) [49]
+[50]) [51]
 \openout2 = `Chapter5/Chapter5.aux'.
 
  (Chapter5/Chapter5.tex
 chapter 5.
-[50
+[52
 
 
 
 
 
-] [51]
+] [53]
+
+LaTeX Warning: Reference `fig:create_device' on page 54 undefined on input line
+ 51.
+
 File: images/Khanh/Nodejs/Server_Create_Stimulate_Device.png Graphic file (type
  bmp)
 <images/Khanh/Nodejs/Server_Create_Stimulate_Device.png>
- [52]
+[54]
 Overfull \hbox (50.21321pt too wide) in paragraph at lines 73--74
 \TU/LinLibertine(0)/m/n/13 theo dạng ’{name}_{function}’, ví dụ: ’{name}_taiche
 ’ và ’{name}_khongtaiche’.
@@ -2160,25 +2310,40 @@ Overfull \hbox (6.45845pt too wide) in paragraph at lines 74--75
 attributes || time-
  []
 
-[53]
+[55]
+
+LaTeX Warning: Reference `fig:predict_empty_bin' on page 56 undefined on input 
+line 82.
+
 File: images/Khanh/Nodejs/Server_Predict_Empty_Bin.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Server_Predict_Empty_Bin.png>
- [54] [55]
+[56] [57]
+
+LaTeX Warning: Reference `fig:get_map' on page 58 undefined on input line 109.
+
 File: images/Khanh/Nodejs/Server_Get_Map.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Server_Get_Map.png>
- [56]
+[58]
 Overfull \hbox (27.66261pt too wide) in paragraph at lines 119--120
 \TU/LinLibertine(0)/m/n/13 language&roundtrip&geometries&steps&access_token để 
 lấy ma trận khoảng
  []
 
-[57]
+[59]
+
+LaTeX Warning: Reference `fig:random_telemetry' on page 60 undefined on input l
+ine 133.
+
 File: images/Khanh/Nodejs/Server_Random_Telemetry.png Graphic file (type bmp)
 <images/Khanh/Nodejs/Server_Random_Telemetry.png>
- [58]
+[60]
+
+LaTeX Warning: Reference `tab.ttn_format' on page 61 undefined on input line 14
+3.
+
 File: images/Khanh/Nodejs/TTN_format.png Graphic file (type bmp)
 <images/Khanh/Nodejs/TTN_format.png>
- [59] [60] [61]
+[61] [62] [63]
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
 (Font)              scaled to size 13.0pt on input line 172.
 Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;
@@ -2205,36 +2370,84 @@ Overfull \hbox (36.135pt too wide) in paragraph at lines 182--183
 [][] 
  []
 
+
+LaTeX Warning: Reference `fig:nocluster10000' on page 64 undefined on input lin
+e 195.
+
 File: images/Khanh/Nodejs/NoCluster10000-100.PNG Graphic file (type bmp)
 <images/Khanh/Nodejs/NoCluster10000-100.PNG>
-[62]
+[64]
+
+LaTeX Warning: Reference `fig:cluster10000' on page 65 undefined on input line 
+203.
+
 File: images/Khanh/Nodejs/WithCluster10000-100.PNG Graphic file (type bmp)
 <images/Khanh/Nodejs/WithCluster10000-100.PNG>
+
+LaTeX Warning: Reference `fig:nocluster100' on page 65 undefined on input line 
+213.
+
+
+LaTeX Warning: Reference `fig:cluster100' on page 65 undefined on input line 21
+3.
+
 File: images/Khanh/Nodejs/NoCluster100-100.PNG Graphic file (type bmp)
 <images/Khanh/Nodejs/NoCluster100-100.PNG>
- [63]
+[65]
 File: images/Khanh/Nodejs/WithCluster100-100.PNG Graphic file (type bmp)
 <images/Khanh/Nodejs/WithCluster100-100.PNG>
- [64] [65]
+ [66] [67]
+
+LaTeX Warning: Reference `fig:python_general' on page 68 undefined on input lin
+e 252.
+
 File: images/Khanh/Python/Python_general.png Graphic file (type bmp)
 <images/Khanh/Python/Python_general.png>
- [66]
+[68]
+
+LaTeX Warning: Reference `tag.lstm.model' on page 69 undefined on input line 27
+0.
+
 File: images/Khanh/Python/LSTM Model.PNG Graphic file (type bmp)
 <images/Khanh/Python/LSTM Model.PNG>
- [67]
+[69]
+
+LaTeX Warning: Reference `tab.CSV_structure' on page 70 undefined on input line
+ 283.
+
 File: images/Khanh/Python/CSV_Structure.PNG Graphic file (type bmp)
 <images/Khanh/Python/CSV_Structure.PNG>
+
+LaTeX Warning: Reference `fig:CSV_plot_chart' on page 70 undefined on input lin
+e 291.
+
 File: images/Khanh/Python/CSV_Plot_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/CSV_Plot_Chart.png>
- [68]
+[70]
+
+LaTeX Warning: Reference `fig:loss_chart' on page 71 undefined on input line 30
+9.
+
 File: images/Khanh/Python/Loss_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Loss_Chart.png>
- [69]
+[71]
+
+LaTeX Warning: Reference `fig:test_recycle_actual_prediction' on page 72 undefi
+ned on input line 317.
+
+
+LaTeX Warning: Reference `fig:test_non_recycle_actual_prediction' on page 72 un
+defined on input line 317.
+
 File: images/Khanh/Python/Recycle_Test_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Recycle_Test_Chart.png>
 File: images/Khanh/Python/Non-Recycle_Test_Chart.png Graphic file (type bmp)
 <images/Khanh/Python/Non-Recycle_Test_Chart.png>
- [70]
+[72]
+
+LaTeX Warning: Reference `fig:final_result' on page 73 undefined on input line 
+331.
+
 File: images/Khanh/Python/Final_results.png Graphic file (type bmp)
 <images/Khanh/Python/Final_results.png>
 
@@ -2243,48 +2456,94 @@ Overfull \hbox (10.85199pt too wide) in paragraph at lines 331--337
 n mức rác vào 12 time_steps
  []
 
-[71]
+[73]
+
+LaTeX Warning: Reference `fig:asset_general' on page 74 undefined on input line
+ 348.
+
+
+LaTeX Warning: Reference `fig:device_general' on page 74 undefined on input lin
+e 348.
+
 File: images/Khanh/Thingsboard/Assets.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Assets.PNG>
- [72]
+[74]
 File: images/Khanh/Thingsboard/Devices.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Devices.PNG>
- [73]
+
+
+LaTeX Warning: Reference `fig:asset_attributes' on page 75 undefined on input l
+ine 365.
+
+
+LaTeX Warning: Reference `fig:asset_relation' on page 75 undefined on input lin
+e 369.
+
+[75]
 File: images/Khanh/Thingsboard/Asset_details.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Asset_details.PNG>
 File: images/Khanh/Thingsboard/Asset_relation.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Asset_relation.PNG>
- [74]
+ [76]
+
+LaTeX Warning: Reference `fig:root_chain' on page 77 undefined on input line 39
+6.
+
+
+LaTeX Warning: Reference `fig:delta_chain' on page 77 undefined on input line 3
+96.
+
 File: images/Khanh/Thingsboard/Root_rule_chain.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Root_rule_chain.PNG>
 File: images/Khanh/Thingsboard/Delta_rule_chain.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Delta_rule_chain.PNG>
- [75]
+[77]
+
+LaTeX Warning: Reference `fig:dashboard_map' on page 78 undefined on input line
+ 425.
+
+
+LaTeX Warning: Reference `fig:dashboard_asset_list' on page 78 undefined on inp
+ut line 425.
+
 File: images/Khanh/Thingsboard/Dashboard_map.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Dashboard_map.PNG>
- [76]
+[78]
+
+LaTeX Warning: Reference `fig:map_optimization' on page 79 undefined on input l
+ine 435.
+
 File: images/Khanh/Thingsboard/Road_optimization.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Road_optimization.PNG>
- [77]
+[79]
 File: images/Khanh/Thingsboard/Dashboard_list.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Dashboard_list.PNG>
+
+
+LaTeX Warning: Reference `fig:bin_detail' on page 80 undefined on input line 45
+1.
+
 File: images/Khanh/Thingsboard/Bin_detail.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Bin_detail.PNG>
- [78]
+[80]
+
+LaTeX Warning: Reference `fig:sensor_detail' on page 81 undefined on input line
+ 459.
+
 File: images/Khanh/Thingsboard/Sensor_detail.PNG Graphic file (type bmp)
 <images/Khanh/Thingsboard/Sensor_detail.PNG>
-) [79]
+) [81]
 \openout2 = `Chapter6/Chapter6.aux'.
 
  (Chapter6/Chapter6.tex
 chapter 6.
-[80
+[82
 
 
 
 
 
-] [81]) [82]
+] [83]) [84]
 Underfull \hbox (badness 4805) in paragraph at lines 77--78
 []\TU/LinLibertine(0)/m/it/13 Phân loại, thu gom và xử lý rác thải sinh hoạt \T
 U/LinLibertine(0)/m/n/13 [Online]. Avail-
@@ -2350,7 +2609,7 @@ Underfull \hbox (badness 1701) in paragraph at lines 89--90
 t/13 Multi-Step-Ahead Time Series Prediction
  []
 
-[83
+[85
 
 
 
@@ -2373,23 +2632,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--105
 ST API\TU/LinLibertine(0)/m/n/13 . Mapbox. [Online]. Available:
  []
 
-[84] (thesis.aux (Conference/Conference.aux)
+[86] (thesis.aux (Conference/Conference.aux)
 (Acknowledgement/Acknowledgement.aux) (Abstract/Abstract.aux)
 (Chapter1/Chapter1.aux) (Chapter2/Chapter2.aux) (Chapter3/Chapter3.aux)
 (Chapter4/Chapter4.aux) (Chapter5/Chapter5.aux) (Chapter6/Chapter6.aux))
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31133 strings out of 411271
- 623339 string characters out of 2828803
- 1238399 words of memory out of 3000000
- 51087 multiletter control sequences out of 15000+600000
+ 31087 strings out of 411271
+ 622376 string characters out of 2828803
+ 1226877 words of memory out of 3000000
+ 51067 multiletter control sequences out of 15000+600000
  409451 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 122i,14n,122p,10719b,661s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 122i,14n,122p,10719b,657s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.pdf (92 pages).
+Output written on thesis.pdf (91 pages).

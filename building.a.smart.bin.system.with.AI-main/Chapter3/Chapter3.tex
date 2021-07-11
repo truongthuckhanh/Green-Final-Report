@@ -47,8 +47,8 @@ Như đã nói ở sơ đồ \ref{fig:general_chart}, Smart bin sẽ bao gồm 2
         \item Khi bỏ rác vào thùng, rác sẽ làm cho chiều cao của thùng thay đổi, cụ thể là khoảng cách từ mặt trên bên trong của thùng đến phần tiếp xúc của rác sẽ giảm. Từ đó, đáp ứng điều kiện để kích hoạt camera chụp ảnh.
         \item Camera chụp ảnh.
         \item Hình ảnh đã chụp được mạch thực hiện thao tác convert qua 1 mảng byte.
-        \item Model detec ảnh đã được train từ Google Colab và đưa vào mạch cũng là 1 mảng byte. Nên mạch tiến hành so sánh 2 mảng byte đó và đưa ra kết quả detec.
-        \item Sau khi có kết quả detec loại rác, mạch sẽ xét điều kiện xem loại rác đã được detec(glass/metal/plastic/cardboard/paper/other trash) thuộc loại rác: Tái tế hay Không tái chế.
+        \item Model detect ảnh đã được train từ Google Colab và đưa vào mạch cũng là 1 mảng byte. Nên mạch tiến hành so sánh 2 mảng byte đó và đưa ra kết quả detect.
+        \item Sau khi có kết quả detect loại rác, mạch sẽ xét điều kiện xem loại rác đã được detect(glass/metal/plastic/cardboard/paper/other trash) thuộc loại rác: Tái tế hay Không tái chế.
         \item Sau khi có kết quả loại rác là "tái chế" hay " Không tái chế" thì mạch tiếp tục xét điều kiện:
         \begin{enumerate}
             \item Nếu rác thuộc loại "tái chế": servo sẽ quay 180 độ để làm rác rớt vào ngăn bên phải.

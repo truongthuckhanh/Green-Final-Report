@@ -1,8 +1,8 @@
 \heading{TÓM TẮT KHÓA LUẬN\centering}
 
-Hello đây là tóm tắt
 
-Về phần thiết bị,
+
+Về phần thiết bị, chúng tôi xây dựng mô hình thùng rác thông minh với hai chức năng: tự động phân loại rác tái chế hay không tái chế trực tiếp trên microcontroller ESP32 Camera AI Thinker, và thu thập dữ liệu về khoảng trống còn lại trong thùng rác bằng ultrasonic sensor điều khiển bởi mạch ESP32 Lora Heltec. Chúng tôi sẽ đưa dữ liệu thu thập được về server xử lý bằng công nghệ LoRawan với tần số  433MHz.
 
 Về phía server, chúng tôi thiết lập một mô hình gồm 2 server xử lý thông tin thiết bị và dữ liệu rác và những server bên thứ 3 cung cấp các API hữu ích cho dự án. Cụ thể hơn, chúng tôi thiết lập một Nodejs Server với chức năng chính là nhận và xử lý các gói tin dữ liệu gửi từ các thùng rác được tạo trên TTN (The Things Network) thông qua HTTP. Ngoài ra, Nodejs cho phép khởi tạo thêm các thùng rác ảo với tính năng y hệt để tăng tính mở rộng cho dự án. Tất cả dữ liệu đến của hai loại thùng rác đều được xử lý xác nhận trạng thái đầy của thùng rác, song với việc chúng sẽ được lưu trữ trong file .csv sử dụng với mục đích dự đoán.
 

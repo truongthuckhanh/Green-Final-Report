@@ -62,7 +62,7 @@
 \contentsline {subsection}{\numberline {5.3.2}Assets và Devices}{72}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}Rule Chains}{74}{subsection.5.3.3}%
 \contentsline {subsection}{\numberline {5.3.4}Dashboard}{76}{subsection.5.3.4}%
-\contentsline {chapter}{\numberline {6}Khó khăn và hướng phát triển đề tài}{80}{chapter.6}%
+\contentsline {chapter}{\numberline {6}KHÓ KHĂN VÀ HƯỚNG PHÁT TRIỂN ĐỀ TÀI}{80}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Khó khăn}{80}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Về thiết bị}{80}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Về server}{80}{subsection.6.1.2}%

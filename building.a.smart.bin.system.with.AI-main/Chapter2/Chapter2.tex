@@ -23,9 +23,9 @@ CNN là một kiến trúc mạng bao gồm các lớp: convolution layer + nonl
 Trong kiến trúc mạng này ảnh đầu vào được biểu diễn dưới dạng ma trận. Lớp Convolution được sử dụng để phát hiện đặc trưng cụ thể của ảnh, từ các đặc trưng cơ bản như góc, cạnh đến các đặc trưng phức tạp như texture của ảnh. Một ma trận có kích thước nhỏ (3x3 hoặc 5x5) được gọi là filter sẽ lướt qua toàn bộ ảnh từ trái sang phải và từ trên xuống dưới để phát hiện các đặc trưng trong ảnh. 
 
 \begin{figure}
-
+    \centering
     \includegraphics[width=\textwidth]{images/Quanh/cnn.png}
-    \caption{Ví dụ về phép tính convoluted cho neural network}
+    \caption{Ví dụ về phép tính convoluted cho neural network} \cite{deeplearningphoton}
 \end{figure}
 
 Kích thước của filter tỉ lệ thuận với số tham số cần học và thường là số lẻ. Sau khi áp dụng phép convolution thì ma trận đầu vào sẽ nhỏ dần dẫn đến số layer của mô hình CNN bị giới hạn. Vì vậy cần phải lưu ý đến tham số stride, thể hiện số pixel cần phải dịch chuyển mỗi khi trượt filter trên ảnh và thêm padding có giá trị bằng 0 ở phần khung của ảnh. Tương tự như mạng neurald network, CNN cũng sử dụng hàm kích hoạt như ReLU hoặc tanh đặt ngay sau tầng convolution. Đối với dữ liệu ảnh hàm kích hoạt thường được sử dụng là ReLU, hàm này gán những giá trị âm bằng 0 và giữ nguyên các giá trị lớn hơn 0.
@@ -71,7 +71,7 @@ LoRaWAN sử dụng phổ không được cấp phép trong các dải ISM để
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{images/Quanh/LoraWan_Stack.png}
-    \caption{LoRaWAN Technology Stack}
+    \caption{LoRaWAN Technology Stack} \cite{lorawanoverview}
     \label{fig:lorawan_stack}
 \end{figure}
 
@@ -88,7 +88,7 @@ Là hệ thống bao gồm các vai trò Network Server, Application Server, joi
 Tư hình \ref{fig:lorawan_network}, ta suy được:
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{images/Quanh/LoraWan_Netwrok.png}
-    \caption{Mô hình LoRaWAN Network}
+    \caption{Mô hình LoRaWAN Network} \cite{lorawanoverview}
     \label{fig:lorawan_network}
 \end{figure}
 
@@ -127,7 +127,7 @@ Trên the things network, có 2 hình thức join: OTAA ( over-the-air activatio
 Thiết bị được mô tả ở hình \ref{fig:lora_gateway} với những đặc tính sau:
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{images/Quanh/lora_gateway.png}
-    \caption{LG02 Dragino Gateway}
+    \caption{LG02 Dragino Gateway} \cite{lg02dragino}
     \label{fig:lorawan_gateway}
 \end{figure}
 
@@ -141,7 +141,7 @@ Thiết bị được mô tả ở hình \ref{fig:lora_gateway} với những đ
 Kit RF thu phát wifi Blue esp32 + lora sx1278 oled heltec được mô tả như hình \ref{fig:lorawan_kit} với những đặc điểm sau:
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{images/Quanh/lora_kit.png}
-    \caption{Kit RF thu phát wifi Blue esp32 + lora sx1278 oled heltec}
+    \caption{Kit RF thu phát wifi Blue esp32 + lora sx1278 oled heltec} \cite{lorawan32}
     \label{fig:lorawan_kit}
 \end{figure}
 \begin{itemize}
@@ -165,7 +165,7 @@ Mạng LSTM có thể bao gồm nhiều LSTM memory cell liên kết với nhau 
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{images/Khanh/Python/LSTM_cell_structure.PNG}
-    \caption{Sở đồ biểu diễn kiến trúc bên trong tế bào LSTM \cite{lstmintroduction}}
+    \caption{Sở đồ biểu diễn kiến trúc bên trong tế bào LSTM} \cite{lstmintroduction}
     \label{tab.lstm_cell}
 \end{figure}
 
@@ -219,7 +219,7 @@ Thingsboard là một nền tảng IoT mã nguồn mở, giúp phát triển, qu
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{images/Khanh/Thingsboard/thingsboard_overall.png}
-    \caption{Mô hình tổng quan Thingsboard \cite{thingsboard}}
+    \caption{Mô hình tổng quan Thingsboard} \cite{thingsboard}
     \label{fig:thingsboard_overall}
 \end{figure}
 

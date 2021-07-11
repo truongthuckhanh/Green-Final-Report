@@ -46,128 +46,120 @@ Nodejs Server là trung tâm xử lý chính luồng dữ liệu gửi đến, c
 
 Sau đây là tất cả API mà server cung cấp với bản mô tả chi tiết từng luồng chức năng:
 \begin{itemize}
-
-    \item Xử lý chung:
+    \item POST /api/devices: Tạo và cài đặt thông tin cho thùng rác, cảm biến thật và ảo
+    \begin{description}
+        \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:create_device} 
+    \end{description}
     \begin{itemize}
-        \item POST /api/devices: Tạo và cài đặt thùng rác, cảm biến
-        \begin{description}
-            \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:create_device} 
-        \end{description}
-        \begin{itemize}
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Create_Stimulate_Device.png}
-                \caption{Sơ đồ miêu tả mô hình khởi tao thiết bị và cảm biến}
-                \label{fig:create_device}
-            \end{figure}
-            \item Trước khi tạo một thùng rác thật/ảo mới cũng phải điền đầy đủ những thông tin sau trong body:
-            \begin{itemize}
-                \item name (string): tên thùng rác.
-                \item type (string): loại thùng rác.
-                \item address (string): địa chỉ của thùng, nếu không có thì sẽ sử dụng API Geocoding từ Mapbox nhận vào tọa độ của thùng để định vị địa chỉ.
-                \item latitude (double): kinh độ.
-                \item longitude (double): vĩ độ.
-                \item nonrecycleHeight (double): chiều cao ngăn không tái chế.
-                \item recycleHeight (double): chiều cao ngăn tái chế. 
-            \end{itemize} 
-            \item Sau khi gửi body request như trên, một loạt hàm sẽ được chạy dựa trên cơ chế waterfall, sử dụng request để gọi API khởi tạo từ Thingsboard. Những API từ Thingsboard đều có JWT để bảo mật route, khi sử dụng phải cần có token đăng nhập lấy từ API POST /api/auth/log. Token sau đó được gắn vào header ở dạng 'Bearer \{token\}' ở trường 'X-Authorization'. Nếu không có token thì mọi API sẽ trả về status 401 unauthorized.
-            \begin{enumerate}
-                \item POST /api/asset để tạo mới thùng rác, nhận vào \{name, type\} của thùng rác. Nếu status trả về là 201 tức là tạo thùng rác thành công, còn 404 là báo lỗi trùng tên thùng rác. ID thùng rác trả về sẽ được lưu trữ.
-                \item POST /api/device để tạo mới cảm biến, nhận vào \{name, type\} của cảm biến. Vì trong thùng luôn chứa hai cảm biến siêu âm để phân loại rác tái chế và không tái chế nên tên cảm biến sẽ được chuẩn hóa theo dạng '\{name\}{\_}\{function\}', ví dụ: '\{name\}{\_}taiche' và '\{name\}{\_}khongtaiche'. Nếu status trả về 201 tức là tạo cảm biến thành công, còn 404 là báo lỗi trùng tên cảm biến. ID cảm biến trả về sẽ được lưu trữ.
-                \item POST /api/plugins/telemetry/ASSET/\{id thùng rác\}/\{attributes || timeseries\} để thêm các thuộc tính hoặc giá trị theo thời gian cho thùng, những thuộc tính mặc định bao gồm \{address, latitude, longitude, recycleHeight, nonrecycleHeight\} còn giá trị thời gian thì có mức rác 2 ngăn, giá trị tiên đoán và message thông báo. Nếu trường đã có thì sẽ thay đổi giá trị trường đó. Nếu status 201 tức là thêm thành công, 404 là báo lỗi thiếu dữ liệu.
-                \item POST /api/relation để tạo quan hệ một nhiều giữa thùng rác và cảm biến, nhận vào body dạng \{from: \{type: 'ASSET', id: \{id thùng rác\}\}, to: \{type: 'DEVICE', id: \{id cảm biến\}\}\}. Nếu status 201 tức là thành công, còn 404 là thiếu dữ liệu hoặc id không tồn tại.
-                \item Sau khi thao tác thành công, thông tin thùng rác sẽ được lưu lại dưới server để xử lý dữ liệu và dự đoán.
-            \end{enumerate}
-        \end{itemize}
-
-        \item GET /api/devices/prediction: Xử lý dự đoán mức rác cho những thùng rác chưa đầy, được gọi vào 1 giờ trước khi thu gom rác.
-        \begin{description}
-            \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:predict_empty_bin} 
-        \end{description}
-        \begin{enumerate}    
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Predict_Empty_Bin.png}
-                \caption{Sơ đồ miêu tả mô hình gửi dữ liệu tiên đoán và kiểm tra mức rác}
-                \label{fig:predict_empty_bin}
-            \end{figure}
-            \item Lấy tọa độ của những thùng rác chưa đầy, sau đó định dạng theo kiểu chuỗi '\{lng{\_}nơigomrác\},\{lat{\_}nơigomrác\};\{lng{\_}thùng1\},\{lat{\_}thùng1\};\{lng{\_}\newline thùng2\},\{lat{\_}thùng2\} \dots\ '.
-            \item Gọi API từ Mapbox GET /directions-matrix/v1/\{profile\}/\{coordinates\}?\newline sources\&annotations\&access{\_}token để lấy ma trận khoảng cách hoặc thời gian di chuyển giữa nhiều điểm. Những params và query được mô tả chi tiết như sau:
-            \begin{itemize}
-                \item profile (params): cấu hình ID phương tiện, giá trị bao gồm "driving", "walking", "cycling" và "driving-traffic". 
-                \item coordinates (params): danh sách tọa độ \{kinh độ, vĩ độ\} được phân tách bằng dấu chấm phẩy.
-                \item sources (query): đánh chỉ tọa độ làm điểm nguồn tới tất cả tọa độ còn lại. 
-                \item annotations (query): dùng để chỉ định kết quả trả về, giá có thể có là "duration" (thời lượng) hoặc "distance" (khoảng cách) hoặc cả hai ngăn cách bằng dấu phẩy.
-                \item access{\_}token (query): token key được cung cấp bởi Mapbox
-            \end{itemize}
-            \item Kết quả trả về sẽ theo dạng ma trận 1xn (n là số thùng chưa đầy) [0, n1, n2, n3, ...], mỗi phần tử là thời gian di chuyển từ điểm nguồn tới từng tọa độ trong \{coordinates\}.
-            \item Duyệt qua những thùng rác chưa đầy, khi file .csv lưu trữ dữ liệu quá ít thì sẽ không dự đoán, còn lại thì sẽ gửi file .csv qua Python Server để dự đoán mức rác vào một giờ sau (giờ gom rác).
-            \item Kết quả trả về là một mảng một chiều, mỗi phần tử là lượng rác được dự đoán sau \{index + 1\} giờ. Nếu phần tử 0 (lượng rác vào lúc thu gom) lớn hơn hoặc bằng 90\% chiều cao thùng tức là thùng đó dự đoán sẽ đầy sau một giờ và sẽ được đánh dấu thùng rác đầy.
-            \item Đối với những thùng rác dự đoán chưa đầy vào một giờ, thì ta xét trong thời gian từ lúc bắt đầu tới khi đến được thùng rác, thùng có đầy không. Bằng cách lấy thời gian di chuyển đến thùng đó so với các khoảng giờ i (max=3), nếu thời gian nằm trong khoảng giờ i, thì sẽ lấy lượng rác dự đoán sau i + 1 giờ. 
-            \item Lấy kết quả dự đoán so với 90\% của thùng, nếu được dự đoán sẽ đầy thì sẽ được đánh dấu vào những thùng đầy.
-        \end{enumerate}
-
-        \item GET /api/devices/staticMap
-        \begin{description}
-            \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:get_map} 
-        \end{description}
-        \begin{enumerate}    
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Get_Map.png}
-                \caption{Sơ đồ miêu tả luồng xuất mảng tọa độ đường đi tối ưu tới thùng rác đầy}
-                \label{fig:get_map}
-            \end{figure}
-            \item Lấy tọa độ của những thùng rác đầy, sau đó định dạng theo kiểu chuỗi '\{lng{\_}nơigomrác\},\{lat{\_}nơigomrác\};\{lng{\_}thùng1\},\{lat{\_}thùng1\};\{lng{\_}\newline thùng2\},\{lat{\_}thùng2\} \dots\ '.
-            \item Gọi API từ Mapbox GET /optimized-trips/v1/\{profile\}/\{coordinates\}?\newline language\&roundtrip\&geometries\&steps\&access{\_}token để lấy ma trận khoảng cách hoặc thời gian di chuyển giữa nhiều điểm. Những params và query được mô tả chi tiết như sau:
-            \begin{itemize}
-                \item profile (params): cấu hình ID phương tiện, giá trị bao gồm "driving", "walking", "cycling" và "driving-traffic". 
-                \item coordinates (params): danh sách tọa độ \{kinh độ, vĩ độ\} được phân tách bằng dấu chấm phẩy.
-                \item language (query): định dạng ngôn ngữ trả về ở văn bản hướng dẫn.
-                \item steps (query): trả về chi dẫn từng chặng chi tiết.
-                \item roundtrip (query): cho biết tuyến đường có phải là khứ hồi hay không.
-                \item geometries (query): định dạng kiểu trả về, giá trị bao gồm "geojson", "polyline", "polyline6".
-                \item access{\_}token (query): token key được cung cấp bởi Mapbox.
-            \end{itemize}
-            \item Kết quả trả về là một mảng tọa độ chỉ đường đi đến tất cả thùng rác đầy, sau đó định dạng lại theo dạng [[\{lat1\},\{lng1\}],[\{lat2\},\{lng2\}],...].
-            \item Gửi kết quả định dạng lên Thingsboard thông qua API POST /api/plugins\newline/telemetry/ASSET/\{id\}/attribute với id của nơi gom rác được tạo sẵn để hiển thị đường đi lên bản đồ Thingsboard.   
-        \end{enumerate}
-    \end{itemize}
-
-    \item Xử lý dữ liệu cảm biến của thiết bị ảo và thiết bị thật:
-    \begin{itemize}  
-        \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:random_telemetry}
         \begin{figure}[H]
             \centering
-            \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Random_Telemetry.png}
-            \caption{Sơ đồ miêu tả luồng tạo dữ liệu giả cho thiết bị ảo}
-            \label{fig:random_telemetry}
-        \end{figure}   
+            \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Create_Stimulate_Device.png}
+            \caption{Sơ đồ miêu tả mô hình khởi tao thiết bị và cảm biến}
+            \label{fig:create_device}
+        \end{figure}
+        \item Trước khi tạo một thùng rác thật/ảo mới cũng phải điền đầy đủ những thông tin sau trong body:
+        \begin{itemize}
+            \item name (string): tên thùng rác.
+            \item type (string): loại thùng rác.
+            \item address (string): địa chỉ của thùng, nếu không có thì sẽ sử dụng API Geocoding từ Mapbox nhận vào tọa độ của thùng để định vị địa chỉ.
+            \item latitude (double): kinh độ.
+            \item longitude (double): vĩ độ.
+            \item nonrecycleHeight (double): chiều cao ngăn không tái chế.
+            \item recycleHeight (double): chiều cao ngăn tái chế. 
+        \end{itemize} 
+        \item Sau khi gửi body request như trên, một loạt hàm sẽ được chạy dựa trên cơ chế waterfall, sử dụng request để gọi API khởi tạo từ Thingsboard. Những API từ Thingsboard đều có JWT để bảo mật route, khi sử dụng phải cần có token đăng nhập lấy từ API POST /api/auth/log. Token sau đó được gắn vào header ở dạng 'Bearer \{token\}' ở trường 'X-Authorization'. Nếu không có token thì mọi API sẽ trả về status 401 unauthorized.
         \begin{enumerate}
-            \item Với thiết bị thật (POST /api/TTN/telemetry): 
-            \begin{itemize}
-                \item Những thiết bị thật sẽ gửi dữ liệu thông qua API này với định dạng là một object được tạo từ TTN được mô tả trong bảng \ref{tab.ttn_format}
-                \begin{table}[H]
-                    \centering
-                    \includegraphics[width=\textwidth]{images/Khanh/Nodejs/TTN_format.png}
-                    \caption{Bảng mô tả định dạng dữ liệu được gửi từ TTN}
-                    \label{tab.ttn_format}
-                \end{table} 
-                \item Trong payload\_fields, đối tượng bao gồm tên cảm biến là key và giá trị cảm biến là value (\{ [sensorName]: [sensorValue] \}).
-                \item Trong metadata, đối tượng bao gồm các thông số của thiết bị và gateway (tần số, modulation, data\_rate, coding\_rate, ...), nhưng chú trọng nhất là time (thời gian server nhận được gói tin) và tọa độ của thiết bị.
-                \item Vì dữ liệu được gửi bằng cảm biến thật nên không cần thay đổi định dạng payload\_fields của chúng, nhưng vì thời gian trong metadata là một chuỗi ISO string, chúng tôi phải định dạng lại kiểu thời gian thành dạng \qq{DD/MM/YYYY hh:mm}, sau đó rồi mới đưa dữ liệu vào file csv.
-            \end{itemize}
-            \item Với thiết bị ảo (POST /api/devices/\{deviceName\}/random):
-            \begin{itemize}
-                \item Tiến hành tạo ngẫu nhiên dữ liệu của thùng rác có tên \{deviceName\}, cài đặt timer bằng cách setInterval với khoảng thời gian là 120.000ms (20 phút/1 lần).
-                \item Dữ liệu được lấy ngẫu nhiên trong file random.csv với giá trị tái chế và không tái chế ngẫu nhiên từ 0 tới 13.
-                \item Khởi tạo mức delta bằng 0, khi thùng rác chưa đầy ta lấy delta cộng với giá trị ngẫu nhiên đó và lấy chiều cao thùng rác trừ cho tổng giá trị sẽ ra được giá trị thật của cảm biến. Thực hiện đến khi nào thùng rác đầy thì giá trị ngẫu nhiên sẽ bằng 0 và khi đó giá trị sẽ dừng ở mức cao nhất của thùng rác.  
-                \item Định dạng dữ liệu giống với format payload\_fields của thiết bị thật, đối với thời gian thì sử dụng moment để lấy thời gian thực. 
-            \end{itemize}
-            \item Sau bước định dạng dữ liệu của 2 loại thiết bị, lưu dữ liệu vào file .csv của từng thùng với tên "\{deviceName\}\_deltaHeight.csv", bên trong file bao gồm các cột timestamp (thời gian), recycleData (dữ liệu tái chế) và nonrecycleData (dữ liệu không tái chế). Đồng thời dữ liệu sẽ được gửi lên Thingsboard, chuyển đổi thực thể và hiển thị lên giao diện theo dạng biểu đồ đường.
-            \item Khi thùng rác đã đầy, ta sẽ gửi thông báo đến Thingsboard để hiển thị màu sắc, cùng lúc đó, đánh dấu thùng rác đó vào danh sách các thùng rác đầy và xóa khỏi danh sách các thùng rác chưa đầy. Đối với thiết bị ảo, sẽ dừng timer để giảm tải công việc cho server.
+            \item POST /api/asset để tạo mới thùng rác, nhận vào \{name, type\} của thùng rác. Nếu status trả về là 201 tức là tạo thùng rác thành công, còn 404 là báo lỗi trùng tên thùng rác. ID thùng rác trả về sẽ được lưu trữ.
+            \item POST /api/device để tạo mới cảm biến, nhận vào \{name, type\} của cảm biến. Vì trong thùng luôn chứa hai cảm biến siêu âm để phân loại rác tái chế và không tái chế nên tên cảm biến sẽ được chuẩn hóa theo dạng '\{name\}{\_}\{function\}', ví dụ: '\{name\}{\_}taiche' và '\{name\}{\_}khongtaiche'. Nếu status trả về 201 tức là tạo cảm biến thành công, còn 404 là báo lỗi trùng tên cảm biến. ID cảm biến trả về sẽ được lưu trữ.
+            \item POST /api/plugins/telemetry/ASSET/\{id thùng rác\}/\{attributes || timeseries\} để thêm các thuộc tính hoặc giá trị theo thời gian cho thùng, những thuộc tính mặc định bao gồm \{address, latitude, longitude, recycleHeight, nonrecycleHeight\} còn giá trị thời gian thì có mức rác 2 ngăn, giá trị tiên đoán và message thông báo. Nếu trường đã có thì sẽ thay đổi giá trị trường đó. Nếu status 201 tức là thêm thành công, 404 là báo lỗi thiếu dữ liệu.
+            \item POST /api/relation để tạo quan hệ một nhiều giữa thùng rác và cảm biến, nhận vào body dạng \{from: \{type: 'ASSET', id: \{id thùng rác\}\}, to: \{type: 'DEVICE', id: \{id cảm biến\}\}\}. Nếu status 201 tức là thành công, còn 404 là thiếu dữ liệu hoặc id không tồn tại.
+            \item Sau khi thao tác thành công, thông tin thùng rác sẽ được lưu lại dưới server để xử lý dữ liệu và dự đoán.
         \end{enumerate}
     \end{itemize}
+
+    \item GET /api/devices/prediction: Xử lý dự đoán mức rác cho những thùng rác chưa đầy, được gọi vào 1 giờ trước khi thu gom rác.
+    \begin{description}
+        \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:predict_empty_bin} 
+    \end{description}
+    \begin{enumerate}    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Predict_Empty_Bin.png}
+            \caption{Sơ đồ miêu tả mô hình gửi dữ liệu tiên đoán và kiểm tra mức rác}
+            \label{fig:predict_empty_bin}
+        \end{figure}
+        \item Lấy tọa độ của những thùng rác chưa đầy, sau đó định dạng theo kiểu chuỗi '\{lng{\_}nơigomrác\},\{lat{\_}nơigomrác\};\{lng{\_}thùng1\},\{lat{\_}thùng1\};\{lng{\_}\newline thùng2\},\{lat{\_}thùng2\} \dots\ '.
+        \item Gọi API từ Mapbox GET /directions-matrix/v1/\{profile\}/\{coordinates\}?\newline sources\&annotations\&access{\_}token để lấy ma trận khoảng cách hoặc thời gian di chuyển giữa nhiều điểm. Những params và query được mô tả chi tiết như sau:
+        \begin{itemize}
+            \item profile (params): cấu hình ID phương tiện, giá trị bao gồm "driving", "walking", "cycling" và "driving-traffic". 
+            \item coordinates (params): danh sách tọa độ \{kinh độ, vĩ độ\} được phân tách bằng dấu chấm phẩy.
+            \item sources (query): đánh chỉ tọa độ làm điểm nguồn tới tất cả tọa độ còn lại. 
+            \item annotations (query): dùng để chỉ định kết quả trả về, giá có thể có là "duration" (thời lượng) hoặc "distance" (khoảng cách) hoặc cả hai ngăn cách bằng dấu phẩy.
+            \item access{\_}token (query): token key được cung cấp bởi Mapbox
+        \end{itemize}
+        \item Kết quả trả về sẽ theo dạng ma trận 1xn (n là số thùng chưa đầy) [0, n1, n2, n3, ...], mỗi phần tử là thời gian di chuyển từ điểm nguồn tới từng tọa độ trong \{coordinates\}.
+        \item Duyệt qua những thùng rác chưa đầy, khi file .csv lưu trữ dữ liệu quá ít thì sẽ không dự đoán, còn lại thì sẽ gửi file .csv qua Python Server để dự đoán mức rác vào một giờ sau (giờ gom rác).
+        \item Kết quả trả về là một mảng một chiều, mỗi phần tử là lượng rác được dự đoán sau \{index + 1\} giờ. Nếu phần tử 0 (lượng rác vào lúc thu gom) lớn hơn hoặc bằng 90\% chiều cao thùng tức là thùng đó dự đoán sẽ đầy sau một giờ và sẽ được đánh dấu thùng rác đầy.
+        \item Đối với những thùng rác dự đoán chưa đầy vào một giờ, thì ta xét trong thời gian từ lúc bắt đầu tới khi đến được thùng rác, thùng có đầy không. Bằng cách lấy thời gian di chuyển đến thùng đó so với các khoảng giờ i (max=3), nếu thời gian nằm trong khoảng giờ i, thì sẽ lấy lượng rác dự đoán sau i + 1 giờ. 
+        \item Lấy kết quả dự đoán so với 90\% của thùng, nếu được dự đoán sẽ đầy thì sẽ được đánh dấu vào những thùng đầy.
+        \end{enumerate}
+
+    \item GET /api/devices/staticMap
+    \begin{description}
+        \item Mô hình luồng xử lý được mô tả tổng quát ở hình \ref{fig:get_map} 
+    \end{description}
+    \begin{enumerate}    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Get_Map.png}
+            \caption{Sơ đồ miêu tả luồng xuất mảng tọa độ đường đi tối ưu tới thùng rác đầy}
+            \label{fig:get_map}
+        \end{figure}
+        \item Lấy tọa độ của những thùng rác đầy, sau đó định dạng theo kiểu chuỗi '\{lng{\_}nơigomrác\},\{lat{\_}nơigomrác\};\{lng{\_}thùng1\},\{lat{\_}thùng1\};\{lng{\_}\newline thùng2\},\{lat{\_}thùng2\} \dots\ '.
+        \item Gọi API từ Mapbox GET /optimized-trips/v1/\{profile\}/\{coordinates\}?\newline language\&roundtrip\&geometries\&steps\&access{\_}token để lấy ma trận khoảng cách hoặc thời gian di chuyển giữa nhiều điểm. Những params và query được mô tả chi tiết như sau:
+        \begin{itemize}
+            \item profile (params): cấu hình ID phương tiện, giá trị bao gồm "driving", "walking", "cycling" và "driving-traffic". 
+            \item coordinates (params): danh sách tọa độ \{kinh độ, vĩ độ\} được phân tách bằng dấu chấm phẩy.
+            \item language (query): định dạng ngôn ngữ trả về ở văn bản hướng dẫn.
+            \item steps (query): trả về chi dẫn từng chặng chi tiết.
+            \item roundtrip (query): cho biết tuyến đường có phải là khứ hồi hay không.
+            \item geometries (query): định dạng kiểu trả về, giá trị bao gồm "geojson", "polyline", "polyline6".
+            \item access{\_}token (query): token key được cung cấp bởi Mapbox.
+        \end{itemize}
+        \item Kết quả trả về là một mảng tọa độ chỉ đường đi đến tất cả thùng rác đầy, sau đó định dạng lại theo dạng [[\{lat1\},\{lng1\}],[\{lat2\},\{lng2\}],...].
+        \item Gửi kết quả định dạng lên Thingsboard thông qua API POST /api/plugins\newline/telemetry/ASSET/\{id\}/attribute với id của nơi gom rác được tạo sẵn để hiển thị đường đi lên bản đồ Thingsboard.   
+    \end{enumerate}
+  
+    \item Mô hình luồng xử lý dữ liệu cảm biến của thiết bị ảo và thiết bị thật được mô tả tổng quát ở hình \ref{fig:random_telemetry}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{images/Khanh/Nodejs/Server_Random_Telemetry.png}
+        \caption{Sơ đồ miêu tả luồng tạo dữ liệu giả cho thiết bị ảo}
+        \label{fig:random_telemetry}
+    \end{figure}   
+    \begin{enumerate}
+        \item Với thiết bị thật (POST /api/TTN/telemetry): 
+        \begin{itemize}
+            \item Những thiết bị thật sẽ gửi dữ liệu thông qua API này với định dạng là một object được tạo từ TTN được mô tả trong bảng \ref{tab.ttn_format}
+            \begin{table}[H]
+                \centering
+                \includegraphics[width=\textwidth]{images/Khanh/Nodejs/TTN_format.png}
+                \caption{Bảng mô tả định dạng dữ liệu được gửi từ TTN}
+                \label{tab.ttn_format}
+            \end{table} 
+            \item Trong payload\_fields, đối tượng bao gồm tên cảm biến là key và giá trị cảm biến là value (\{ [sensorName]: [sensorValue] \}).
+            \item Trong metadata, đối tượng bao gồm các thông số của thiết bị và gateway (tần số, modulation, data\_rate, coding\_rate, ...), nhưng chú trọng nhất là time (thời gian server nhận được gói tin) và tọa độ của thiết bị.
+            \item Vì dữ liệu được gửi bằng cảm biến thật nên không cần thay đổi định dạng payload\_fields của chúng, nhưng vì thời gian trong metadata là một chuỗi ISO string, chúng tôi phải định dạng lại kiểu thời gian thành dạng \qq{DD/MM/YYYY hh:mm}, sau đó rồi mới đưa dữ liệu vào file csv.
+        \end{itemize}
+        \item Với thiết bị ảo (POST /api/devices/\{deviceName\}/random):
+        \begin{itemize}
+            \item Tiến hành tạo ngẫu nhiên dữ liệu của thùng rác có tên \{deviceName\}, cài đặt timer bằng cách setInterval với khoảng thời gian là 120.000ms (20 phút/1 lần).                \item Dữ liệu được lấy ngẫu nhiên trong file random.csv với giá trị tái chế và không tái chế ngẫu nhiên từ 0 tới 13.
+            \item Khởi tạo mức delta bằng 0, khi thùng rác chưa đầy ta lấy delta cộng với giá trị ngẫu nhiên đó và lấy chiều cao thùng rác trừ cho tổng giá trị sẽ ra được giá trị thật của cảm biến. Thực hiện đến khi nào thùng rác đầy thì giá trị ngẫu nhiên sẽ bằng 0 và khi đó giá trị sẽ dừng ở mức cao nhất của thùng rác.  
+            \item Định dạng dữ liệu giống với format payload\_fields của thiết bị thật, đối với thời gian thì sử dụng moment để lấy thời gian thực. 
+        \end{itemize}
+        \item Sau bước định dạng dữ liệu của 2 loại thiết bị, lưu dữ liệu vào file .csv của từng thùng với tên "\{deviceName\}\_deltaHeight.csv", bên trong file bao gồm các cột timestamp (thời gian), recycleData (dữ liệu tái chế) và nonrecycleData (dữ liệu không tái chế). Đồng thời dữ liệu sẽ được gửi lên Thingsboard, chuyển đổi thực thể và hiển thị lên giao diện theo dạng biểu đồ đường.
+        \item Khi thùng rác đã đầy, ta sẽ gửi thông báo đến Thingsboard để hiển thị màu sắc, cùng lúc đó, đánh dấu thùng rác đó vào danh sách các thùng rác đầy và xóa khỏi danh sách các thùng rác chưa đầy. Đối với thiết bị ảo, sẽ dừng timer để giảm tải công việc cho server.
+    \end{enumerate}
 \end{itemize}
 
 \subsection{Cải thiện hiệu suất với Clustering}

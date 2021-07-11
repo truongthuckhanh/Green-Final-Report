@@ -26,7 +26,7 @@ Trong thực tế, để hoàn thành bài toán đã đặt ra, ba bước đ�
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\linewidth]{images/Quanh/ktmang.png}
-    \caption{ Minh họa kiến trúc mạng đã xây dựng}
+    \caption{Minh họa kiến trúc mạng đã xây dựng}
     \label{fig:kientrucmang}
 \end{figure}
 % QUanhh viết r nè
@@ -107,7 +107,7 @@ Từ hình \ref{fig:matrix} ta có thể thấy accuracy và f1-score của mô 
 \section{Triển khai và kiểm thử mạng CNN phân loại rác trên thiết bị}
 Sau khi model đã được train và evaluate kỹ lưỡng trên máy tính, công đoạn tiếp theo là build chương trình phân loại rác trên device dựa model đã train và thư viện TensorflowLite. 
 Chương tình được build sẽ phải được kiểm thử để đảm bảo khả năng phân loại rác tương đương với khả năng phân loại của model đã được train trên ảnh từ PC.
-\subsection{Quy trình triển khai code phân loại rác trên device}
+% \subsection{Quy trình triển khai code phân loại rác trên device}
 %Mô tả lại quy trình chuyển đổi từ file h5 của model sang file .cc để đưa vào code
 %Đưa vào các đoạn code mẫu của tensorflowLite
 \subsection{Quy trình thử nghiệm trên device}
@@ -127,7 +127,7 @@ Khi build file C để nạp code vào board thành công. Tiếp tục build fi
 Để thay thế yêu cầu, khi ultrasonic sensor gặp vật cản sau đó khởi động chụp ảnh, thì trong môi trường kiểm tra. Tôi dùng một input được nhập từ bàn phím (nhấn enter) để thay thế bước trên. 
 \begin{enumerate}
     \item Nhận input từ người dùng: khi nhấn enter: 
-    \item send "1" đến  board.
+    \item send "1" đến board.
     \item nhận hình và kết quả dự đoán từ board .
     \item save hình vào local (cùng thư mục vs python, tên file là thời điểm nhận hình).
     \item show kết quả dự đoán trên console và bật app show ảnh ( đã save ở 4)
@@ -154,7 +154,6 @@ Tuy nhiên, do accuracy của model chỉ ở mức tương đối, và hình �
 \end{table}
 
 Như vậy, tuy có các trường hợp detec sai, nhưng có thể hình dung được mức độ đánh giá của model trong việc detec hình ảnh. Ví dụ như ở bảng \ref{fig:DWglass}, mặc dù đã bị detec sai lớp, nhưng có thể thấy, thủy tinh nói chung đều có tính chất phản ánh sáng, nên khi hình ảnh khi chụp 1 vật làm bằng thủy tinh sẽ có một độ bóng nhất định. Vì thế ở hình \ref{fig:DWglass} và \ref{fig:DWglass2} đều có tính chất phản ánh sáng như thủy tinh, nên thiết bị sẽ detec vào lớp "glass". Tương tự, các miếng bìa hầu hết trong tập dataset đều có các lằng vân nhấp nhô, và khi thiết bị chụp hình ảnh bàn tay người( hình \ref{fig:DWcardboar}), bàn tay cũng có các đường chỉ tay sâu, nên thiết bị sẽ detec vào lớp "cardboard".
-
 
 \section{Setup Gateway}
 \subsection{Access LG02}
@@ -195,15 +194,9 @@ Truy cập Internet như Wifi Client theo các bước:
 Trong trường hợp không thể truy cập địa chỉ 10.130.1.1 nữa, ta sử dụng cổng LAN để kết nối:
 \begin{enumerate}
     \item Kết nối LAN Port
-    \item Configure Ethernet port có địa chỉ IP như hình \ref{fig:config_ethernet}
-    \begin{figure}[H]
-        \includegraphics[width=\textwidth]{images/Quanh/Config_ethernet.png}
-        \caption{Cấu hình địa chỉ IP của cổng Ethernet (Ubuntu 20.04)}
-        \label{fig:config_ethernet}
-    \end{figure}
+    \item Configure Ethernet port có địa chỉ IP là 172.31.255.253 và network 255.255.255.252.
     \item Dùng địa chỉ 172.31.255.254 để truy cập vào Web
 \end{enumerate}
-
 
 
 \subsection{Tạo gateway trên TTN Server}
@@ -234,22 +227,10 @@ Trong trường hợp không thể truy cập địa chỉ 10.130.1.1 nữa, ta 
 
 \subsection{Configure LG02 Gateway}
 \begin{enumerate}
-    \item Configure to LoRaWAN server:
+    \item Configure to LoRaWAN server qua các bước:
     \begin{description}
-        \item Bước 1: Config LG02 như hình \ref{fig:config_LG02}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=\textwidth]{images/Quanh/Config_lg02.png}
-            \caption{Config LG02}
-            \label{fig:config_LG02}
-        \end{figure}
-        \item Bước 2: Chọn server address và gateway ID như hình \ref{fig:choose_server_address} (nhóm chọn ttn-router-asia-se)
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=\textwidth]{images/Quanh/Choose_server_address.png}
-            \caption{Chọn server address thích hợp}
-            \label{fig:choose_server_address}
-        \end{figure}
+        \item Bước 1: Config LG02 với IoT Service là Lorawan/RAW forwarder, sau đó Save \& Apply
+        \item Bước 2: Chọn Service Provider là The Things Network, Server Address là ttn-router-asia-se và Server Port là 1700
     \end{description}
 
     \item Configure LG02's RX frequency: Ở frequency 433Mhz, có 8 channel uplink nhưng nhóm chọn channel 433.175Mhz để end-device join vào, thông sô như hình \ref{fig:radio_config}

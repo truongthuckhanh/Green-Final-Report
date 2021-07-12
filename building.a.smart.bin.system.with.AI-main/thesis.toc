@@ -35,7 +35,7 @@
 \contentsline {subsubsection}{\nonumberline Kết quả hiện thực được}{37}{subsubsection*.27}%
 \contentsline {section}{\numberline {4.2}Triển khai và kiểm thử mạng CNN phân loại rác trên thiết bị}{39}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Quy trình triển khai code phân loại rác trên thiết bị}{39}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Quy trình thử nghiệm trên thiết bị}{39}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.2}Quy trình thử nghiệm trên thiết bị}{40}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}Kết quả phân loại khi chạy trên thiết bị}{41}{subsection.4.2.3}%
 \contentsline {section}{\numberline {4.3}Setup Gateway}{44}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Access LG02}{44}{subsection.4.3.1}%
@@ -70,4 +70,3 @@
 \contentsline {section}{\numberline {6.2}Hướng phát triển đề tài}{83}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Về thiết bị}{83}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}Về server}{83}{subsection.6.2.2}%
-\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

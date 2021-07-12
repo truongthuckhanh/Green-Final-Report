@@ -104,7 +104,29 @@ Kết quả thử nghiệm mô hình trên tập test sau khi đã lưu mô hìn
     \caption{Confusion matrix của model khi thử lại trên tập test}
     \label{fig:matrix}
 \end{table}
-Từ hình \ref{fig:matrix} ta có thể thấy accuracy và f1-score của mô hình còn khá thấp, tuy nhiên do mô hình được xây dựng chỉ có 532,161 tham số nên không đủ để phân loại chính xác các lớp được. Chúng tôi đã thử train thêm epoch nhưng mô hình dễ bị overfitting và kết quả khi in confusion matrix vẫn không thay đổi nhiều. Ngoài ra nếu tăng thêm trọng số thì không thể sử dụng model trên thiết bị được.
+Từ bảng \ref{fig:matrix} ta có thể thấy accuracy và f1-score của mô hình còn khá thấp, tuy nhiên do mô hình được xây dựng chỉ có 532,161 tham số nên không đủ để phân loại chính xác các lớp được. Chúng tôi đã thử train thêm epoch nhưng mô hình dễ bị overfitting và kết quả khi in confusion matrix vẫn không thay đổi nhiều. Ngoài ra nếu tăng thêm trọng số thì không thể sử dụng model trên thiết bị. 
+
+Tuy nhiên, quay lại bài toán đã đặt ra, chúng tôi sẽ phân loại rác thành 2 lớp tái chế và không tái chế tương ứng với cardboard, glass, metal, plastic thuộc lớp tái chế và paper, trash thuộc lớp không tái chế. Như thế, chúng tôi thiết lập lại một confusion matix mới như bảng \ref{tab.newCM}. Từ đây, chúng tôi có thể tính được hiệu suất phân lớp của mô hình phân lớp ảnh rác thành hai lớp recycle và Non-recycle.
+
+\begin{itemize}
+    \item recycle presicion: 68.9%
+    \item recycle recall: 67.87%
+    \item recycle f1 score: 68.35%
+    \item accuracy: 55.27%
+\end{itemize}
+
+\begin{table}[H]
+    \caption{Confusion matrix đối với recycle và Non-recycle} 
+    \label{tab.newCM}
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+                & Recycle & Non-recycle\\ \hline
+        Recycle & 243 & 115 \\ \hline
+        Non-Recycle & 110 & 35 \\ \hline
+    \end{tabular}
+\end{table}
+
 
 
 \section{Triển khai và kiểm thử mạng CNN phân loại rác trên thiết bị}
